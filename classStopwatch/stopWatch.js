@@ -22,10 +22,7 @@ function stopWatch(){
     else {
         clearInterval(stop);
         isRuning=false;
-        milSeconds=0;
-        seconds=0 ;
-        minutes=0;
-
+       
         startStopButton.innerHTML="Start clock"
         
        
@@ -81,4 +78,14 @@ let tempTime;
         return tempTime;
 }
 
+
+function resetWatch(){
+        milSecounds=-1;
+        seconds=0;
+        minutes=0;
+        startClock();
+
+
+}
 startStopButton.addEventListener("click",stopWatch);
+document.querySelector("#resetButton").addEventListener("click",resetWatch)
