@@ -44,11 +44,15 @@ function startClock(){
         milSecounds=0;
         seconds++;
 
-            if(seconds>60){
+            if(seconds>59){
+                
                 seconds=0;
                 minutes+=1;
+            }
+                else{
 
-                if (minutes>60) {
+
+                if (minutes>59) {
                     minutes=0;
                     
                 }
