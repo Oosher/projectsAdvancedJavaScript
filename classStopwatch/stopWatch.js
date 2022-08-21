@@ -6,6 +6,8 @@ function timeDisplay(){
 /*  watch.innerHTML =`${minutes}:${seconds}:${milSecounds}`; */
 /* } */ 
 
+const startStopButton = document.querySelector("#startStopButton");
+
 let watch = document.querySelector("#stopWatch")
 let milSecounds =0 ,seconds=0,minutes=0;
 let stop;
@@ -15,6 +17,7 @@ function stopWatch(){
     if (isRuning==false){
         stop=setInterval(startClock,10);
          isRuning= true;
+         startStopButton.innerHTML="Stop clock"
     }
     else {
         clearInterval(stop);
@@ -22,6 +25,9 @@ function stopWatch(){
         milSeconds=0;
         seconds=0 ;
         minutes=0;
+
+        startStopButton.innerHTML="Start clock"
+        
        
 
     }
@@ -29,19 +35,20 @@ function stopWatch(){
 
 
 function startClock(){
-    if(milSecounds<=100){
+
+    if(milSecounds<100){
         milSecounds++;
     
     }
     else {
-            milSecounds=0;
-            seconds++;
+        milSecounds=0;
+        seconds++;
 
-            if(seconds>=60){
+            if(seconds>60){
                 seconds=0;
                 minutes+=1;
 
-                if (minutes>=60) {
+                if (minutes>60) {
                     minutes=0;
                     
                 }
@@ -49,8 +56,25 @@ function startClock(){
             }
 
     }
+    
+     watch.innerHTML=zeroCheck(minutes)+":"+zeroCheck(seconds)+":"+zeroCheck(milSecounds);
+   
+    console.log(seconds);
 
-watch.innerHTML=minutes+":"+seconds+":"+milSecounds;
 }
 
-document.querySelector("#startStopButton").addEventListener("click",stopWatch)
+
+
+function zeroCheck(time){
+let tempTime;
+      if(time<10){
+        tempTime="0"+time;
+      }
+        else
+        {
+            tempTime=time;
+        }
+        return tempTime;
+}
+
+startStopButton.addEventListener("click",stopWatch);
