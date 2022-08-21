@@ -22,16 +22,23 @@ listItem.forEach(function(itemList)
     itemList.innerHTML=i;
     i++
 });
+let stop;
 let milSeconds=0,seconds=0 ,minutes=0;
+
 function stopWatch(){
 
     if (isRuning==false){
-        setInterval(runninWatch,10);
+        stop=setInterval(runninWatch,10);
          isRuning= true;
     }
     else {
-        clearInterval(runninWatch);
+        clearInterval(stop);
         isRuning=false;
+        milSeconds=0;
+        seconds=0 ;
+        minutes=0;
+       
+
     }
 }
 
