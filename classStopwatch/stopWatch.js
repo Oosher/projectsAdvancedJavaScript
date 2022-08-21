@@ -87,5 +87,12 @@ function resetWatch(){
 
 
 }
+
+function addScore(){
+    document.querySelector("#lapTimes").innerHTML+="<li>"+watch.innerHTML+"</il>"
+    console.log(watch);
+}
+
 startStopButton.addEventListener("click",stopWatch);
 document.querySelector("#resetButton").addEventListener("click",resetWatch)
+document.querySelector("#lapsButton").addEventListener("click",addScore)
