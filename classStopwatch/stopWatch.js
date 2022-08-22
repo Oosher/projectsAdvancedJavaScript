@@ -22,38 +22,28 @@ function stopWatch(){
     else {
         clearInterval(stop);
         isRuning=false;
-       
         startStopButton.innerHTML="Start clock"
-        
-       
-
     }
 }
-
 
 function startClock(){
 
     if(milSecounds<100){
-        milSecounds++;
-    
+        milSecounds++;   
     }
     else {
         milSecounds=0;
         seconds++;
-
             if(seconds>59){
                 
                 seconds=0;
                 minutes+=1;
             }
                 else{
-
-
                 if (minutes>59) {
                     minutes=0;
                     
                 }
-
             }
 
     }
@@ -63,8 +53,6 @@ function startClock(){
     console.log(seconds);
 
 }
-
-
 
 function zeroCheck(time){
 let tempTime;
@@ -78,13 +66,11 @@ let tempTime;
         return tempTime;
 }
 
-
 function resetWatch(){
         milSecounds=-1;
         seconds=0;
         minutes=0;
         startClock();
-
 
 }
 
