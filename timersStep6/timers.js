@@ -9,7 +9,12 @@ function timer(timerInitialization){
 
         //creating an element
         const newElement = document.createElement("div");
-        newElement.innerText="new timer"
+        newElement.innerText="new timer";
+
+        const startButton = document.createElement("button");
+        startButton.innerText="Start Timer";
+
+        newElement.appendChild(startButton);
         
         timerContainer.appendChild(newElement);
 
