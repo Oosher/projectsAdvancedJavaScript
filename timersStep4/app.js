@@ -1,8 +1,7 @@
 
-import timer from "./timers";
+import timer from "./timers.js";
 
 
-
-
+timer();
 
 
