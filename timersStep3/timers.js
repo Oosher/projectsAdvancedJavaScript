@@ -1,14 +1,28 @@
-const fullName ={
-    name:"Yosshi",
-    lname:"abuksis",
-    namFunction: function(){
+function fullName(firstName,lastName){
+    this.name =firstName;
+    this.lastName=lastName;
+    this.functionName =function(){
 
-        console.log("bruh", this.name,this.lname);
-
+        console.log("full name : " ,this.name ,this.lastName);
     }
+
 }
 
 
-fullName.namFunction("look at this duude");
 
-export default fullName;
+
+
+
+
+
+const obj = new fullName("shimon","abukasis");
+
+
+const obj2 = new fullName("The Bruh", "James")
+console.log(":",obj,":");
+
+
+obj.functionName();
+
+obj2.functionName();
+export default obj ;
