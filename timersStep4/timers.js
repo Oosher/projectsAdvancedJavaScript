@@ -1,6 +1,6 @@
-function timer(timerInisialazation){
-    this.inisializeTimer = timerInisialazation;
-    this.creatTimer = function(){
+function timer(timerInitialization){
+    this.initializeTimer = timerInitialization;
+    this.createTimer = function(){
         
         console.log("create timer");
     }
