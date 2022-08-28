@@ -1,15 +1,53 @@
 
 
 function timer(timerInitialization){
-    this.initializeTimer = timerInitialization;
+    let initializeTimer = timerInitialization;
     let newElement;
+    let timerRun;
+    let timerText;
+    function createButton(button,text,func){
+
+        button = document.createElement("button");
+        button.innerText=text;
+
+        newElement.appendChild(button);
+
+        button.addEventListener("click",func)
+    }
+
+    function startTimer(){
+        
+        clearInterval(timerRun);
+
+        timerRun = setInterval(timerCountdown,1000);
+
+    }
+
+    function timerCountdown(){
+        
+        initializeTimer--;
+
+        timerText.innerText=initializeTimer;
+
+        console.log(initializeTimer);
+        //stops the timer if the counter reaches 0
+        if(initializeTimer<0){
+            clearInterval(timerRun);
+        }
+    }
+
+
     this.deleteTimer =function(){
+
+        clearInterval(timerRun);
 
         newElement.remove();
 
     }
 
-
+    function stopTimer(){
+        clearInterval(timerRun);
+    }
     this.createTimer = function(){
 
         const timerContainer = document.querySelector("#timerContainer");
@@ -18,20 +56,29 @@ function timer(timerInitialization){
 
         //creating an element
         newElement = document.createElement("div");
-        newElement.innerHTML="new timer"+ this.initializeTimer +" <br>";
+        
+        timerText = document.createElement("h1");
+        timerText.innerText=initializeTimer;
 
-        const startButton = document.createElement("button");
+        newElement.appendChild(timerText);
+        
+
+        /* const startButton = document.createElement("button");
         startButton.innerText="Start Timer";
-
         const deleteButton = document.createElement("button");
         deleteButton.innerText="delete timer";
-
         newElement.appendChild(startButton);
-        newElement.appendChild(deleteButton);
+        newElement.appendChild(deleteButton); */
+
+        let startButton,deleteButton ,stopButton;
+        createButton(startButton,"Start Timer",startTimer);
+        createButton(deleteButton,"delete timer",this.deleteTimer);
+        createButton(stopButton ,"stop timer" ,stopTimer)
+        
 
         timerContainer.appendChild(newElement);
 
-        deleteButton.addEventListener("click",this.deleteTimer)
+        
     }
 
 }
