@@ -8,9 +8,9 @@ function timer(timerInitialization){
 
 
     
-    function createButton(button,text,func){
+    function createButton(text,func){
 
-        button = document.createElement("button");
+        const button = document.createElement("button");
         button.innerText=text;
 
         newElement.appendChild(button);
@@ -80,10 +80,10 @@ function timer(timerInitialization){
         newElement.appendChild(startButton);
         newElement.appendChild(deleteButton); */
 
-        let startButton,deleteButton ,stopButton;
-        createButton(startButton,"Start Timer",startTimer);
-        createButton(deleteButton,"delete timer",this.deleteTimer);
-        createButton(stopButton ,"stop timer" ,stopTimer)
+        
+        createButton("Start Timer",startTimer);
+        createButton("delete timer",this.deleteTimer);
+        createButton("stop timer" ,stopTimer)
         
 
         timerContainer.appendChild(newElement);
