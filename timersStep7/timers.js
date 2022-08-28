@@ -30,6 +30,7 @@ function timer(timerInitialization){
         timerText.innerText=initializeTimer;
 
         console.log(initializeTimer);
+        
         //stops the timer if the counter reaches 0
         if(initializeTimer<0){
             clearInterval(timerRun);
@@ -46,8 +47,11 @@ function timer(timerInitialization){
     }
 
     function stopTimer(){
+
         clearInterval(timerRun);
+
     }
+
     this.createTimer = function(){
 
         const timerContainer = document.querySelector("#timerContainer");
