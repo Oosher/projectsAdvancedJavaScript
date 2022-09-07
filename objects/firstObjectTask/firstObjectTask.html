@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 50vw;
+            display: grid;
+            grid-template-columns: repeat(3, 10vw);
+            grid-template-rows: repeat(3, 2vh);
+            margin: 20px;
+            column-gap: 15px;
+            row-gap: 15px;
+        }
+
+        label {
+            grid-column: 1/2;
+
+        }
+
+        input[type~="button"] {
+            grid-column: 3/4;
+            grid-row: 2/3;
+            width: 80%;
+            height: 100%;
+            place-self: center;
+
+        }
+
+        p {
+            font-size: 2rem;
+            margin: 20px;
+            background-color: aqua;
+            width: 20vw;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="firstNumber">Please enter the first number:</label>
+        <input type="number" name="firstNumber" id="firstNumber">
+        <label for="operator">Please enter the operator:</label>
+        <input type="text" name="operator" id="operator">
+        <label for="secondNumber">Please enter the second number:</label>
+        <input type="number" name="secondNumber" id="secondNumber">
+        <input type="button" value="Calc" id="calc">
+    </form>
+
+    <p id="result"></p>
+    <script src="firstObjectTask.js"></script>
+</body>
+
+</html>
