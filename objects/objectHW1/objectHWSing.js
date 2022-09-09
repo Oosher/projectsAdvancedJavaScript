@@ -14,7 +14,6 @@ this.price = price;
 function wordAmount (numberOfSings,budget){
     const wordPerSine = new Sing("",false,budget/numberOfSings);
 
-    
     console.log("Your average word count per sing is : "+ wordPerSine.price/100 +" words per sing");
 
 
