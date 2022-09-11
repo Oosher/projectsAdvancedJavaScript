@@ -35,4 +35,11 @@ result =number%10;
 
 //functions 
 
+function functionName(){
+
+}
+//function with parameters 
+function functionName2(item1,item2,item3){
+
+}
 
