@@ -55,7 +55,6 @@ function theMostInACity(singArray){
 
         if(tempCounter>bigCounter){
                 bigCounter=tempCounter;
-                console.log(bigCounter);
                 biggestCity=singArray[i].sing.city;
         }
         tempCounter=0;
