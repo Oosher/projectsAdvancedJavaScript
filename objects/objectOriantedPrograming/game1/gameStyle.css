@@ -2,9 +2,9 @@
 
     display: grid;
     grid-template-columns:repeat(10,1fr) ;
-    grid-template-rows:(10,1fr) ;
-    width: 95vw;
-    height: 95vh;
+    grid-template-rows:repeat(10,1fr) ;
+    width: 98vw;
+    height: 98vh;
 
 }
 
@@ -13,4 +13,6 @@
 
 .car{
     width: 10vw;
+    
+  
 }
