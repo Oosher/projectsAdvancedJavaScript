@@ -1,10 +1,27 @@
 document.addEventListener("keydown",playerHandling);
-
+document.addEventListener("DOMContentLoaded",startGame)
 // const car = document.querySelector(".car");
 
 function playerHandling(event){
 
     player.movement(event.key);
+    for (let i = 0; i < bombs.length; i++) {
+        bombs[i].newBomb.bombCollition(player.locationColumn,player.locationRow);
+        
+    }
+    
+
+}
+const gameContainer = document.querySelector(".gameContainer");
+function startGame(){
+
+
+
+gameContainer.appendChild(player.car);
+
+gameContainer.appendChild(bombs[0].newBomb.bomb);
+bombs[0].newBomb.bombPlacement();
+
 }
 
     /*if(event.key=="ArrowDown"){
@@ -30,15 +47,17 @@ function Car(){
     this.direction = "arrowRight";
     this.locationColumn = 1;
     this.locationRow = 1;
-    this.car = document.querySelector(".car");
+    this.car = document.createElement("img");
+    this.car.src="./gameImeges/sport-car.png";
+    this.car.className="car";
     this.movement = function (pressedKey)
     {
         
         if(pressedKey=="ArrowDown"){
             this.car.style.transform = "rotate(90deg)";
             if (pressedKey==this.direction) {
-                    this.locationRow++;
-                    this.car.style.gridRow=this.locationRow;
+                this.locationRow++;
+                this.car.style.gridRow=this.locationRow;
             }
          
             
@@ -70,28 +89,31 @@ function Car(){
 
         }
         this.checkEnds();
+
         this.direction=pressedKey;
+
+        
         /* this.move(pressedKey); */
 };
 
-this.checkEnds = function (){
+    this.checkEnds = function (){
 
-    if(this.locationColumn>10 || this.locationColumn<1){
-     
-        this.locationColumn=5;
-        this.car.style.gridColumn=this.locationColumn;
-      
-    }
+        if(this.locationColumn>10 || this.locationColumn<1){
+        
+            this.locationColumn=5;
+            this.car.style.gridColumn=this.locationColumn;
+        
+        }
 
-    if (this.locationRow>10||this.locationRow<1) {
-        console.log("bruh");
-        this.locationRow=5;
-        this.car.style.gridRow=this.locationRow;
-    }
+        if (this.locationRow>10||this.locationRow<1) {
+            console.log("bruh");
+            this.locationRow=5;
+            this.car.style.gridRow=this.locationRow;
+        }
 
-};
+ };
 
-
+}
 
 
     /* this.move = function (keyPress) {
@@ -120,8 +142,55 @@ this.checkEnds = function (){
 
     
     
-}
 
+
+
+
+  function Bomb(){
+    this.locationColumn;
+    this.locationRow;
+    this.bomb = document.createElement("img");
+    this.bomb.src="./gameImeges/bomb.png";
+    this.bomb.className="bomb";
+
+    this.bombPlacement = function(){
+        this.locationColumn = Math.floor(Math.random()*9)+1;
+        this.locationRow = Math.floor(Math.random()*9)+1;
+        this.bomb.style.gridColumn=this.locationColumn;
+        this.bomb.style.gridRow=this.locationRow;
+
+        console.log(this.locationColumn,this.locationRow);
+    }
+
+
+    this.bombCollition =function (carCol,carRow){
+
+        if(this.locationColumn==carCol&&this.locationRow==carRow){
+            this.bombPlacement(); 
+            addMoreBombs();
+            
+        }
+
+    }
+
+  }
+
+
+
+
+  function addMoreBombs(){
+    
+    bombs.push({newBomb:new Bomb()})
+    for (let i = 0; i < bombs.length; i++) {
+        gameContainer.appendChild(bombs[i].newBomb.bomb);
+        bombs[i].newBomb.bombPlacement();
+        
+    }
+  
+  }
 
 
 const player = new Car();
+
+const bombs = [{newBomb:new Bomb()},{newBomb:new Bomb()}];
+
