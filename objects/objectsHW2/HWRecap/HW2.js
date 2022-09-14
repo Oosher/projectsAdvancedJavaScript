@@ -1,6 +1,6 @@
 function maxNumber(numbers) {
 
-   let maxnumber= numbers[0];
+     let maxnumber= numbers[0];
 
     for (let i = 0; i < numbers.length; i++) {
             if (numbers[i]>maxnumber) {
@@ -19,7 +19,7 @@ function maxNumber(numbers) {
 
 
 
-let numbersArr = [1,22,3323,434,545,656,67,675,8758,786,7868,678,7686877,7686,555,78787];
+let numbersArr = [1,22,3323,434,545,65999996,67,675,8758,786,7868,678,7686877,7686,555,78787];
 
 
 console.log(maxNumber(numbersArr));
