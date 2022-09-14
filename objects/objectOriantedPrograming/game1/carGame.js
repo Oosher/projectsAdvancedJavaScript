@@ -180,7 +180,7 @@ function Car(){
 
   function addMoreBombs(){
     
-    bombs.push({newBomb:new Bomb()})
+    bombs.push({newBomb:new Bomb()});
     for (let i = 0; i < bombs.length; i++) {
         gameContainer.appendChild(bombs[i].newBomb.bomb);
         bombs[i].newBomb.bombPlacement();
