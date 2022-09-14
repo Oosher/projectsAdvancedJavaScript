@@ -33,34 +33,45 @@ function Car(){
     this.car = document.querySelector(".car");
     this.movement = function (pressedKey)
     {
-    if(pressedKey=="ArrowDown"){
-        this.car.style.transform = "rotate(90deg)";
-        this.locationRow++;
-        this.car.style.gridRow=this.locationRow;
         
+        if(pressedKey=="ArrowDown"){
+            this.car.style.transform = "rotate(90deg)";
+            if (pressedKey==this.direction) {
+                    this.locationRow++;
+                    this.car.style.gridRow=this.locationRow;
+            }
+         
+            
 
-    }
-    if(pressedKey=="ArrowUp"){
-        this.car.style.transform = "rotate(-90deg)";
-        this.locationRow--;
-        this.car.style.gridRow=this.locationRow;
-        
+        }
+        if(pressedKey=="ArrowUp"){
+            this.car.style.transform = "rotate(-90deg)";
+            if (pressedKey==this.direction) {
+                this.locationRow--;
+                this.car.style.gridRow=this.locationRow;
+            }
+            
 
-    }
-    if(pressedKey=="ArrowRight"){
-        this.car.style.transform = "rotate(0deg)";
-        this.locationColumn++;
-        this.car.style.gridColumn=this.locationColumn;
+        }
+        if(pressedKey=="ArrowRight"){
+            this.car.style.transform = "rotate(0deg)";
+            if (pressedKey==this.direction) {
+                this.locationColumn++;
+                this.car.style.gridColumn=this.locationColumn;
+            }
 
-    }
-    if(pressedKey=="ArrowLeft"){
-        this.car.style.transform = "scaleX(-1)";
-        this.locationColumn--;
-        this.car.style.gridColumn=this.locationColumn;
+        }
+        if(pressedKey=="ArrowLeft"){
+            this.car.style.transform = "scaleX(-1)";
+            if (pressedKey==this.direction) {
+                this.locationColumn--;
+                this.car.style.gridColumn=this.locationColumn;
+            }
 
-    }
-    this.checkEnds();
-    /* this.move(pressedKey); */
+        }
+        this.checkEnds();
+        this.direction=pressedKey;
+        /* this.move(pressedKey); */
 };
 
 this.checkEnds = function (){
