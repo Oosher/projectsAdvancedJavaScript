@@ -23,10 +23,9 @@ function playerHandling(event){
         console.log("event.key"); 
         car.style.transform = "scaleX(-1)";
     }
-   
-
-
  */
+
+
 function Car(){
     this.direction = "arrowRight";
     this.locationColumn = 1;
@@ -80,6 +79,10 @@ this.checkEnds = function (){
     }
 
 };
+
+
+
+
     /* this.move = function (keyPress) {
 
     if(keyPress=="ArrowDown"){
