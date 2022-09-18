@@ -1,30 +1,28 @@
 .gameContainer{
 
     display: grid;
-    grid-template-columns:repeat(10,1fr) ;
-    grid-template-rows:repeat(10,1fr) ;
-    width: 98vw;
-    height: 98vh;
+    grid-template-columns:repeat(10,8vw) ;
+    grid-template-rows:repeat(10,8vh) ;
+    width: 80vw;
+    height: 80vh;
 
 }
 
 
-
-
 .car{
-    width: 10vw;
+    width: 90%;
 
 }
 
 
 
 .bomb{
-    width: 10vh;
+    width: 90%;
     
 }
 
 
 
 .target{
- width: 10vh;
+    width: 90%;
 }

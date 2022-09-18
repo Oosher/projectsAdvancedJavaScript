@@ -2,6 +2,8 @@ document.addEventListener("keydown",playerHandling);
 document.addEventListener("DOMContentLoaded",startGame)
 // const car = document.querySelector(".car");
 
+
+//checks if the player is touching a bomb or a target and send the event to the movement keys
 function playerHandling(event){
 
     player.movement(event.key);
@@ -147,7 +149,7 @@ function Car(){
     
 
 
-
+  //this object creates new bomb with a random location and stops the game on collision
 
   function Bomb(){
     this.locationColumn;
@@ -156,6 +158,7 @@ function Car(){
     this.bomb.src="./gameImeges/bomb.png";
     this.bomb.className="bomb";
 
+    //creates a new random placement for the bomb
     this.bombPlacement = function(){
         this.locationColumn = Math.floor(Math.random()*9)+1;
         this.locationRow = Math.floor(Math.random()*9)+1;
@@ -165,7 +168,7 @@ function Car(){
         console.log(this.locationColumn,this.locationRow);
     }
 
-
+    //checks if teh player touched the bomb and ends the game if he did
     this.bombCollition =function (carCol,carRow){
 
         if(this.locationColumn==carCol&&this.locationRow==carRow){
@@ -190,7 +193,8 @@ function Car(){
     this.tarGet = document.createElement("img");
     this.tarGet.src="./gameImeges/target.png";
     this.tarGet.className="target";
-
+    this.score=0;
+    //placing the target in a random location
     this.targetPlacement = function(){
         this.locationColumn = Math.floor(Math.random()*9)+1;
         this.locationRow = Math.floor(Math.random()*9)+1;
@@ -200,18 +204,20 @@ function Car(){
         console.log(this.locationColumn,this.locationRow);
     }
 
-
+    //tests if the player touched the target an adds a score every time that it happens and move the target to a different location
     this.targetCollition =function (carCol,carRow){
 
         if(this.locationColumn==carCol&&this.locationRow==carRow){
             this.targetPlacement(); 
             addMoreBombs();
-            
+            this.score++;
+            document.querySelector(".score").innerHTML="Your score:"+this.score;
         }
 
     }
   
 }
+    //adding more bombs by crating more bombs and adding them to the bomb array and then running the bomb placement function on every bomb severalty
   function addMoreBombs(){
     
     bombs.push({newBomb:new Bomb()});
