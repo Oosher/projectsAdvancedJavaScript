@@ -13,8 +13,7 @@
 
 .car{
     width: 10vw;
-    
-  
+
 }
 
 
@@ -22,4 +21,10 @@
 .bomb{
     width: 10vh;
     
+}
+
+
+
+.target{
+ width: 10vh;
 }

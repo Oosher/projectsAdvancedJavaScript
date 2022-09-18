@@ -9,18 +9,21 @@ function playerHandling(event){
         bombs[i].newBomb.bombCollition(player.locationColumn,player.locationRow);
         
     }
+    target.targetCollition(player.locationColumn,player.locationRow);
     
 
 }
+
 const gameContainer = document.querySelector(".gameContainer");
+
 function startGame(){
-
-
 
 gameContainer.appendChild(player.car);
 
 gameContainer.appendChild(bombs[0].newBomb.bomb);
+gameContainer.appendChild(target.tarGet);
 bombs[0].newBomb.bombPlacement();
+target.targetPlacement();
 
 }
 
@@ -167,7 +170,12 @@ function Car(){
 
         if(this.locationColumn==carCol&&this.locationRow==carRow){
             this.bombPlacement(); 
-            addMoreBombs();
+           gameContainer.innerHTML="Game over <button class = 'reset'>Reset game</button>";
+
+           document.querySelector(".reset").addEventListener("click",()=>{
+
+            document.location.reload();
+           })
             
         }
 
@@ -176,8 +184,34 @@ function Car(){
   }
 
 
+  function Target(){
+    this.locationColumn;
+    this.locationRow;
+    this.tarGet = document.createElement("img");
+    this.tarGet.src="./gameImeges/target.png";
+    this.tarGet.className="target";
+
+    this.targetPlacement = function(){
+        this.locationColumn = Math.floor(Math.random()*9)+1;
+        this.locationRow = Math.floor(Math.random()*9)+1;
+        this.tarGet.style.gridColumn=this.locationColumn;
+        this.tarGet.style.gridRow=this.locationRow;
+
+        console.log(this.locationColumn,this.locationRow);
+    }
 
 
+    this.targetCollition =function (carCol,carRow){
+
+        if(this.locationColumn==carCol&&this.locationRow==carRow){
+            this.targetPlacement(); 
+            addMoreBombs();
+            
+        }
+
+    }
+  
+}
   function addMoreBombs(){
     
     bombs.push({newBomb:new Bomb()});
@@ -193,4 +227,6 @@ function Car(){
 const player = new Car();
 
 const bombs = [{newBomb:new Bomb()},{newBomb:new Bomb()}];
+
+const target = new Target();
 
