@@ -39,8 +39,10 @@ function bestStudent(students){
         console.log(prevAvarage,(students[i].newGrades.math+students[i].newGrades.history+students[i].newGrades.english)/3);
 
          if( prevAvarage < ((students[i].newGrades.math+students[i].newGrades.history+students[i].newGrades.english)/3)){
-            smartestStudent=students[i];
-            prevAvarage=(students[i].newGrades.math+students[i].newGrades.history+students[i].newGrades.english)/3;
+
+                smartestStudent=students[i];
+                prevAvarage=(students[i].newGrades.math+students[i].newGrades.history+students[i].newGrades.english)/3;
+                
          }
 
         
