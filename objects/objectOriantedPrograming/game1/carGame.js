@@ -163,10 +163,11 @@ function Bomb() {
         this.locationColumn = Math.floor(Math.random() * 9) + 1;
         this.locationRow = Math.floor(Math.random() * 9) + 1;
         if((player.locationColumn==this.locationColumn&&player.locationRow==this.locationRow)||(target.locationColumn==this.locationColumn&&target.locationRow==this.locationRow)){
-             this.locationColumn = Math.floor(Math.random() * 9) + 1;
+            this.locationColumn = Math.floor(Math.random() * 9) + 1;
             this.locationRow = Math.floor(Math.random() * 9) + 1;
-             this.locationColumn = Math.floor(Math.random() * 9) + 1;
-             this.locationRow = Math.floor(Math.random() * 9) + 1;
+            this.bomb.style.gridColumn = this.locationColumn;
+            this.bomb.style.gridRow = this.locationRow;
+             
         }else{
              this.bomb.style.gridColumn = this.locationColumn;
              this.bomb.style.gridRow = this.locationRow;
