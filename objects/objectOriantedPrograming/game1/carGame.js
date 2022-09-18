@@ -162,8 +162,16 @@ function Bomb() {
     this.bombPlacement = function () {
         this.locationColumn = Math.floor(Math.random() * 9) + 1;
         this.locationRow = Math.floor(Math.random() * 9) + 1;
-        this.bomb.style.gridColumn = this.locationColumn;
-        this.bomb.style.gridRow = this.locationRow;
+        if((player.locationColumn==this.locationColumn&&player.locationRow==this.locationRow)||(target.locationColumn==this.locationColumn&&target.locationRow==this.locationRow)){
+             this.locationColumn = Math.floor(Math.random() * 9) + 1;
+            this.locationRow = Math.floor(Math.random() * 9) + 1;
+             this.locationColumn = Math.floor(Math.random() * 9) + 1;
+             this.locationRow = Math.floor(Math.random() * 9) + 1;
+        }else{
+             this.bomb.style.gridColumn = this.locationColumn;
+             this.bomb.style.gridRow = this.locationRow;
+        }
+      
 
         console.log(this.locationColumn, this.locationRow);
     }
