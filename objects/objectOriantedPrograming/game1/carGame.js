@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", startGame);
 
 //checks if the player is touching a bomb or a target and send the event to the movement keys
 function playerHandling(event) {
-
+    console.log(bombs);
     player.movement(event.key);
     for (let i = 0; i < bombs.length; i++) {
         bombs[i].newBomb.bombCollition(player.locationColumn, player.locationRow);
@@ -180,13 +180,25 @@ function Bomb() {
     this.bombCollition = function (carCol, carRow) {
 
         if (this.locationColumn == carCol && this.locationRow == carRow) {
-            this.bombPlacement();
-            gameContainer.innerHTML = "Game over <button class = 'reset'>Reset game</button>";
+            target.score-=3;
+            addScore();
+            console.log("  " ,target.score);
+            for (let i = 0; i < bombs.length; i++) {
+                if(bombs[i].newBomb.locationColumn==this.locationColumn&&bombs[i].newBomb.locationRow==this.locationRow){
+                    bombs.splice(i,1);
+                    this.bomb.remove();
+                }
+                
+            }
+           if(target.score<0){ 
 
-            document.querySelector(".reset").addEventListener("click", () => {
+                gameContainer.innerHTML = "Game over <button class = 'reset'>Reset game</button>";
 
-                document.location.reload();
-            })
+                document.querySelector(".reset").addEventListener("click", () => {
+
+                    document.location.reload();
+                })
+            }
 
         }
 
@@ -219,7 +231,7 @@ function Target() {
             this.targetPlacement();
             addMoreBombs();
             this.score++;
-            document.querySelector(".score").innerHTML = "Your score:" + this.score;
+            addScore();
         }
 
     }
@@ -228,13 +240,42 @@ function Target() {
 //adding more bombs by crating more bombs and adding them to the bomb array and then running the bomb placement function on every bomb severalty
 function addMoreBombs() {
 
+
     bombs.push({newBomb: new Bomb()});
-    for (let i = 0; i < bombs.length; i++) {
-        gameContainer.appendChild(bombs[i].newBomb.bomb);
-        bombs[i].newBomb.bombPlacement();
+       for (let i = 0; i < bombs.length; i++) {
+            gameContainer.appendChild(bombs[i].newBomb.bomb);
+            bombs[i].newBomb.bombPlacement();
+        for (let j = 0; j < bombs.length; j++) {
+           
+            if(i!=j){
+                
+                if(bombs[i].newBomb.locationColumn==bombs[j].newBomb.locationColumn&&bombs[i].newBomb.locationRow==bombs[j].newBomb.locationColumn){
+                    bombs[i].newBomb.bombPlacement();
+
+                }
+
+            }
+            
+        }
+    
 
     }
+ /*    for (let i = 0; i < bombs.length; i++) {
+        gameContainer.appendChild(bombs[i].newBomb.bomb);
+        bombs[i].newBomb.bombPlacement();
+      
 
+    } */
+
+}
+
+
+
+function addScore(){
+       
+        document.querySelector(".score").innerHTML = "Your score:" + target.score;
+
+        
 }
 
 
