@@ -22,7 +22,19 @@ function Product(productName ,serialNumber, buyPrice,sellPrice,stock){
         }
 }
 
-const productsArray=[{product : new Product("mahseve","213546",5000,7000,6)},{product : new Product("tablet","213546",1000,1500,7)},{product : new Product("iphone","213546",3000,4000,23)},{product : new Product("shampoo","213546",6,17,44)},{product : new Product("conditioner","213546",9,15,32)},{product : new Product("ps4","213546",1000,1800,11)},{product : new Product("ps5","213546",1500,4000,3)},{product : new Product("Samsung","213546",3000,4000,10)},{product : new Product("xiaomi","213546",2000,3000,6)},{product : new Product("vaflim","213546",5,9,22)},{product : new Product("God Of War","213546",100,300,32)}]
+const productsArray=[
+    {product : new Product("mahseve","213546",5000,7000,6)},
+    {product : new Product("tablet","213546",1000,1500,7)},
+    {product : new Product("iphone","213546",3000,4000,23)},
+    {product : new Product("shampoo","213546",6,17,44)},
+    {product : new Product("conditioner","213546",9,15,32)},
+    {product : new Product("ps4","213546",1000,1800,11)},
+    {product : new Product("ps5","213546",1500,4000,3)},
+    {product : new Product("Samsung","213546",3000,4000,10)},
+    {product : new Product("xiaomi","213546",2000,3000,6)},
+    {product : new Product("vaflim","213546",5,9,22)},
+    {product : new Product("God Of War","213546",100,300,32)}
+]
 
 function costOfStock(productsArray){
     let stockWorth=0;
@@ -31,12 +43,13 @@ function costOfStock(productsArray){
 
 
     for (let i = 0; i < productsArray.length; i++) {
+        
        stockSell+= productsArray[i].product.stock*productsArray[i].product.sellPrice;
-       stockWorth = stockSell-(productsArray[i].product.stock*productsArray[i].product.profitPerUnit);
+       
        stockProfit+=productsArray[i].product.stock*productsArray[i].product.profitPerUnit;
         
     }
-
+    stockWorth = stockSell-stockProfit;
     
     return "Stock worth = "+stockWorth+" Stock sell worth = "+stockSell+" Profit on all stock = "+stockProfit;
 
