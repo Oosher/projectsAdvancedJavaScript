@@ -82,7 +82,7 @@ return number>10
 }
 
 
-//index of finds the indx of a charecter that you put in
+//index of finds the indx of a character that you put in
 
 let array6 = [1,2,34,6,4,7,8,9,77,65];
 
