@@ -5,7 +5,7 @@ console.log(array.indexOf(5));
 
 
 //option 1:
-let stringA="aba halah lavbvoda yvia leosher matana";
+let stringA="gba halah lavbvoda yvia leosher matana";
 
 removeAFromeTheString(stringA);
 
@@ -19,14 +19,6 @@ function removeAFromeTheString(string){
 
     }
     
-  
-    
-
     console.log(newString);
 }
 
-
-
-
-
-//option 2:
