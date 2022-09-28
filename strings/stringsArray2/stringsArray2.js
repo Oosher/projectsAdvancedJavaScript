@@ -14,6 +14,7 @@ function removeAFromeTheString(string){
     let newString =string;
 
     while (newString.indexOf("a")!=-1) {
+
         newString=newString.replace("a","");
 
     }
