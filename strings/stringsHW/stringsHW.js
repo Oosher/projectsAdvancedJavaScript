@@ -79,6 +79,8 @@ console.log(evenArray);
 function evenOnlyArray(number){
 return !(number%2);
 
+// return number%2==0;
+
 }
 
 //6:
@@ -91,7 +93,7 @@ console.log(threeDigitsArray);
 
 function only3DigitsNumbers(number) {
 
-    return number>100&&number<999;
+    return number>=100&&number<=999;
 
 }
 
@@ -106,3 +108,10 @@ function onlyBOrA(number) {
    
   return number.indexOf("a")!=-1||number.indexOf("b")!=-1;
 }
+
+// 7 option 2:
+
+/* function onlyBOrA(number) {
+   
+  return number.includes("a") || number.includes("b");
+} */
