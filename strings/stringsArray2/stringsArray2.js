@@ -75,3 +75,18 @@ function middleOfArray(array){
     }
 
 }
+
+
+// find functions 
+
+ let array3 =[2,33,44,55,66,77,88,99,66,55,44,33,66];
+
+ let finedArray = array3.find(findOver20);
+
+ console.log(finedArray);
+
+ function findOver20(number) {
+    return number>20;
+ }
+
+
