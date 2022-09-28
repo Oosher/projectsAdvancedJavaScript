@@ -27,3 +27,50 @@ function removeAFromeTheString(string){
 
 
 // slice() :
+
+let array2=[2,3,4,5,2,4,5,3,5,6,5,4,3,4,5,4,3,4,5,4,3,4,5];
+
+let sliceArray = array2.slice(4,8);
+
+
+console.log(sliceArray);
+
+//exercise :
+
+//option 1:
+let arrayEx=[2,3,4,4,2,4,5,5,5];
+
+
+console.log(midArray(arrayEx)); 
+
+function midArray(array){
+let newArr;
+    if (array.length%2==0) {
+        newArr=array.slice((array.length/2)-1,(array.length/2)-1+2); 
+    
+    }
+
+    else{
+        newArr=array.slice(Math.round(array.length/2)-2,Math.round(array.length/2)-2+3); 
+        console.log(Math.round(array.length/2));
+    }
+
+    return newArr;
+}
+
+//option 2:
+
+function middleOfArray(array){
+
+    let indexOfMiddle =array.length/2 ;
+
+    
+    if (array.length%2==0) {
+        
+    }
+
+    else{
+        
+    }
+
+}
