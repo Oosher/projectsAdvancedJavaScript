@@ -89,4 +89,49 @@ function middleOfArray(array){
     return number>20;
  }
 
+let arrayOfStudents = [
+  { fullName: "tzach", id: "15181891", avg: 100 },
+  { fullName: "dabush", id: "sdf2r2345", avg: 82 },
+  { fullName: "ilan", id: "3453", avg: 39 },
+  { fullName: "avram", id: "345345", avg: 61 },
+  { fullName: "david", id: "345345", avg: 94 },
+];
+
+
+//option 1:
+-
+console.log(studentAverageAbove80(arrayOfStudents));
+
+function studentAverageAbove80(students) {
+    let array=[];
+
+    for (let i = 0; i < students.length; i++) {
+        if (students[i].avg>=80) {
+           array.push(students[i])
+        }
+        
+    }
+    return array;
+    
+}
+
+// option 2 :
+console.log(arrayOfStudents.find(filterStudentsAbove80) ,arrayOfStudents.filter(filterStudentsAbove80));
+
+function filterStudentsAbove80(student){
+    return student.avg>=80
+
+}
+
+
+//split function
+
+//splits a string into an array
+
+
+let stringSplit = "hello ma brudars";
+
+let splittedString = stringSplit.split(" ",2);
+console.log(splittedString);
+
 
