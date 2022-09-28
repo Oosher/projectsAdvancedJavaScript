@@ -1,10 +1,13 @@
+
+// indexOf() :
+
 let array=[2,3,4,5,2,4,5,3,5,6,5,4,3,4,5,4,3,4,5,4,3,4,5];
 
 console.log(array.indexOf(5));
 
 
 
-//option 1:
+
 let stringA="gba halah lavbvoda yvia leosher matana";
 
 removeAFromeTheString(stringA);
@@ -22,3 +25,5 @@ function removeAFromeTheString(string){
     console.log(newString);
 }
 
+
+// slice() :
