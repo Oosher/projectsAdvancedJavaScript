@@ -38,7 +38,7 @@ console.log(sliceArray);
 //exercise :
 
 //option 1:
-let arrayEx=[2,3,4,4,2,4,5,5,5];
+let arrayEx=[2,3,4,4,2,4,5,5];
 
 
 console.log(midArray(arrayEx)); 
@@ -60,17 +60,18 @@ let newArr;
 
 //option 2:
 
+console.log(middleOfArray(arrayEx));
+
 function middleOfArray(array){
-
-    let indexOfMiddle =array.length/2 ;
-
     
     if (array.length%2==0) {
-        
+        let indexOfMiddle =array.length/2 -1;
+        return array.slice(indexOfMiddle,indexOfMiddle+2);
     }
 
     else{
-        
+        let indexOfMiddle =array.length/2 -1.5;
+        return array.slice(indexOfMiddle,indexOfMiddle+3);
     }
 
 }
