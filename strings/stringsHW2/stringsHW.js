@@ -281,7 +281,7 @@ function howMany3InANumberReduce(counter,number) {
 }
 
 
-//6:
+//6 :
 
 console.log(arrayOfNumbers.reduce(howManyEvenNumbers,0));
 
@@ -293,4 +293,27 @@ function howManyEvenNumbers(counter,number){
 
   return counter;
 
+}
+
+
+
+//7 :
+
+let arrayOfSums = arrayOfNumbers.map(SumOfTheDigits);
+
+console.log(arrayOfSums +" last one");
+
+function SumOfTheDigits(number){
+
+  let sum=0;
+
+  while (number>0) {
+
+    sum+=number%10;
+
+    number= Math.floor (number/10);
+    
+  }
+
+  return sum
 }
