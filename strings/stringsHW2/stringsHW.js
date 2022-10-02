@@ -100,6 +100,20 @@ function findWordsThatStartsWithS(text){
 }
 
 
+//option 2 - map :
+
+
+arrayOfText.map(
+
+  function startsWithS(text){
+    if (text[0]=="s"||text[0]=="S") {
+
+      console.log(text);
+      
+    }
+  }
+
+)
 
 
 
@@ -123,6 +137,14 @@ function onlyUpperCaseLetters(letters) {
 
 }
 
+//option 2 :
+
+function onlyUpperCaseLetters2(letters) {
+
+  return letters>="A" && letters<="Z";
+
+}
+
 
 //4:
 
@@ -140,13 +162,14 @@ let numToString;
     numToString = array[i].toString();
 
     if (numToString.indexOf("3")!=-1) {
-      console.log("This array includes the nimber 3");
+      console.log("This array includes the number 3");
       return;
     }
     
   }
   
 }
+
 
 //5:
 console.log(howMany3inAnArray(arrayOfNumbers));
