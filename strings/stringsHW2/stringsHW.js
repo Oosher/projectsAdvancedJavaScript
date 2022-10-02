@@ -148,7 +148,7 @@ function onlyUpperCaseLetters2(letters) {
 
 //4:
 
-let arrayOfNumbers=[2,44,33,5,634,4,5,334,5,33,333,6];
+let arrayOfNumbers=[2,44,33,5,634,4,5,334,53,33,333,36];
 
 
 includes3(arrayOfNumbers);
@@ -170,6 +170,19 @@ let numToString;
   
 }
 
+
+//option 2 - map :
+
+arrayOfNumbers.map(function includes3InTheNumber(number){
+
+  if(number.toString().indexOf("3")!=-1){
+    console.log("This array includes the number 3 2");
+  
+
+  }
+
+
+});
 
 //5:
 console.log(howMany3inAnArray(arrayOfNumbers));
@@ -202,4 +215,48 @@ let includes3Counter=0;
 
 
 
+// option 2 - split :
+
+
+let splitArray = arrayOfNumbers.toString().split("");
+
+console.log(splitArray3Counter(splitArray)+" option 2");
+function splitArray3Counter(array){
+  let splitCounter=0
+
+  for (let i = 0; i < array.length; i++) {
+    
+    if (array[i]=="3") {
+      splitCounter++;
+
+    }
+    
+  }   
+
+return splitCounter;
+
+}
+
+//option 3 - modulu % :
+let allCounter = 0;
+for (let g = 0; g < numArray.length; g++) {
+  allCounter+= howMany3InANumberModulu(arrayOfNumbers[g]);
+  
+}
+console.log(allCounter+" option 3");
+
+function howMany3InANumberModulu(number) {
+
+  let counter = 0;
+  while (number>0){
+    if (number%10==3) {
+      counter++;
+    }
+    number = Math.floor(number/10) ;
+   
+  }
+  
+return counter;
+
+}
 
