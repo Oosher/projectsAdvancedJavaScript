@@ -238,6 +238,7 @@ return splitCounter;
 }
 
 //option 3 - modulu % :
+
 let allCounter = 0;
 for (let g = 0; g < numArray.length; g++) {
   allCounter+= howMany3InANumberModulu(arrayOfNumbers[g]);
@@ -256,7 +257,25 @@ function howMany3InANumberModulu(number) {
    
   }
   
-return counter;
+  return counter;
 
 }
 
+
+
+//option 4 - reduce :
+
+console.log(arrayOfNumbers.reduce(howMany3InANumberReduce,0)+" option 4");
+function howMany3InANumberReduce(counter,number) { 
+
+  while (number>0){
+    if (number%10==3) {
+      counter++;
+    }
+    number = Math.floor(number/10) ;
+   
+  }
+  
+  return counter;
+
+}
