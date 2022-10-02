@@ -279,3 +279,18 @@ function howMany3InANumberReduce(counter,number) {
   return counter;
 
 }
+
+
+//6:
+
+console.log(arrayOfNumbers.reduce(howManyEvenNumbers,0));
+
+function howManyEvenNumbers(counter,number){
+
+  if (number%2==0) {
+    counter++;
+  }
+
+  return counter;
+
+}
