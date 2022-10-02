@@ -72,7 +72,6 @@ let numArray3Filtered = numArray3.filter(filterBiggerThan10);
 findFilteredInOriginalArray(numArray3Filtered,numArray3);
 
 function findFilteredInOriginalArray(filteredArray,originalArray) {
-
   for (let i = 0; i < filteredArray.length; i++) {
   console.log(originalArray.indexOf(filteredArray[i]));
   
@@ -83,6 +82,8 @@ function findFilteredInOriginalArray(filteredArray,originalArray) {
  function filterBiggerThan10(number){
   return number>10;
  }
+
+
 //2:
 
 let arrayOfText = ["sus","big","opos","Shmuel","Shimon","yosef","abrsam","single"]
