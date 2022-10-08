@@ -41,10 +41,9 @@ function stockBuyPrice(array) {
     
 }
 
+let buyPrice = stockBuyPrice(arrayOfProducts);
 
-
-
-console.log("the Stock buy price is : " + stockBuyPrice(arrayOfProducts));
+console.log("the Stock buy price is : " + buyPrice);
 
 function stockSellPrice(array) {
 
@@ -59,5 +58,17 @@ function stockSellPrice(array) {
     
 }
 
+let sellPrice = stockSellPrice(arrayOfProducts);
 
-console.log("the Stock sell price is : " + stockSellPrice(arrayOfProducts));
+console.log("the Stock sell price is : " + sellPrice);
+
+
+function profit(sellPrice , buyPrice) {
+
+    return sellPrice-buyPrice;
+    
+}
+
+let profits = profit(sellPrice,buyPrice);
+
+console.log(profits);
