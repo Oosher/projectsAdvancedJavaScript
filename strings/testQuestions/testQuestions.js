@@ -71,3 +71,64 @@ function profit(sellPrice , buyPrice) {
 let profits = profit(sellPrice,buyPrice);
 
 console.log(profits);
+
+
+let arrayOFProfitableProducts = arrayOfProducts.filter(over20PercentProfit);
+
+function over20PercentProfit(product){
+
+   return (product.sellPrice-product.buyPrice)>(product.buyPrice*0.2);
+}
+
+console.log(arrayOFProfitableProducts);
+
+function priceIncrease(array,n) {
+let newArray=array;
+
+    for (let i = 0; i < array.length; i++) {
+
+        console.log(newArray[i].sellPrice);
+        newArray[i].sellPrice= newArray[i].sellPrice + n;
+
+    }
+
+   
+}
+
+
+
+
+
+priceIncrease(arrayOfProducts,100);
+console.log(arrayOfProducts);
+
+
+
+arrayOfProducts[2].name = "Aviron";
+
+
+//returns ony words thats starts with an A
+//name only starts with an capital letter so the outer case is not necessary
+function onlyStartsWithA(product) {
+
+    return product.name.indexOf("A")==0;
+    
+}
+
+
+let aProduct = arrayOfProducts.filter(onlyStartsWithA);
+
+console.log(aProduct);
+
+//return only if the buy price is bigger than 20
+function CostMOreThan20(product) {
+
+    return product.buyPrice>20;
+    
+}
+
+arrayOfProducts[2].buyPrice = 11;
+
+let onlyCostMOreThan20 = arrayOfProducts.filter(CostMOreThan20);
+
+console.log(onlyCostMOreThan20);
