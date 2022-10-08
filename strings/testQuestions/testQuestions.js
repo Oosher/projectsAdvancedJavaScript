@@ -62,7 +62,6 @@ let sellPrice = stockSellPrice(arrayOfProducts);
 
 console.log("the Stock sell price is : " + sellPrice);
 
-
 function profit(sellPrice , buyPrice) {
 
     return sellPrice-buyPrice;
