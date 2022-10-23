@@ -1,5 +1,5 @@
 
-let numberPhone ="0506233330";
+let numberPhone ="05-06233-330";
 
 
 
@@ -7,14 +7,32 @@ let numberPhone ="0506233330";
 console.log(israelPhone(numberPhone));
 
 function israelPhone(phoneNumber){
+ 
+    let newPhoneNumber = phoneNumber.replaceAll("-","");
 
-    if(!phoneNumber.includes("+972")){
-        return "+972"+phoneNumber;
+    
+
+    //option 2
+/*     let newPhoneNumber=phoneNumber;
+    newPhoneNumber=newPhoneNumber.split("-");
+    console.log(newPhoneNumber);
+    newPhoneNumber=newPhoneNumber.join("");
+    console.log(newPhoneNumber); */
+    //end of option 2
+
+
+
+    newPhoneNumber=newPhoneNumber.slice(newPhoneNumber.length-9,newPhoneNumber.length);
+
+    return "+972"+newPhoneNumber;
+    
+/*     if(!phoneNumber.includes("+972")){
+        return "+972"+newPhoneNumber;
     }
 
     else{
-        return phoneNumber
-    }
+        return newPhoneNumber
+    } */
 }
 
 let password= "AFG#Gd3s$aa1d" ;

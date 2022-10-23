@@ -135,3 +135,92 @@ let splittedString = stringSplit.split(" ",2);
 console.log(splittedString);
 
 
+
+//sort() sorts by an alphabetical order if the () is left empty
+
+
+let arrayOfNames = ["Yosef","Avram","Yitzhak","Sambusik","Fitusy","Amzaleg","Anglo","Tair"];
+
+arrayOfNames.sort();
+
+console.log(arrayOfNames);
+
+
+const arrayOfWords = ["Yosef","Avram","Yitzhak","Aambusik","situsy","Smzaleg","Anslo","Tair"];
+
+
+arrayOfWords.sort(function (a,b) {
+
+
+    if (a[0]=="S") {
+        return - 1;
+    }
+
+    if (b[0]=="S") {
+
+        return 1;
+        
+    }
+
+    return 0;
+    
+});
+
+
+console.log(arrayOfWords);
+
+//reverse()
+
+
+arrayOfNames.reverse();
+
+console.log(arrayOfNames);
+
+//sort numbers
+
+
+let arrayOfNumbers = ["3","44","22","5","11","134","13","156"];
+
+
+
+arrayOfNumbers.sort(function(a,b){
+    return a-b
+});
+
+
+console.log(arrayOfNumbers);
+
+
+//class task - 
+
+
+
+arrayOfWords.sort(function (a,b) {
+
+
+    if (a[0]=="S") {
+        return - 1;
+    }
+
+    if (b[0]=="S") {
+
+        return 1;
+        
+    }
+    if (a.indexOf("s")!=-1||a.indexOf("S")!=-1) {
+        return - 1;
+    }
+
+    if (b.indexOf("s")!=-1||b.indexOf("S")!=-1) {
+
+        return 1;
+        
+    }
+    
+    return 0;
+    
+});
+
+
+
+console.log(arrayOfWords);

@@ -132,3 +132,62 @@ arrayOfProducts[2].buyPrice = 11;
 let onlyCostMOreThan20 = arrayOfProducts.filter(CostMOreThan20);
 
 console.log(onlyCostMOreThan20);
+
+
+//part4
+
+
+const productContainer = document.querySelector(".productContainer");
+const productInfo=document.createElement("div");
+
+let productCounter=1;
+
+document.querySelector("#firstProduct").addEventListener("click",showProduct1);
+document.querySelector("#secondProduct").addEventListener("click",showProduct2);
+document.querySelector("#changeProduct").addEventListener("click",productChange);
+
+function showProduct1() {
+
+    showProductOnScreen(arrayOfProducts[0]);
+   
+    productCounter=1;
+    
+}
+function showProduct2() {
+
+    showProductOnScreen(arrayOfProducts[1]);
+    
+    productCounter=2;0
+}
+
+
+function  showProductOnScreen(product){
+    
+    productInfo.remove();
+    
+
+    productInfo.innerHTML="Name : "+product.name+"<br>"+"Serial number : "+product.serialNumber+"<br>"+"Sell price :"+product.sellPrice+"<br>"+"Buy price : "+product.buyPrice+"<br>"+"Stock : "+product.stock;
+
+    productContainer.appendChild(productInfo)
+    
+    console.log(productInfo);
+
+
+}
+
+function productChange(){
+const maxProducts =2
+
+productCounter++;
+
+if (productCounter>2) {
+    
+    productCounter=1;
+    
+}
+    
+    showProductOnScreen(arrayOfProducts[productCounter-1]);
+
+    
+
+}
