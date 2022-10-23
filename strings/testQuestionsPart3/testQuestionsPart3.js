@@ -101,6 +101,9 @@ function passwordCheck(pass){
 }
 
 
+
+//option 2
+
 let philndrome = "aadddaa";
 
 
