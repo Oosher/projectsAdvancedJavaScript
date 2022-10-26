@@ -152,5 +152,44 @@ console.log(Math.floor(daysToMyBirthDay)+1 );
 
 
 
-    
+
 }
+
+
+
+
+
+//Arrow Function
+
+//regular function
+function thisFunction(){
+
+
+}
+
+
+
+//variable function
+
+const  thisFunction2 = function() {
+
+
+};
+
+
+//arrow function
+
+const thisFunction3 = ()=>{
+
+}
+//returns a * b
+const thisFunction4 = (a,b)=> a * b;
+
+//inside of a function
+
+
+const array=["aza","agw","ana","aads","asds","hjg"];
+
+
+console.log(array.filter((word)=>word[0]=="a"));
+
