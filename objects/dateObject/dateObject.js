@@ -66,7 +66,7 @@ valueOf()	Returns the primitive value of a Date object
 //class exercise
 
 
-let date=new Date();
+let date=new Date(2023,0,11);
 
 
   console.log(dateDay(date)); 
@@ -125,4 +125,32 @@ function dateDay2(date){
 
     return dayArray[saveDay];
 
+}
+
+//task 2
+
+//tells me how many days until my birthday gets teh dates by milliseconds and subtract the two dates and converts the milliseconds into days
+
+daysToMyBirthday(date);
+function daysToMyBirthday(date) {
+let newDate= new Date();
+let daysToMyBirthDay= date-newDate;
+
+//milliseconds to seconds
+daysToMyBirthDay/=1000;
+
+//seconds to minutes
+daysToMyBirthDay/=60;
+
+//minutes to hours
+daysToMyBirthDay/=60;
+
+//hours to days
+daysToMyBirthDay/=24;
+
+console.log(Math.floor(daysToMyBirthDay)+1 );
+
+
+
+    
 }
