@@ -193,3 +193,73 @@ const array=["aza","agw","ana","aads","asds","hjg"];
 
 console.log(array.filter((word)=>word[0]=="a"));
 
+
+
+console.log(ifNumberIsAPalindrome(112211)); 
+
+function ifNumberIsAPalindrome(num) {
+    let newNum=num.toString();
+        newNum=newNum.split("");
+    let newNumReverse =newNum.reverse();
+        newNumReverse= newNumReverse.join("");
+        newNum=newNum.reverse();
+        newNum=newNum.join("");
+
+      /*  
+        option 2
+
+        newNumReverse=num.toString();
+        newNumReverse.split("");
+        newNumReverse.reverse();
+        newNumReverse.join(""); 
+
+        if(num.toString()==newNumReverse){
+        
+            return true;
+        
+        }
+
+        else{
+        
+            return false;
+        
+        }
+
+        */
+
+    console.log(newNum+" "+newNumReverse);
+
+    if (newNum==newNumReverse) {
+        return true;
+        
+    }
+
+    else {
+        return false;
+    }
+    
+}
+
+let arrayOfNums=[12312,12321,3333,12324,552255,23523,1232342];
+
+arrayOfNums.sort((a,b)=>{ 
+
+    if (ifNumberIsAPalindrome(a)){
+
+        return -1;
+
+    } 
+    else if (ifNumberIsAPalindrome(b)) {
+
+        return 1;
+        
+    }
+
+
+
+    return 0;
+}
+);
+
+
+console.log(arrayOfNums);
