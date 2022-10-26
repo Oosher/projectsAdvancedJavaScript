@@ -111,3 +111,18 @@ function dateDay(date) {
 
     
 }
+
+//option 2
+
+
+ console.log(dateDay2(date)); 
+
+function dateDay2(date){
+
+    let saveDay=date.getDay();
+
+    let dayArray=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    return dayArray[saveDay];
+
+}
