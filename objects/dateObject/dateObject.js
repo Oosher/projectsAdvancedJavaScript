@@ -255,11 +255,10 @@ arrayOfNums.sort((a,b)=>{
         
     }
 
-
-
     return 0;
+
 }
 );
 
-
+ 
 console.log(arrayOfNums);
