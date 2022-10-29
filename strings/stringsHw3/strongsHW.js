@@ -109,6 +109,7 @@ let allMoviesFromeGaner = [];
 }
 
 
+//3:
 const arrayOfWords = ["hello","Please","thanks","Home","great"];
 
 console.log(capitalizeFirstLetter(arrayOfWords));
@@ -125,7 +126,7 @@ function capitalizeFirstLetter(wordArray) {
 }
 
 
-
+//4:
 
 let arrayOfNums = [1,44,3,56,77,856,4,33,2,55,6,99,88];
 
