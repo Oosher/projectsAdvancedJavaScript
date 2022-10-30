@@ -1,4 +1,22 @@
 
+
+const searchBar = document.createElement("input");
+
+searchBar.className="searchBar";
+
+searchBar.placeholder="Enter a movie name";
+
+document.body.appendChild(searchBar);
+
+
+const movieContainer = document.createElement("section");
+
+movieContainer.className="movieContainer";
+
+
+
+searchBar.addEventListener("keypress",searchMovie);
+
 function Movie(name,lengthMinutes,category,price) {
     this.name=name;
 
@@ -27,14 +45,17 @@ movies.push(new Movie ("red note", 110, "comedy", 40));
 showAllMovies(movies);
 
 function showAllMovies(movieArray) {
-const movieContainer = document.createElement("section");
+    document.body.appendChild(movieContainer);
+      
+    
+
     for (let i = 0; i < movieArray.length; i++) {
 
         movieContainer.appendChild(movieArray[i].html);
         
     }
 
-    document.body.appendChild(movieContainer);
+ 
  
     
 
@@ -43,5 +64,17 @@ const movieContainer = document.createElement("section");
    /*  movieArray.map((movie)=>{
         movieContainer.appendChild(movie.html);
     }) */
+
+}
+
+
+function searchMovie() {
+
+    let newMovieArray = movies.filter((movie)=>{
+        return movie.name.includes(searchBar.value);
+    });
+
+    movieContainer.innerHTML="";
+    showAllMovies(newMovieArray); 
 
 }
