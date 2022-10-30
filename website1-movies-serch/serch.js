@@ -1,5 +1,5 @@
 
-
+//searchbar initialization
 const searchBar = document.createElement("input");
 
 searchBar.className="searchBar";
@@ -8,14 +8,17 @@ searchBar.placeholder="Enter a movie name";
 
 document.body.appendChild(searchBar);
 
+searchBar.addEventListener("input",searchMovie);
 
+
+//movie container creation and definition
 const movieContainer = document.createElement("section");
 
 movieContainer.className="movieContainer";
 
 
 
-searchBar.addEventListener("keypress",searchMovie);
+
 
 function Movie(name,lengthMinutes,category,price) {
     this.name=name;
@@ -32,7 +35,15 @@ function Movie(name,lengthMinutes,category,price) {
 
 }
 
-const movies = [];
+const movies = [
+(new Movie("Pulp Fiction", 154 , "Crime", 32)),
+(new Movie("Taxidermia ", 91 , "comedy", 32)),
+(new Movie("Naked Lunch", 115, "Drama", 32)),
+(new Movie("There Will Be Blood ", 158, "Drama", 32)),
+(new Movie("Trainspotting ", 100, "comedy", 32)),
+(new Movie("Delicatessen ", 100, "comedy", 32)),
+(new Movie("Requiem for a Dream", 100, "comedy", 32))
+];
 movies.push(new Movie("luck", 100, "comedy", 32));
 movies.push(new Movie ("heart", 85, "drama", 40));
 movies.push(new Movie ("unholy", 100, "horror", 32));
@@ -45,8 +56,10 @@ movies.push(new Movie ("red note", 110, "comedy", 40));
 showAllMovies(movies);
 
 function showAllMovies(movieArray) {
+
+    movieContainer.innerHTML="";
+
     document.body.appendChild(movieContainer);
-      
     
 
     for (let i = 0; i < movieArray.length; i++) {
@@ -74,7 +87,7 @@ function searchMovie() {
         return movie.name.includes(searchBar.value);
     });
 
-    movieContainer.innerHTML="";
+    
     showAllMovies(newMovieArray); 
 
 }
