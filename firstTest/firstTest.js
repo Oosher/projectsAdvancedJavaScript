@@ -126,6 +126,10 @@ function emailUserLength(eMail) {
 let userName = eMail.slice(0,eMail.indexOf("@"));
 
     console.log("The username length is : "+userName.length);
+
+    //option 2:
+
+    // console.log("The username length is : "+eMail.indexOf("@"));
     
 }
 
