@@ -17,6 +17,16 @@ const movieContainer = document.createElement("section");
 movieContainer.className="movieContainer";
 
 
+//add a movie
+
+const addAMovie = document.createElement("div");
+
+addAMovie.className="addAMovie";
+
+addAMovie.innerHTML="+";
+
+addAMovie.addEventListener("click", addNewMovie);
+
 
 
 
@@ -67,13 +77,16 @@ function showAllMovies(movieArray) {
         movieContainer.appendChild(movieArray[i].html);
         
     }
-    
+
 
     //option 2:
 
    /*  movieArray.map((movie)=>{
         movieContainer.appendChild(movie.html);
     }) */
+
+
+    movieContainer.appendChild(addAMovie);
 
 }
 
@@ -87,4 +100,52 @@ function searchMovie() {
     
     showAllMovies(newMovieArray); 
 
+}
+
+
+function addNewMovie() {
+    //creating all of the elements of the new form 
+    const newMovieContainer = document.createElement("div");
+    const saveMovie = document.createElement("button");
+    const movieName = document.createElement("input");
+    const movieLength = document.createElement("input");
+    const moviePrice = document.createElement("input");
+    const movieCategory = document.createElement("input");
+    
+    //setting the input type to numbers only
+    movieLength.type="number";
+    moviePrice.type="number";
+
+    //entering placeholders for the inputs  
+    movieName.placeholder="Enter a movie name"
+    movieLength.placeholder="Enter the movie length"
+    moviePrice.placeholder="Enter the movie price"
+    movieCategory.placeholder="Enter the movie category"
+
+
+    newMovieContainer.className="newMovieContainer";
+
+    saveMovie.innerHTML="save new movie"
+
+    //adding the elements into the new container
+    newMovieContainer.appendChild(movieName);
+    newMovieContainer.appendChild(movieLength);
+    newMovieContainer.appendChild(movieCategory);
+    newMovieContainer.appendChild(moviePrice);
+    newMovieContainer.appendChild(saveMovie);
+    movieContainer.appendChild(newMovieContainer);
+
+    saveMovie.addEventListener("click",()=>{
+
+        movies.push(new Movie(movieName.value,movieLength.value,movieCategory.value,moviePrice.value))
+
+        showAllMovies(movies);
+
+    });
+
+
+
+
+
+    
 }
