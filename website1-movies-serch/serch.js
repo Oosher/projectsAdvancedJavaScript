@@ -67,9 +67,6 @@ function showAllMovies(movieArray) {
         movieContainer.appendChild(movieArray[i].html);
         
     }
-
- 
- 
     
 
     //option 2:
