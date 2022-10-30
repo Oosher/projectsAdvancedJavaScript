@@ -50,6 +50,11 @@ function fixStandardPhoneNumberArray(phoneArray) {
 
 console.log(fixStandardPhoneNumberArray(arrayOfPhoneNumbers));
 
+
+//option 2:
+
+//let newArray = arrayOfPhoneNumbers.map(fixStandardPhoneNumberArray(phone));
+
 //:2
 
 
@@ -77,6 +82,7 @@ movies.push(new Movie ("red note", 110, "comedy", 40));
 
 
 console.log(chooseGaner(movies,"comedy"));
+
 
 function chooseGaner(movieArray,ganer){
 
@@ -109,6 +115,18 @@ let allMoviesFromeGaner = [];
 }
 
 
+
+//option 2 :
+
+/* let cosenCategory ="comedy";
+
+let chosenCategory = movies.filter((movie)=>{
+
+    return movie.category==cosenCategory;
+})
+
+ */
+
 //3:
 const arrayOfWords = ["hello","Please","thanks","Home","great"];
 
@@ -125,6 +143,15 @@ function capitalizeFirstLetter(wordArray) {
 
 }
 
+//option 2:
+
+/* 
+let newWordArray = arrayOfWords.map((word)=>{
+
+    return word[0].toUpperCase()+word.slice(1);
+
+})
+ */
 
 //4:
 
@@ -161,6 +188,17 @@ function sortWithoutSort(numberArray){
   
 
 
-
+    
     return numberArray;
+
 }
+
+
+//easy way:
+
+/* let newArrayOfNums = arrayOfNums.sort((a,b)=>{
+
+    return b-a;
+
+});
+ */
