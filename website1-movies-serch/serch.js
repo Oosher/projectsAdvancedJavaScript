@@ -34,9 +34,14 @@ const selectCategory  =  document.querySelector("#selectCategory");
 
 //defining the length search input
 
-let startingLength = document.querySelector("#startingLength");
-let endingLength = document.querySelector("#endingLength");
+const startingLength = document.querySelector("#startingLength");
+const endingLength = document.querySelector("#endingLength");
 
+
+//defining sort option
+
+
+const sortBy = document.querySelector("#sortBy");
 
 
 function Movie(name,lengthMinutes,category,price) {
@@ -74,10 +79,10 @@ function Movie(name,lengthMinutes,category,price) {
 }
 
 let movies = [
-(new Movie("Pulp Fiction", 154 , "Crime", 32)),
+(new Movie("Pulp Fiction", 154 , "crime", 32)),
 (new Movie("Taxidermia ", 91 , "comedy", 32)),
-(new Movie("Naked Lunch", 115, "Drama", 32)),
-(new Movie("There Will Be Blood ", 158, "Drama", 32)),
+(new Movie("Naked Lunch", 115, "drama", 32)),
+(new Movie("There Will Be Blood ", 158, "drama", 32)),
 (new Movie("Trainspotting ", 100, "action", 32)),
 (new Movie("Delicatessen ", 100, "action", 32)),
 (new Movie("Requiem for a Dream", 100, "comedy", 32))
@@ -237,5 +242,86 @@ function deleteMovie(movieName){
     });
 
     showAllMovies(movies);
+
+}
+
+sortBy.addEventListener("change",sortSelection);
+
+function sortSelection() {
+    switch (sortBy.value) {
+        case "name": 
+            movies= movies.sort((a,b)=>{
+                if(a.name>b.name){
+                    return 1;
+                }
+                if(a.name<b.name){
+                    return -1;
+                }
+                return 0;
+            })
+            
+            break;
+
+            case "category":
+                movies= movies.sort((a,b)=>{
+                    if(a.category>b.category){
+                        return 1;
+                    }
+                    if(a.category<b.category){
+                        return -1;
+                    }
+                    return 0;
+                })
+
+            break;
+
+            case "length":
+                movies= movies.sort((a,b)=>{
+                    if(a.lengthMinutes>b.lengthMinutes){
+                        return 1;
+                    }
+                    if(a.lengthMinutes<b.lengthMinutes){
+                        return -1;
+                    }
+                    return 0;
+                })
+                break;
+
+                case "priceLow2High" :
+
+                    movies= movies.sort((a,b)=>{
+                        if(a.price>b.price){
+                            return 1;
+                        }
+                        if(a.price<b.price){
+                            return -1;
+                        }
+                        return 0;
+                    })
+                    break;
+                    
+                case "PriceHigh2Low" :
+
+                    movies= movies.sort((a,b)=>{
+                        if(a.price>b.price){
+                            return -1;
+                        }
+                        if(a.price<b.price){
+                            return 1;
+                        }
+                        return 0;
+                    })
+
+                    break;
+    
+                default:
+                    
+                    break;
+    }
+   
+        
+    
+
+   showAllMovies(movies);
 
 }
