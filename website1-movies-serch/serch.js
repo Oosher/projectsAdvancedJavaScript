@@ -28,12 +28,16 @@ addAMovie.innerHTML="+";
 addAMovie.addEventListener("click", addNewMovie);
 
 
+//defining the select option
+
+const selectCategory  =  document.querySelector("#selectCategory");
+
 
 
 function Movie(name,lengthMinutes,category,price) {
     this.name=name;
 
-    this.lengthMinutes=lengthMinutes;
+    this.lengthselectCategoryMinutes=lengthMinutes;
 
     this.category=category;
 
@@ -50,8 +54,8 @@ const movies = [
 (new Movie("Taxidermia ", 91 , "comedy", 32)),
 (new Movie("Naked Lunch", 115, "Drama", 32)),
 (new Movie("There Will Be Blood ", 158, "Drama", 32)),
-(new Movie("Trainspotting ", 100, "comedy", 32)),
-(new Movie("Delicatessen ", 100, "comedy", 32)),
+(new Movie("Trainspotting ", 100, "action", 32)),
+(new Movie("Delicatessen ", 100, "action", 32)),
 (new Movie("Requiem for a Dream", 100, "comedy", 32))
 ];
 movies.push(new Movie("luck", 100, "comedy", 32));
@@ -148,4 +152,22 @@ function addNewMovie() {
 
 
     
+}
+
+selectCategory.addEventListener("change",filterByCategory);
+
+function filterByCategory(){
+
+    let filteredByCategoryArray = movies.filter((movie)=>{return movie.category==selectCategory.value})
+
+
+    showAllMovies(filteredByCategoryArray);
+
+    if (selectCategory.value=="") {
+        
+        showAllMovies(movies);
+
+
+    }
+
 }
