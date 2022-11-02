@@ -32,24 +32,48 @@ addAMovie.addEventListener("click", addNewMovie);
 
 const selectCategory  =  document.querySelector("#selectCategory");
 
+//defining the length search input
+
+let startingLength = document.querySelector("#startingLength");
+let endingLength = document.querySelector("#endingLength");
+
 
 
 function Movie(name,lengthMinutes,category,price) {
     this.name=name;
 
-    this.lengthselectCategoryMinutes=lengthMinutes;
+    this.lengthMinutes=lengthMinutes;
 
     this.category=category;
 
     this.price=price;
 
+    this.id=this.name+this.lengthMinutes;
+
     this.html = document.createElement("div");
 
     this.html.innerHTML=" name : "+this.name+"<br> length : "+this.lengthMinutes+"<br> category : "+this.category+"<br> price : "+this.price+"$";
 
+    this.removeMovie = document.createElement("button");
+
+    this.removeMovie.innerHTML="delete <br> movie";
+
+    this.removeMovie.className="removeButton";
+
+    this.html.appendChild(this.removeMovie);
+
+    this.removeMovie.addEventListener("click",()=>{
+
+        
+        deleteMovie(this.name);
+
+    });
+     
+    
+
 }
 
-const movies = [
+let movies = [
 (new Movie("Pulp Fiction", 154 , "Crime", 32)),
 (new Movie("Taxidermia ", 91 , "comedy", 32)),
 (new Movie("Naked Lunch", 115, "Drama", 32)),
@@ -169,5 +193,49 @@ function filterByCategory(){
 
 
     }
+
+}
+
+document.querySelector("#filterLength").addEventListener("click",filterByLength);
+
+
+function filterByLength() {
+
+    let arrayFilteredByLength = movies.filter((movie)=>{
+
+        if (endingLength.value>0&&startingLength.value>0) {
+
+            return movie.lengthMinutes>=startingLength.value && movie.lengthMinutes<=endingLength.value;
+            
+        }else if(startingLength.value>0){
+
+            return movie.lengthMinutes>=startingLength.value;
+
+        }else if(endingLength.value>0){
+
+            return  movie.lengthMinutes<=endingLength.value;
+        
+        }else{
+
+            return movie.lengthMinutes;
+
+        }
+    })
+
+    showAllMovies(arrayFilteredByLength);
+    
+    
+}
+
+
+function deleteMovie(movieName){
+
+    movies=movies.filter((movie)=>{
+
+        return movie.name!=movieName;
+
+    });
+
+    showAllMovies(movies);
 
 }
