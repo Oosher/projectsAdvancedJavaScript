@@ -226,3 +226,27 @@ secondValue=tempValue;
 
 console.log(firstValue,secondValue);
 
+//option 2 
+
+
+let aa = 10;
+
+let bb = 20;
+
+[aa,bb] = [bb,aa];
+
+console.log(aa,bb);
+
+//option 3
+
+let aaa = 10;
+
+let bbb = 20;
+
+aaa=aaa+bbb;
+
+bbb=aaa-bbb;
+
+aaa=aaa-bbb;
+
+console.log(aaa,bbb);
