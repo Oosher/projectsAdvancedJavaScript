@@ -191,7 +191,7 @@ console.log(newObject2);
 
 const myNewObject ={ a:23 ,b:443}
 
-
+//the second object have a higher priority in case of teh same variable in the two different objects
 const myNewObject2 = {a:46 ,c:43};
 
 const myNewMergedObject = {...myNewObject,...myNewObject2};
