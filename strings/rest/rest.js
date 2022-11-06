@@ -250,3 +250,144 @@ bbb=aaa-bbb;
 aaa=aaa-bbb;
 
 console.log(aaa,bbb);
+
+// spread with text
+
+const spreadText = "hello Ykove";
+
+const spreadByText = [...spreadText];
+
+console.log(spreadByText);
+
+//class task 5
+
+
+console.log(howMuchBiggerThanTheRest(5,1,2,3,4,55,6,7,8));
+
+function howMuchBiggerThanTheRest(...nums) {
+
+
+    let counter = 0;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[0]>nums[i]) {
+
+            counter++;
+            
+        }
+        
+    }
+    
+
+    return counter;
+
+}
+
+
+console.log(sevenOrFive(5));
+function sevenOrFive(n) {
+
+    switch (n) {
+        case 7:
+            return 5;
+            
+        
+        case 5:
+        return 7;
+
+        default:
+            break;
+    }
+    
+}
+
+
+function sevenOrFive2(n) {
+
+    if (n!=5) {
+
+        return 5;
+        
+    }
+
+    return 7;
+    
+}
+
+console.log(sevenOrFive3(5));
+function sevenOrFive3(n) {
+    
+
+    let array5OrSeven =[0,0,0,0,0,7,0,5,0,0];
+
+    
+
+        return array5OrSeven[n];
+
+    
+    
+}
+
+//beaus 5+7=12 so num - 7 or 5 is 7 or 5
+function  sevenOrFive4(n) {
+    
+    return 12-num;
+
+}
+
+//because 5*7=35 so num / 7 or 5 is 5 or 7
+function sevenOrFive5(n) {
+
+    return 35 / n;
+    
+}
+
+
+
+//class and object
+
+function  Student(name ,id ,avgGrade) {
+
+
+    this.name= name;
+
+    this.id =id  ;
+
+    this.avgGrade=avgGrade;
+
+    this.add5points =()=>{
+
+        this.avgGrade+=5;
+
+    }
+    
+}
+
+
+
+//class
+
+class Movie {
+
+    constructor(name ,length ,price){
+
+        this.name=name;
+
+        this.length=length;
+
+        this.price=price;
+
+    }
+
+
+    printTheName(){
+
+        console.log(this.name);
+
+    }
+
+}
+
+const movie1 = new Movie("usef",123,33);
+
+movie1.printTheName();
