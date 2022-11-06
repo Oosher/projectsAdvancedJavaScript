@@ -173,3 +173,29 @@ function introduce3(firstName,lastName,...moreInfo) {
 
 }
 
+
+//spread example 5
+
+//wrocng way of copping an object teh object will be the same object and when you change something inside the object it will chang it for all objects
+/* const newObject2 = newObject; */
+
+//teh right way of coping can object to a different object without making them the same object but making them tow separate objects with the same parameters 
+const newObject2 ={...newObject};
+
+newObject2.city="reashon leziyon";
+
+console.log(newObject2);
+
+//merge two object
+
+
+const myNewObject ={ a:23 ,b:443}
+
+
+const myNewObject2 = {a:46 ,c:43};
+
+const myNewMergedObject = {...myNewObject,...myNewObject2};
+
+
+
+console.log(myNewMergedObject);
