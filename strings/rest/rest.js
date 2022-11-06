@@ -108,6 +108,68 @@ function introduction2(firstName,lastName,company) {
 
 let myDateArray =[2020 , 11 , 12];
 
-
 //will not work with normal array only when you spread the array with ...
 let myDate = new Date(...myDateArray);
+
+console.log(myDate);
+
+
+
+
+//spread example 4
+
+
+const array1=[3,4,5];
+
+const array2 =[1,2,3,...array1];
+
+//adds 2 arrays together 
+let array3 = array2.concat(array1);
+
+console.log(array2);
+
+console.log(array3);
+
+//class task 3
+
+const a = [231,123,32,421,423];
+
+const b = [2131,3213,434,22];
+
+const c =  [...a,...b];
+
+console.log(c);
+
+
+
+//Destructuring 
+
+
+const [num1,num2,num3,num4,num5] = [1,2,3,4,5];
+
+console.log(num4);
+
+const [firstName,lastName,...moreInfo]=["yosef"," gurevitch","haver shel","yoshi","shimon","amram"];
+
+//rest on an Object 
+
+const newObject = {
+    firstName:"osef",
+    lastName:"urevitch",
+    company:"david ofnoim",
+    employment:"musahnick",
+    city:"tel aviv"
+}
+
+
+const {employment,company,...outerInfo} =newObject;
+
+console.log(outerInfo);
+
+
+function introduce3(firstName,lastName,...moreInfo) {
+
+    console.log(moreInfo);
+
+}
+
