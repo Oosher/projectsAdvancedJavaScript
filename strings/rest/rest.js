@@ -199,3 +199,30 @@ const myNewMergedObject = {...myNewObject,...myNewObject2};
 
 
 console.log(myNewMergedObject);
+
+
+//another example for spread on an object
+
+
+
+const myNewObject3 ={a:343 ,b:32313, ...myNewObject2,d:23213};
+
+console.log(myNewObject3);
+
+
+
+//class task 4
+
+
+let firstValue = 10;
+
+let secondValue = 20;
+
+let tempValue=firstValue;
+
+firstValue=secondValue;
+
+secondValue=tempValue;
+
+console.log(firstValue,secondValue);
+
