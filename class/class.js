@@ -24,7 +24,9 @@ class Movie {
 
     }
     welcome(){
+
         console.log(`welcome to ${this.name}  enjoy your watch`);
+
     }
 
 }
@@ -41,3 +43,97 @@ movie.addMinutes(150);
 console.log(movie.length);
 
 movie.welcome();
+
+
+//class task
+
+
+class Queue {
+
+    constructor(){
+
+        this.values=[];
+
+        this.lastPoppedItem;
+
+    }
+
+    enqueue(addToEndOfTheArray){
+
+        this.values=[...this.values,addToEndOfTheArray];
+
+    }
+
+    dequeue(){
+
+        let poppedItem = this.values[0];
+
+        this.lastPoppedItem=poppedItem;
+
+        this.values.splice(0,1);
+
+
+
+
+        return poppedItem;
+
+    }
+
+    firstItem(){
+
+        return this.values[0];
+
+    }
+
+    isEmpty(){
+        if (this.values.length>0) {
+
+            return false;
+            
+        }
+
+        return true;
+
+    }
+    printQueue(){
+      /*   this.values.map((value)=>{
+
+            console.log(value);
+
+        }); */
+        
+        console.log(...this.values);
+
+    }
+}
+
+
+
+let newQueue =new Queue ;
+
+newQueue.enqueue(5);
+newQueue.enqueue(4);
+newQueue.enqueue(3);
+newQueue.enqueue(2);
+newQueue.enqueue(6);
+newQueue.enqueue(8);
+
+console.log(newQueue.values);
+
+
+newQueue.dequeue();
+
+
+console.log(newQueue.values);
+
+
+
+console.log(newQueue);
+
+
+console.log(newQueue.firstItem());
+
+console.log(newQueue.isEmpty());
+
+newQueue.printQueue();
+
