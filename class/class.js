@@ -137,3 +137,112 @@ console.log(newQueue.isEmpty());
 
 newQueue.printQueue();
 
+
+
+class Mag{
+
+    constructor(){
+
+        this.magazine=[];
+        
+        
+        this.poppedItems=[];
+
+    }
+
+    push(item){
+
+        this.magazine=[...this.magazine,item];
+
+    }
+    pop(){
+
+        this.poppedItems=[...this.poppedItems,this.magazine[this.magazine.length-1]];
+        this.magazine.splice(this.magazine.length-1,1);
+
+        return this.poppedItems;
+
+    }
+
+    firstItem(){
+
+        return this.magazine[0];
+
+    }
+
+    isEmpty(){
+        if (this.magazine.length>0) {
+
+            return false
+            
+        }
+
+        return true;
+
+    }
+
+
+    printMag(){
+
+        console.log(...this.magazine);
+
+    }
+
+
+    rollBack(){
+
+        if (this.poppedItems.length>0) {
+
+            this.magazine=[...this.magazine,this.poppedItems[this.poppedItems.length-1]];
+            this.poppedItems=this.poppedItems.slice(0,this.poppedItems.length-1);
+
+        }
+        
+
+    }
+
+}
+
+
+
+let newMag = new Mag;
+
+
+newMag.push(7);
+newMag.push(4);
+newMag.push(3);
+newMag.push(2);
+newMag.push(6);
+newMag.push(8);
+newMag.push(9);
+
+
+console.log(newMag.magazine);
+
+
+
+newMag.pop();
+newMag.pop();
+newMag.pop();
+newMag.pop();
+
+
+console.log(newMag.firstItem());
+
+console.log(newMag.isEmpty());
+
+
+newMag.printMag();
+
+
+
+console.log(newMag.poppedItems);
+
+newMag.rollBack();
+
+newMag.printMag();
+
+console.log(newMag.poppedItems);
+
+
+
