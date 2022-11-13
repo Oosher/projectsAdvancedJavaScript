@@ -145,7 +145,7 @@ class Mag{
 
         this.magazine=[];
         
-        
+
         this.poppedItems=[];
 
     }
@@ -245,4 +245,54 @@ newMag.printMag();
 console.log(newMag.poppedItems);
 
 
+
+class Student{
+
+
+    constructor(name,id,year,course){
+        
+       this.fullName=name;
+
+        
+
+
+    } 
+
+    set identificationNumber(identification){
+
+        this.id = identification;
+
+    }
+
+    get getId(){
+
+        return this.id;
+
+    }
+    set fullName(fullNames){
+        
+        this.name=fullNames;
+
+    }
+
+    get fullName(){
+
+        return this.name;
+
+    }
+
+}
+
+
+const newStudent = new Student;
+
+newStudent.fullName="yoshi";
+
+
+newStudent.identificationNumber=123123134;
+
+
+console.log(newStudent);
+
+console.log(newStudent.getId);
 
