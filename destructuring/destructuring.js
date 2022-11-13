@@ -32,6 +32,26 @@ function printStudent(name,id,...outerDetails) {
     
 }
 
+
+
+//option 2
+
+printStudent("yusef",123123123,3,23,13)
+
+function printStudent(name,id,...outerDetails) {
+
+    console.log(`${name}\n${id}`);
+    
+    outerDetails.map((detail)=>{
+
+        console.log(detail);
+
+    })
+
+    
+}
+
+
 //q3 :
 
 

@@ -174,6 +174,19 @@ function introduce3(firstName,lastName,...moreInfo) {
 }
 
 
+
+
+//destructuring example 2 
+
+//puts the the first into first teh second number in the array in to the second and the third into the third 
+
+let [first,second,third] = array1;
+
+//puts the the first into first teh second number in the array in to the second and puts the rest into the third variable
+let [first1,second2,...third3] = array1;
+
+
+
 //spread example 5
 
 //wrocng way of copping an object teh object will be the same object and when you change something inside the object it will chang it for all objects
