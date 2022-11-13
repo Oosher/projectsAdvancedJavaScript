@@ -296,3 +296,104 @@ console.log(newStudent);
 
 console.log(newStudent.getId);
 
+
+
+
+
+class AdMovie{
+
+
+    constructor(name,length,category,price){
+
+
+    }
+
+
+    set setName(movieName){
+
+        this.name=movieName;
+        
+    }
+    set setLength(movieLength){
+
+        let hours=Math.floor(movieLength/60);
+
+        let minutes = movieLength-(hours*60);
+
+        if (minutes<10) {
+            this.length = hours +":0"+ minutes;
+        }
+        else{
+
+             this.length = hours +":"+ minutes;
+
+        }
+       
+
+
+    }
+    set setCategory(movieCategory){
+        if (movieCategory=="comedy"||movieCategory=="drama"||movieCategory=="action") {
+            this.category=movieCategory;
+        }
+        else{
+
+            this.category="outer";
+
+        }
+        
+
+    }
+    set setPrice(moviePrice){
+
+        if (moviePrice>0) {
+
+            this.price=moviePrice;
+
+        }
+
+        else{
+
+            console.log("please enter a positive number");
+            
+        }
+        
+
+    }
+
+    get getName(){
+
+       return this.name
+        
+    }
+    get getLength(){
+
+       return this.length
+
+    }
+    get getCategory(){
+
+       return this.category
+    }
+    get getPrice(){
+
+       return this.price
+
+    }
+
+
+}
+
+
+
+
+const newMovie = new AdMovie;
+
+
+newMovie.setCategory="bruh";
+newMovie.setPrice=1123;
+newMovie.setLength=122;
+
+console.log(newMovie);
+
+console.log(1.3233%1);
