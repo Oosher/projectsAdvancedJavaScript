@@ -310,7 +310,11 @@ class AdMovie{
 
 
     set setName(movieName){
+        if (movieName<0) {
 
+            movieName=-1*movieName;
+                    
+        }
         this.name=movieName;
         
     }
@@ -328,6 +332,9 @@ class AdMovie{
              this.length = hours +":"+ minutes;
 
         }
+
+
+       
        
 
 
@@ -346,7 +353,7 @@ class AdMovie{
     }
     set setPrice(moviePrice){
 
-        if (moviePrice>0) {
+        if (moviePrice>=0) {
 
             this.price=moviePrice;
 
@@ -354,7 +361,7 @@ class AdMovie{
 
         else{
 
-            console.log("please enter a positive number");
+           this.price = 999;
             
         }
         
@@ -397,3 +404,74 @@ newMovie.setLength=122;
 console.log(newMovie);
 
 console.log(1.3233%1);
+
+
+
+
+
+
+class TourBus{
+
+    constructor(vehicleNumber,type,km,trip){
+
+    }
+     set setVehicleNumber(number){
+
+            this.vehicleNumber=number;
+
+    }
+    set setType(vehicleType){
+
+         this.type=vehicleType;
+
+    }
+    set setKm(kmAmount){
+
+        this.km=kmAmount;
+
+    }
+    set setTrip(tripWay){
+
+        this.trip=tripWay;
+
+    }
+   
+     get getVehicleNumber(){
+
+          return this.vehicleNumber;
+
+    }
+    get getType(){
+
+        return this.type;
+
+    }
+    get getKm(){
+
+        return this.km
+
+    }
+    get getTrip(){
+
+        return this.trip;
+
+    }
+   
+
+
+}
+
+
+
+
+const newTourBus =  new TourBus;
+
+console.log(newTourBus);
+
+newTourBus.setKm=180000;
+
+newTourBus.setType="mercedes";
+
+newTourBus.setVehicleNumber="2131412412";
+
+console.log(newTourBus);
