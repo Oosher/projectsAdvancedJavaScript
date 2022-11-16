@@ -407,6 +407,9 @@ console.log(1.3233%1);
 
 
 
+function Location()
+
+
 
 
 
