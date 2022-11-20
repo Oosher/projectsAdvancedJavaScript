@@ -102,6 +102,14 @@ guest1.cleanRoom();
 
 class Hotel{
 
+
+
+    //private variable
+    #private = "Something";
+    //old version 
+    _private = "Something";
+
+    #constantPrice = 140;
     constructor(hotelName,hotelPermitNumber,arrayOfRooms,arrayOfGuests){
         this.setHotelName=hotelName;
         this.setHotelPermitNumber=hotelPermitNumber;
@@ -109,8 +117,10 @@ class Hotel{
         this.arrayOfGuests=arrayOfGuests;
     }
 
-    set setHotelName(name){
+   
 
+    set setHotelName(name){
+        
         this.hotelName =name.replace(name.charAt(0),name.charAt(0).toUpperCase());
         
 
@@ -196,6 +206,8 @@ class Hotel{
 
         }
 
+
+
     }
 
 
@@ -218,6 +230,32 @@ class Hotel{
     }
 
 
+    //private function / method Example
+    #privateFunction(){
+
+        return "Hello Bruh";
+
+    }
+
+    roomPrice(guestPhoneNumber){
+
+            let guestRoomPrice = this.#constantPrice;
+            let guestRoom = 0;
+        
+            for (let i = 0; i < this.arrayOfGuests.length; i++) {
+
+                if (this.arrayOfGuests[i].phoneNumber == guestPhoneNumber) {
+
+                guestRoom = this.arrayOfGuests[i].roomNumber;
+                break;
+
+                }
+                
+            }
+
+            return guestRoomPrice*=Number(guestRoom.charAt(0));
+
+    }
 
 
 }
@@ -249,10 +287,9 @@ hotel1.removeGuest(guest4);
 
 hotel1.addNewRoom("480b");
 
-
 hotel1.removeRoomFromTheHotel("323")
 
 console.log(hotel1);
 
-
+console.log(hotel1.roomPrice("02585421"));
 
