@@ -155,4 +155,47 @@ class Student{
 
     //prototype 
 
-    
+    console.log(Object.getPrototypeOf(student));
+
+    Object.assign(Students.prototype,student)
+
+    console.log(student );
+
+    console.log(student.hasOwnProperty("year") );
+
+
+
+    class  Person{
+        #name;
+        #id;
+
+        set name(newName){
+            
+            this.#name=newName;
+        }
+
+        set id(newId){
+
+            this.#id=newId;
+
+        }
+        get name(){
+
+            return this.#name;
+
+        }
+
+        get id(){
+
+            return this.#id;
+
+        }
+
+
+        #introduce(){
+
+            console.log(`Hello mr.${this.#name}`);
+
+        }
+
+    }
