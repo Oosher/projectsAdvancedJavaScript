@@ -32,6 +32,7 @@ Students.sayHelloAll();
 
 
 class Mathematics{
+    
     static pi = 3.14159265359;
 
     static e = 2.71828182845904;
