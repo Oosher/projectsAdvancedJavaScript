@@ -33,7 +33,21 @@ Students.sayHelloAll();
 
 class Mathematics{
 
-    static max(){
+    static max(...n){;
+
+        let max=n[0]
+
+        for (let i = 0; i < n.length; i++) {
+            
+            if (n[i]>max) {
+
+                max=n[i];
+
+            }
+            
+        }
+
+        return max;
 
 
     }
@@ -58,3 +72,7 @@ class Mathematics{
 
 
 console.log(Mathematics.power(4,5));
+
+
+
+console.log(Mathematics.max(1,2,3,4,1,5,-1,7,9,4,2));
