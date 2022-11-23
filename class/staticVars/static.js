@@ -155,7 +155,7 @@ class Student{
 
     //prototype 
 
-    console.log(Object.getPrototypeOf(student));
+    /* console.log(Object.getPrototypeOf(student)); */
 
     Object.assign(Students.prototype,student)
 
@@ -168,6 +168,13 @@ class Student{
     class  Person{
         #name;
         #id;
+
+        constructor(name,id){
+            this.name=name;
+
+            this.id=id;
+
+        }
 
         set name(newName){
             
@@ -199,3 +206,131 @@ class Student{
         }
 
     }
+
+
+
+
+    const newPerson = new Person("bruh mobile",123213);
+
+
+
+
+    class Teacher extends Person{
+        #topic;
+        #yearsInService;
+
+        constructor(fullName,id,topic,yearsInService){
+
+            super(fullName,id);
+
+            this.topic=topic;
+
+            this.yearsInService=yearsInService;
+            
+        }
+
+        set topic (topic){
+
+            this.#topic=topic;
+
+        }
+
+        set yearsInService(yearsInService){
+
+            this.#yearsInService=yearsInService;
+
+        }
+        get topic (){
+
+            return this.#topic;
+
+        }
+
+        get yearsInService(){
+
+            return this.#yearsInService;
+
+        }
+
+        helloToClass(){
+
+            console.log(`HELLO im mr.${this.name} and i will be your teacher for ${this.topic}`);
+            
+        }
+    }
+
+    
+    console.log(newPerson);
+
+
+    const newTeacher = new Teacher("bongalo muzaglo",123123,"Mathematics",13);
+
+
+    newTeacher.helloToClass();
+
+
+
+
+
+
+
+    console.log(newTeacher);
+
+
+
+
+
+    class Student1 extends Person{
+        #curse;
+        #yearsOfStudy;
+
+        constructor(name,id,yearsOfStudy,curse){
+
+            super(name,id);
+
+            this.yearsOfStudy=yearsOfStudy;
+
+            this.curse=curse;
+
+        }
+
+        set yearsOfStudy(yearsOfStudy){
+
+            this.#yearsOfStudy=yearsOfStudy;
+
+        }
+
+        set curse(curse){
+
+        this.#curse=curse;
+
+        }
+        get yearsOfStudy(){
+
+            return  this.#yearsOfStudy;
+
+        }
+
+        get curse(){
+
+            return this.#curse;
+
+        }
+
+
+        introduce(){
+
+            console.log(`hello my name is ${this.name} and i study ${this.curse}`);
+
+        }
+
+    }
+
+
+
+
+    const student2 = new Student1("bruh dude",21321313,12,"electronics")
+
+    student2.introduce();
+
+    console.log(student2);
