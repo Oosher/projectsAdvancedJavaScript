@@ -100,7 +100,7 @@ class Student{
 
     set setName(name){
 
-        this.#name=name;
+        this.#name=name[0].toUpperCase()+name.slice(1,name.length);
 
     }
     
@@ -133,9 +133,26 @@ class Student{
 
     }
 
+
+    canParticipateInSport(){
+
+        if (this.#year>2) {
+            
+            return true;
+
+        }
+
+        return false;
+
+    }
 }
 
 
     let student = new Student(1,"shlomon","123213123");
 
     console.log(student );
+
+
+    //prototype 
+
+    
