@@ -32,9 +32,12 @@ Students.sayHelloAll();
 
 
 class Mathematics{
+    static pi = 3.14159265359;
+
+    static e = 2.71828182845904;
 
     static max(...n){;
-
+       
         let max=n[0]
 
         for (let i = 0; i < n.length; i++) {
