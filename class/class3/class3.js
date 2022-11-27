@@ -52,6 +52,11 @@ class  Person{
             console.log(`Hello mr.${this.firstName} ${this.#lastName} Happy holiday`);
 
         }
+        getName (){
+
+                return "Person";
+                        
+        }
 
     }
 
@@ -114,6 +119,11 @@ class  Person{
 
 
                 }
+                  getName (){
+
+                        return "Student";
+                        
+                    }
 
             }
 
@@ -170,6 +180,12 @@ class  Person{
                     happyHoliday(){
 
                         console.log(`happy holiday ${this.#degree} ${this.firstName} `);
+
+                    }
+
+                    getName (){
+
+                        return "Lecturer";
 
                     }
             }
@@ -282,7 +298,7 @@ class  Person{
 
 
             const TreeWithInherit = (subClass)=>
-            
+
             class Tree extends subClass{
 
                 constructor(treeName,treeHight,origin,...fruit){
@@ -339,3 +355,92 @@ class  Person{
             const newTree = new justATree ;
 
             console.log(newTree);
+
+
+
+
+
+
+
+
+
+
+            const lotteryWithChangedInheritance = (inheritedClass)=>
+
+            class Lottery extends inheritedClass {
+
+
+            constructor (date,lotteryNumber,lotterySum,...outerParameters){
+
+                super(...outerParameters);
+
+                this.date=date;
+
+                this.lotteryNumber=lotteryNumber;
+
+                this.lotterySum=lotterySum;
+
+            }
+
+            
+            
+        }
+
+
+
+
+        const HumanLottery = lotteryWithChangedInheritance(Person);
+
+        const StudentLottery = lotteryWithChangedInheritance(Student);
+
+        const LecturerLottery = lotteryWithChangedInheritance(Lecturer);
+
+
+
+        const newPersonLottery = new HumanLottery("12-12-22",9000332,"15000$","abu","yosef",213123213);
+
+        console.log(newPersonLottery);
+
+        const newStudentLottery = new StudentLottery ("13-14-14",1232313113,"4500$","moshik","abuk",23123123,13,"mathematics")
+        
+        console.log(newStudentLottery);
+
+
+        function createArrayOfPerson(arrayOfPersonal){
+
+            let newArray=[];
+
+
+            arrayOfPersonal.map((person)=>{
+
+                    switch (person.getName()) {
+
+                    case "Person":
+                        newArray.push(new HumanLottery("12-12-22",2131231,"15000$",person.firstName,person.lastName,person.id));
+                        
+                        break;
+                    
+                    case "Student":
+                        newArray.push(new StudentLottery("14-14-14",1232313113,"8000$",person.firstName,person.lastName,person.id,person.yearsOfStudy,person.fieldOfStudy))
+                        break;
+                    
+                    case "Lecturer":
+                        newArray.push(new LecturerLottery("15-16-17",1232313113,"19000$",person.firstName,person.lastName,person.id,person.phakulta,person.degree))
+                        break;
+                    
+                    default:
+                        break;
+                        
+                    }
+            });
+
+            return newArray;
+
+        }
+
+
+
+
+        
+        
+        console.log(createArrayOfPerson(personsArray));
