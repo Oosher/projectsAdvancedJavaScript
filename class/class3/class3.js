@@ -382,6 +382,35 @@ class  Person{
 
             }
 
+
+            lotteryPrice(){
+
+                console.log(this.getName());
+
+                switch (inheritedClass.name) {
+
+                    case "Person":
+
+                        return "20";
+                        
+                    case "Student":
+
+                        return "10";
+                        
+                    case "Lecturer":
+
+                    return "5";
+                        
+                        
+                
+                    default:
+                        return "Not a person"
+                }
+
+
+
+            }
+
             
             
         }
@@ -412,7 +441,7 @@ class  Person{
 
 
             arrayOfPersonal.map((person)=>{
-
+                    console.log(Object.getPrototypeOf(person));
                     switch (person.getName()) {
 
                     case "Person":
@@ -444,3 +473,11 @@ class  Person{
         
         
         console.log(createArrayOfPerson(personsArray));
+
+
+
+
+
+
+
+        console.log(newStudentLottery.lotteryPrice());
