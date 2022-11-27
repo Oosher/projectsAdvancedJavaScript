@@ -282,6 +282,7 @@ class  Person{
 
 
             const TreeWithInherit = (subClass)=>
+            
             class Tree extends subClass{
 
                 constructor(treeName,treeHight,origin,...fruit){
@@ -311,7 +312,6 @@ class  Person{
                 constructor(month,numberOfFruits,treeName,treeHight,origin,fruitName,fruitCal){
 
                     super(treeName,treeHight,origin,fruitName,fruitCal);
-
 
                     this.month=month;
 
