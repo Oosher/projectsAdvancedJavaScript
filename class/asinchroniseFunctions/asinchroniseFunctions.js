@@ -66,3 +66,33 @@ xhttp.open("GET","http://api.worldbank.org/v2/country");
 
 //sent a request for the api
 xhttp.send();
+
+
+
+
+
+
+
+
+//2 turning it into an object by using JASON . parse ()
+
+const xhttp2 = new XMLHttpRequest();
+
+xhttp2.open("GET","https://restcountries.com/v3.1/all");
+
+xhttp2.onload = function (){
+
+    let result = this.response;
+
+    result = JSON.parse(result);
+
+
+    console.log(result);
+
+
+}
+
+
+
+xhttp2.send();
+
