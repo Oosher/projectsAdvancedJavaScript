@@ -42,11 +42,27 @@ xhttp.onload=function(){
 
 let result = this.responseXML;
 
+let countries = result.getElementsByTagName("wb:country");
+
+let childNodes = countries[0].childNodes;
+
+for (let j = 0; j < countries.length; j++) {
+
+    for (let i = 1; i < childNodes.length; i+=2) {
+        console.log(countries[j].childNodes[i].textContent);
+        
+    }
+
+}
+
 console.log(result);
+
+console.log(countries);
 
 };
 
-
+//opens a get request to the http
 xhttp.open("GET","http://api.worldbank.org/v2/country");
 
+//sent a request for the api
 xhttp.send();
