@@ -86,13 +86,94 @@ xhttp2.onload = function (){
 
     result = JSON.parse(result);
 
-
     console.log(result);
 
+    countriesThatStartsWithAnI(result);
+
+    countryNamesAndFlags(result);
 
 }
 
 
 
 xhttp2.send();
+
+
+//class task 1
+
+
+function countriesThatStartsWithAnI(countries) {
+
+    countries.map((country)=>{
+       
+          if (country.name.common.charAt(0)=="T") {
+
+            console.log(country.name.common);
+
+          }
+
+          
+
+          //option 2
+          
+       /*   if (country.name.common[0])=="G") {
+
+                console.log(country.name.common);
+
+            } 
+          */
+        
+    })
+
+
+    //option 3
+
+  /*  countries = countries.filter((country)=>{
+
+        
+        return country.name.common.charAt(0)=="T"
+
+
+    })
+    
+    console.log(countries); */
+
+
+
+}
+
+
+
+function countryNamesAndFlags(countries) {
+    
+
+    const  container = document.createElement("div");
+
+        document.body.appendChild(container);
+
+    countries.map((country)=>{
+        
+
+        let singleCountryContainer = document.createElement("div");
+
+        singleCountryContainer.className = country.name.common + "Container"
+
+        let countryName = document.createElement("h1");
+
+        countryName.innerHTML=country.name.common;
+
+        let countryFlag = document.createElement("img");
+
+        countryFlag.src=country.flags.png;
+
+        singleCountryContainer.appendChild(countryName);
+
+        singleCountryContainer.appendChild(countryFlag);
+
+        container.appendChild(singleCountryContainer)
+
+
+    });
+    
+}
 
