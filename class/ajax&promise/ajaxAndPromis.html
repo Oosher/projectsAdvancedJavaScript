@@ -6,10 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajax And Promis</title>
+
+    <style>
+        .weatherContainer {
+
+            display: flex;
+            color: aqua;
+            padding: 15px;
+            width: auto;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .allContainer {
+
+            width: 50%;
+
+            margin: 0 auto;
+
+            background-color: black;
+        }
+
+        .selectContainer {
+
+            width: 50%;
+
+            margin: 0 auto;
+
+
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <div>
-    <select id="country"></select>
-    <button id="selectCountry">search</button>
+    <div class="allContainer">
+        <div class="selectContainer">
+            <select id="country"></select>
+            <button id="selectCountry">search</button>
+        </div>
+
+    </div>
+
 </div>
 
 <body>

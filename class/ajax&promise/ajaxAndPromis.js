@@ -5,38 +5,80 @@ const selectTab = document.querySelector("#country");
 
 const selectCountry = document.querySelector("#selectCountry");
 
+const container = document.createElement("section");
+
+const weatherStatusImage = document.createElement("img");
+
+const allContainer =document.querySelector(".allContainer")
+
+
+allContainer.appendChild(container);
+
+allContainer.appendChild(weatherStatusImage);
+
+container.className="weatherContainer";
+
+
+selectCountry.addEventListener("click",getWeather);
+
+/* let fetchs = fetch("https://api.openweathermap.org/data/2.5/weather?lat=40&lon=10&appid=114ec643a112e43327c59d9900d3bb20")
+
+console.log(fetchs); */
 
 
 
-let fetchs = fetch("https://api.openweathermap.org/data/2.5/weather?lat=40&lon=10&appid=114ec643a112e43327c59d9900d3bb20")
-
-console.log(fetchs);
 
 
 
 
 
+function  getWeather() {
+
+    const weatherPromise = new Promise((resolve,reject)=>{
+        xhttpWeather = new XMLHttpRequest();
+
+            xhttpWeather.open("GET",`https://api.openweathermap.org/data/2.5/weather?q=${selectTab.value}&appid=114ec643a112e43327c59d9900d3bb20&units=metric`);
 
 
+            xhttpWeather.onload = function () {
+
+                if (xhttpWeather.status==200){
+                    resolve(xhttpWeather.response)
+                }
+                else{
+                    reject(xhttpWeather.status)
+                }
+                
+            }
 
 
-xhttpWeather = new XMLHttpRequest();
-
-xhttpWeather.open("GET","https://api.openweathermap.org/data/2.5/weather?q=Jerusalem&appid=114ec643a112e43327c59d9900d3bb20");
+            xhttpWeather.send();
 
 
-
-
-xhttpWeather.onload = function () {
-
-    let weatherObj = this.response;
-    weatherObj= JSON.parse(weatherObj)
-    console.log(weatherObj);
+            })
     
+            weatherPromise
+                .then((response=>{
+                                let weatherObj = response;
+                                weatherObj= JSON.parse(weatherObj)
+                                console.log(weatherObj);
+                                container.innerText="Degrees in celsius"+(weatherObj.main.temp)+"\n\nFeels like "+(weatherObj.main.feels_like);
+                                weatherStatusImage.src=`http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png`
+                                container.style.display="block";
+
+
+
+                }))
+                .catch((status)=>{
+
+                                document.body.innerHTML=`ERROR ${status} PAGE NOT FOUND`;
+
+                })
+
 }
 
 
-xhttpWeather.send();
+
 
 
 
@@ -81,11 +123,6 @@ function countryNamesIntoAnArray(arrayOfObjectsCountries) {
 
 
 
-selectCountry.addEventListener("click",()=>{
-
-console.log(selectTab.value);
-
-})
 
 
 
