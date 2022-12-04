@@ -22,7 +22,7 @@ console.log(fetchs);
 
 xhttpWeather = new XMLHttpRequest();
 
-xhttpWeather.open("GET","https://api.openweathermap.org/data/2.5/weather?lat=40&lon=10&appid=114ec643a112e43327c59d9900d3bb20");
+xhttpWeather.open("GET","https://api.openweathermap.org/data/2.5/weather?q=Jerusalem&appid=114ec643a112e43327c59d9900d3bb20");
 
 
 
