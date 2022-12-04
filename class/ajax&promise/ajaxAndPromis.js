@@ -17,6 +17,7 @@ function  addOptionToSelectTag(arrayOfOptions) {
         newCountry.innerHTML=countryName;
 
         selectTab.appendChild(newCountry);
+        
     })
 
     
