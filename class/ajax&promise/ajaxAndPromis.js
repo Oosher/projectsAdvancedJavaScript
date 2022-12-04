@@ -11,21 +11,28 @@ const weatherStatusImage = document.createElement("img");
 
 const allContainer =document.querySelector(".allContainer")
 
+const countryFlag = document.createElement("img");
+
+allContainer.appendChild(weatherStatusImage);
 
 allContainer.appendChild(container);
 
-allContainer.appendChild(weatherStatusImage);
+allContainer.appendChild(countryFlag);
+
 
 container.className="weatherContainer";
 
 
-selectCountry.addEventListener("click",getWeather);
+selectCountry.addEventListener("click",()=>{
+
+    getWeather();
+
+
+});
 
 /* let fetchs = fetch("https://api.openweathermap.org/data/2.5/weather?lat=40&lon=10&appid=114ec643a112e43327c59d9900d3bb20")
 
 console.log(fetchs); */
-
-
 
 
 
@@ -59,16 +66,31 @@ function  getWeather() {
     
             weatherPromise
                 .then((response=>{
+                                let selectedCounter;
+
                                 let weatherObj = response;
+
                                 weatherObj= JSON.parse(weatherObj)
+
                                 console.log(weatherObj);
-                                container.innerText="Degrees in celsius"+(weatherObj.main.temp)+"\n\nFeels like "+(weatherObj.main.feels_like);
+
+                                container.innerHTML="Degrees in celsius"+(weatherObj.main.temp)+"<br><br>Feels like "+(weatherObj.main.feels_like);
+
                                 weatherStatusImage.src=`http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png`
+
                                 container.style.display="block";
 
+                                 selectedCounter = countryResult.filter((country)=>{return country.name.common==selectTab.value} );
+                                
+                                console.log(selectedCounter); 
 
+                                container.innerHTML+="<br><br>"+ selectedCounter[0].name.common+"<br><br> Area : "+selectedCounter[0].area+"<br><br>Population : "+selectedCounter[0].population+"<br><br>Continent : "+selectedCounter[0].continents[0]
+                                +"<br><br>Google maps : "+`<a href=${selectedCounter[0].maps.googleMaps}>Go to Google maps</a>`;
+
+                                countryFlag.src=selectedCounter[0].flags.png;
 
                 }))
+
                 .catch((status)=>{
 
                                 document.body.innerHTML=`ERROR ${status} PAGE NOT FOUND`;
@@ -213,18 +235,19 @@ newPromise.then(
 //option 2
 
 
+let countryResult;
 
 newPromise
 
 .then((response=>{
 
-            let result = response;
+            countryResult = response;
 
-            result = JSON.parse(result);
+            countryResult = JSON.parse(countryResult);
 
-            console.log(result);
+            console.log(countryResult);
 
-            addOptionToSelectTag(countryNamesIntoAnArray(result)) 
+            addOptionToSelectTag(countryNamesIntoAnArray(countryResult)) 
 
     }))
 
