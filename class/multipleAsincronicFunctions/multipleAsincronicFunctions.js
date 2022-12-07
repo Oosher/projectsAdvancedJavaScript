@@ -5,14 +5,7 @@ const search = document.querySelector("#search");
 
 const searchButton = document.querySelector("#searchButton");
 
-searchButton.addEventListener("click",()=>{
-
-    countryName(); 
-
-    getWeather();
-    
-}
-)
+searchButton.addEventListener("click",moreThanOnePromise);
 
 function countryName() {
 
@@ -169,4 +162,22 @@ function moreThanOnePromise() {
 
                 })
                 
+
+
+    Promise.all([newPromise,weatherPromise]).then((arrayOfResults)=>{
+
+        console.log(JSON.parse(arrayOfResults[0],arrayOfResults[1]));
+
+    })
+
+
+    .catch((arrayOfStatuses)=>{
+
+        console.log(arrayOfStatuses);
+
+    })
+
+
+
+
 }
