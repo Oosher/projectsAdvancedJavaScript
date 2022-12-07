@@ -80,7 +80,7 @@ function  getWeather() {
 
                                 container.style.display="block";
 
-                                 selectedCounter = countryResult.filter((country)=>{return country.name.common==selectTab.value} );
+                                selectedCounter = countryResult.filter((country)=>{return country.name.common==selectTab.value} );
                                 
                                 console.log(selectedCounter); 
 
