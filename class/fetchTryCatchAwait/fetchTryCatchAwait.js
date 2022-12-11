@@ -1,0 +1,5 @@
+
+
+//fetch
+
+const promise = fetch() 
