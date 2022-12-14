@@ -11,6 +11,7 @@ export default class User {
 }
 
 
+export const age =  15; 
 
 
 
