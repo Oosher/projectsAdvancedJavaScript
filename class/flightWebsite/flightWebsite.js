@@ -9,9 +9,13 @@ const departureDate = document.querySelector("#departureDate");
 
 const returnDate =document.querySelector("#returnDate");
 
+const departureAirport = document.querySelector("#departureAirport");
+
+const arrivalAirport = document.querySelector("#arrivalAirport");
+
 const submitFlightDetails = document.querySelector("#submitFlightDetails");
 
-
+const flightsContainer = document.querySelector(".flightsContainer");
 
 
 function flightApiRequest(url) {
@@ -55,6 +59,8 @@ async function getCityAirportsNearBy() {
 
     airportsNearBy = airportsNearBy[`Nearby Airports`];
 
+    flightsContainer.innerHTML="";
+
     for (let i = 0; i < airportsNearBy.length; i++) {
 
         let airportContainer = document.createElement("div");
@@ -63,7 +69,7 @@ async function getCityAirportsNearBy() {
         
         console.log(airportsNearBy.Nearby_Airports);
 
-        document.body.appendChild(airportContainer);
+        flightsContainer.appendChild(airportContainer);
         
     }
 
@@ -71,3 +77,58 @@ async function getCityAirportsNearBy() {
     console.log(airportsNearBy[`Nearby Airports`]);
     
 }
+
+
+submitFlightDetails.addEventListener("click",getFlights);
+
+async function getFlights(){
+
+    flightsContainer.innerHTML="";
+
+    if (flightType.value=="oneDirection") {
+
+        let oneWayFlights = await flightApiRequest(`onewaytrip/639793cba42e97f348f3771e/${departureAirport.value}/${arrivalAirport.value}/${departureDate.value}/1/0/0/Economy/USD`)
+
+        console.log(oneWayFlights);
+
+        oneWayFlights.fares.map((flight)=>{
+            let flightContainer = document.createElement("div");
+
+            flightContainer.style.cssText=
+            `margin: 10px auto;
+            text-align: center;
+            width: fit-content;
+            padding: 3px;
+            border: 4px lightseagreen groove;`;
+            
+            flightContainer.innerHTML=`website : ${flight.providerCode}<br><br> Price : ${flight.price.totalAmount}$ <br><br> Link for perches : <a href="${flight.handoffUrl}">Go to sight</a> <br><br> Trip id : ${flight.tripId}`;
+            console.log(flightContainer.innerHTML);
+            flightsContainer.appendChild(flightContainer);
+
+        })
+    }
+
+    if (flightType.value=="towDirections") {
+        let roundTripFlights = await flightApiRequest(`roundtrip/639793cba42e97f348f3771e/${departureAirport.value}/${arrivalAirport.value}/${departureDate.value}/${returnDate.value}/1/0/0/Economy/USD`)
+
+        console.log(roundTripFlights);
+
+        roundTripFlights.fares.map((flight)=>{
+            let flightContainer = document.createElement("div");
+            flightContainer.style.cssText=
+            `margin: 10px auto;
+            text-align: center;
+            width: fit-content;
+            padding: 3px;
+            border: 4px lightseagreen groove;`;
+            flightContainer.innerHTML=`website : ${flight.providerCode}<br><br> Price : ${flight.price.totalAmount}$ <br><br> Link for perches : <a href="${flight.handoffUrl}">Go to sight</a> <br><br> Trip id : ${flight.tripId}`;
+            console.log(flightContainer.innerHTML);
+            flightsContainer.appendChild(flightContainer);
+
+        })
+    }
+}
+
+
+
+
