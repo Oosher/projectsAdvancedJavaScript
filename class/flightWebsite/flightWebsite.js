@@ -67,6 +67,12 @@ async function getCityAirportsNearBy() {
 
         airportContainer.innerHTML=airportsNearBy[i].Airport+"<br><br>"+airportsNearBy[i].Code+"<br><br>"+airportsNearBy[i].Title+"<br><br><br><br>"
         
+        airportContainer.style.cssText=`
+        
+        width:50vw;
+        margin:10px auto;
+        text-align: center;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;`
         console.log(airportsNearBy.Nearby_Airports);
 
         flightsContainer.appendChild(airportContainer);
