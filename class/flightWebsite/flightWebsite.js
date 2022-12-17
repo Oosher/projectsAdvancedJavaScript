@@ -93,19 +93,45 @@ async function getFlights(){
 
         oneWayFlights.fares.map((flight)=>{
             let flightContainer = document.createElement("div");
-
+            let website = document.createElement("h1");
+            let price = document.createElement("h2");
+            let flightId = document.createElement("p");
+            let perchesNow = document.createElement("a");
+            let perchesButton = document.createElement("button");
+            website.innerText=`${flight.providerCode}`;
+            price.innerText = `${flight.price.totalAmount}$`;
+            flightId.innerText=` Trip id : ${flight.tripId}`;
+            perchesNow.href=`${flight.handoffUrl}`;
+            perchesButton.innerText=`Perches now`
+            perchesNow.appendChild(perchesButton);
             flightContainer.style.cssText=
             `margin: 10px auto;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            column-gap: 5px;
             text-align: center;
-            width: fit-content;
+            width: 50vw;
             padding: 3px;
-            border: 2px lightseagreen groove;
-            border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;`;
-            
-            flightContainer.innerHTML=`website : ${flight.providerCode}<br><br> Price : ${flight.price.totalAmount}$ <br><br> Link for perches : <a href="${flight.handoffUrl}">Go to sight</a> <br><br> Trip id : ${flight.tripId}`;
+            border-radius: 10px;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;`;
+
+            price.style.cssText=`color: blue;`
+
+            perchesButton.style.cssText=`border: solid darkblue 1px;
+            border-radius: 5px;
+            background-color: whitesmoke;
+            height: 100%;
+            width:100%;
+            color: blue;`;
+
+            flightContainer.appendChild(website);
+            flightContainer.appendChild(price);
+            flightContainer.appendChild(flightId);
+            flightContainer.appendChild(perchesNow);
             console.log(flightContainer.innerHTML);
             flightsContainer.appendChild(flightContainer);
+            flightsContainer.style.display="block";
 
         })
     }
@@ -117,17 +143,45 @@ async function getFlights(){
 
         roundTripFlights.fares.map((flight)=>{
             let flightContainer = document.createElement("div");
+            let website = document.createElement("h1");
+            let price = document.createElement("h2");
+            let flightId = document.createElement("p");
+            let perchesNow = document.createElement("a");
+            let perchesButton = document.createElement("button");
+            website.innerText=`${flight.providerCode}`;
+            price.innerText = `${flight.price.totalAmount}$`;
+            flightId.innerText=` Trip id : ${flight.tripId}`;
+            perchesNow.href=`${flight.handoffUrl}`;
+            perchesButton.innerText=`Perches now`
+            perchesNow.appendChild(perchesButton);
             flightContainer.style.cssText=
             `margin: 10px auto;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            column-gap: 5px;
             text-align: center;
-            width: fit-content;
+            width: 50vw;
             padding: 3px;
-            border: 2px lightseagreen groove;
-            border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;`;
-            flightContainer.innerHTML=`website : ${flight.providerCode}<br><br> Price : ${flight.price.totalAmount}$ <br><br> Link for perches : <a href="${flight.handoffUrl}">Go to sight</a> <br><br> Trip id : ${flight.tripId}`;
+            border-radius: 10px;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;`;
+
+            price.style.cssText=`color: blue;`
+
+            perchesButton.style.cssText=`border: solid darkblue 1px;
+            border-radius: 5px;
+            background-color: whitesmoke;
+            width:100%;
+            height: 100%;
+            color: blue;`;
+
+            flightContainer.appendChild(website);
+            flightContainer.appendChild(price);
+            flightContainer.appendChild(flightId);
+            flightContainer.appendChild(perchesNow);
             console.log(flightContainer.innerHTML);
             flightsContainer.appendChild(flightContainer);
+            flightsContainer.style.display="block";
 
         })
     }
