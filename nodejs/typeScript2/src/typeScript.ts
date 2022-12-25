@@ -112,3 +112,163 @@ let addNums4 = (num1:number,num2:number):number =>{
 
 }
 
+
+
+
+
+
+let array =[ 2,3,5,6,7,8,9,0,4,5];
+
+function twoAddedNumbers(array:number[],sumValue:number){
+    
+    
+    for (let i = 0; i < array.length; i++) {
+        
+        for (let j = 0; j < array.length; j++) {
+            
+            if ((array[i]+array[j])==sumValue) {
+                
+                return array[i]+" "+array[j];
+                
+            }
+            
+        }
+        
+    }
+    
+    return null;
+    
+}
+
+
+
+
+console.log(twoAddedNumbers(array,5));
+
+
+
+
+
+
+//interface 
+
+
+interface student {
+    name:string;
+    age:number;
+    sayHellow:()=> void ;
+        
+    
+};
+
+
+//type definition
+
+type studentType = {
+    name:string;
+    age:number;
+};
+
+
+const newFunction2 = (student:{name:string;age:number;})=>{
+
+    console.log("hello i am " + student.name);
+
+}
+
+
+
+const student = {
+
+    name:"233",age:23
+
+}
+newFunction2(student);
+
+
+class Exchange {
+
+    symbol:string;
+
+    lastPrice:number;
+
+    volume:number;
+
+    priceChangePrecent:number;
+
+    constructor (symbol:string,lastPrice:number,volume:number,priceChangePrecent:number){
+
+        this.symbol=symbol;
+
+        this.lastPrice=lastPrice;
+
+        this.priceChangePrecent = priceChangePrecent;
+
+        this.volume = volume;
+
+    }
+
+}
+
+//class task 2 
+
+
+class bankAccount {
+
+    checkingAccount:number ;
+
+    belongsTo:string;
+
+
+
+    constructor (checkingAccount:number,belongsTo:string){
+
+        this.checkingAccount= checkingAccount;
+
+        this.belongsTo= belongsTo;
+        
+
+    }
+
+    getBalance(){
+
+        return this.checkingAccount;
+
+    }
+
+    addBalance(amount:number){
+
+        this.checkingAccount+=amount;
+
+    }
+
+    withdraw(amount:number){
+        
+
+        if(this.checkingAccount-amount<0){
+            console.log("you cannot withdraw more than you have in this account");
+            
+        }
+        else{
+        this.checkingAccount-=amount;
+    }
+
+    }
+
+}
+
+
+let newBankAccount = new bankAccount(23245,"yusef");
+
+
+newBankAccount.addBalance(10000);
+
+newBankAccount.withdraw(2000000000);
+
+
+console.log(newBankAccount.getBalance());
+
+
+
+
+

@@ -39,3 +39,56 @@ addNums3(1, 6, 7);
 let addNums4 = (num1, num2) => {
     return num1 - num2;
 };
+let array = [2, 3, 5, 6, 7, 8, 9, 0, 4, 5];
+function twoAddedNumbers(array, sumValue) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            if ((array[i] + array[j]) == sumValue) {
+                return array[i] + " " + array[j];
+            }
+        }
+    }
+    return null;
+}
+console.log(twoAddedNumbers(array, 5));
+;
+const newFunction2 = (student) => {
+    console.log("hello i am " + student.name);
+};
+const student = {
+    name: "233", age: 23
+};
+newFunction2(student);
+class Exchange {
+    constructor(symbol, lastPrice, volume, priceChangePrecent) {
+        this.symbol = symbol;
+        this.lastPrice = lastPrice;
+        this.priceChangePrecent = priceChangePrecent;
+        this.volume = volume;
+    }
+}
+//class task 2 
+class bankAccount {
+    constructor(checkingAccount, belongsTo) {
+        this.checkingAccount = checkingAccount;
+        this.belongsTo = belongsTo;
+    }
+    getBalance() {
+        return this.checkingAccount;
+    }
+    addBalance(amount) {
+        this.checkingAccount += amount;
+    }
+    withdraw(amount) {
+        if (this.checkingAccount - amount < 0) {
+            console.log("you cannot withdraw more than you have in this account");
+        }
+        else {
+            this.checkingAccount -= amount;
+        }
+    }
+}
+let newBankAccount = new bankAccount(23245, "yusef");
+newBankAccount.addBalance(10000);
+newBankAccount.withdraw(2000000000);
+console.log(newBankAccount.getBalance());
