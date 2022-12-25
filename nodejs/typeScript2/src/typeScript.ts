@@ -98,3 +98,17 @@ let addNums3 = (a:number,b:number,c:number = 10)=>{
     console.log(a/b*c);
     
 }
+
+
+addNums3(1,6,7);
+
+
+//function type
+
+
+let addNums4 = (num1:number,num2:number):number =>{
+
+    return num1-num2;
+
+}
+
