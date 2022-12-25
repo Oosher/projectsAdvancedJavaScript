@@ -177,7 +177,6 @@ const newFunction2 = (student:{name:string;age:number;})=>{
 }
 
 
-
 const student = {
 
     name:"233",age:23
