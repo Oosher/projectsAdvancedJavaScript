@@ -34,23 +34,3 @@ let newPoint2;
 newPoint1 = { x: 5, y: 0 };
 newPoint2 = { x: 8, y: 0 };
 console.log(distance(newPoint1, newPoint2));
-//class task 2
-function removeAEUIO(string) {
-    //regex solution
-    let finalString = string.replace(/a|u|i|e|o/g, "");
-    //normal solution 
-    let whatToReplace = ["a", "e", "u", "i", "o"];
-    /*     for (let i = 0; i < string.length; i++) {
-            
-            if (whatToReplace.indexOf(string[i])!=-1) {
-    
-                string.replace(string[i],"");
-                
-            }
-    
-            
-        }
-         */
-    return finalString;
-}
-console.log(removeAEUIO("semiong"));
