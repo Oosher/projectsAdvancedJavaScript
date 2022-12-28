@@ -118,8 +118,10 @@ function getData2(){
 
 
 function displayData(array:CryptoCoin[]){
-
+cryptoTable.innerHTML="";
     array.map((coin:any)=>{
+        
+        
 
         let newCryptoTable = document.createElement("tr");
         
@@ -139,10 +141,12 @@ function displayData(array:CryptoCoin[]){
 
 
 searchByCoinName?.addEventListener("click",()=>{
-    cryptoTable.innerHTML="";
-    
+   
+
     displayData(coinsArray.filter((coin)=>{
-        return coin.symbol == coinSymbol.value;
+
+        return coin.symbol.includes(coinSymbol.value);
+
     }));
 
     

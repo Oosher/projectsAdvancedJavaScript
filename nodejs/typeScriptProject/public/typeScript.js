@@ -55,6 +55,7 @@ function getData2() {
 }
 ;
 function displayData(array) {
+    cryptoTable.innerHTML = "";
     array.map((coin) => {
         let newCryptoTable = document.createElement("tr");
         newCryptoTable.innerHTML = `<th>${coin.symbol}</th>
@@ -67,9 +68,8 @@ function displayData(array) {
 }
 //search by coin name name 
 searchByCoinName === null || searchByCoinName === void 0 ? void 0 : searchByCoinName.addEventListener("click", () => {
-    cryptoTable.innerHTML = "";
     displayData(coinsArray.filter((coin) => {
-        return coin.symbol == coinSymbol.value;
+        return coin.symbol.includes(coinSymbol.value);
     }));
 });
 const newCoin = new CryptoCoin("abah", 123, 12, 3.6);
