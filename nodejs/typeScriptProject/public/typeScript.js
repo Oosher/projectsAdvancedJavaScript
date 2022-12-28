@@ -1,36 +1,34 @@
 "use strict";
-//The DOM and type casting 
-//Option 1 
-//we add a ! sign at the end 
-let newButton = document.querySelector("button");
-console.log(newButton.innerText);
-/*  Option 2
-
-if (newButton) {
-
-    console.log(newButton.innerText);
-
+//crypto website
+//properties :symbol , last price ,volume ,price change percent
+//get data
+class CryptoCoin {
+    constructor(symbol, lastPrice, volume, priceChangePercent) {
+        this.symbol = symbol;
+        this.lastPrice = lastPrice;
+        this.volume = volume;
+        this.priceChangePercent = priceChangePercent;
+    }
 }
-
-*/
-// Option 3
-/*
-we add a ? to the element to make it not necessary to return a value
-console.log(newButton?.innerText);
-
-*/
-//Type casting 
-let input1 = document.querySelector("#input1");
-newButton.addEventListener("click", () => {
-    console.log(input1.value);
-});
-let newPoint;
-function distance(point1, point2 = { x: 0, y: 0 }) {
-    let dist = Math.sqrt(Math.pow((point2.x - point1.x), 2) + Math.pow((point2.y - point1.y), 2));
-    return dist;
+function getData() {
+    const cryptoPromise = new Promise((resolve, reject) => {
+        const cryptoCoins = new XMLHttpRequest();
+        cryptoCoins.open("GET", "https://api2.binance.com/api/v3/ticker/24hr");
+        cryptoCoins.onload = function () {
+            if (cryptoCoins.status == 200) {
+                resolve(JSON.parse(cryptoCoins.response));
+            }
+            else {
+                reject(cryptoCoins.status);
+            }
+        };
+        cryptoCoins.send();
+    });
+    cryptoPromise.then((response) => {
+        console.log(response);
+    }).catch((status) => {
+    });
 }
-let newPoint1;
-let newPoint2;
-newPoint1 = { x: 5, y: 0 };
-newPoint2 = { x: 8, y: 0 };
-console.log(distance(newPoint1, newPoint2));
+getData();
+const newCoin = new CryptoCoin("abah", 123, 12, 3.6);
+console.log(newCoin);

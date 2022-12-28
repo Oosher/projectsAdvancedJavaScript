@@ -1,81 +1,87 @@
 
-//The DOM and type casting 
 
-//Option 1 
+//crypto website
 
-//we add a ! sign at the end 
 
-let newButton = document.querySelector("button")!;
+//properties :symbol , last price ,volume ,price change percent
 
-console.log(newButton.innerText);
 
-/*  Option 2
+//get data
 
-if (newButton) {
+class CryptoCoin{
 
-    console.log(newButton.innerText);
+    symbol: string;
+
+    lastPrice: number;
+
+    volume:number;
+
+    priceChangePercent: number;
+
+
+    constructor(symbol:string,lastPrice: number,volume:number,priceChangePercent:number){
+
+        this.symbol=symbol;
+
+        this.lastPrice=lastPrice;
+
+        this.volume = volume;
+
+        this.priceChangePercent = priceChangePercent;
+
+    }
+
+
 
 } 
 
-*/
+function getData(){
 
 
-// Option 3
-/* 
-we add a ? to the element to make it not necessary to return a value
-console.log(newButton?.innerText); 
-
-*/
+    const cryptoPromise = new Promise ((resolve,reject)=>{
 
 
-//Type casting 
+        const cryptoCoins = new XMLHttpRequest();
+
+        cryptoCoins.open("GET","https://api2.binance.com/api/v3/ticker/24hr");
+
+        cryptoCoins.onload = function(){
+            if (cryptoCoins.status==200) {
+
+                resolve(JSON.parse(cryptoCoins.response));
+                
+            }
+
+            else{
+
+                reject(cryptoCoins.status);
+
+            }
+        } 
+
+        cryptoCoins.send();
+
+    });
 
 
-let input1 = document.querySelector("#input1") as HTMLInputElement;
+    cryptoPromise.then((response:any)=>{
+
+    console.log(response);
+
+    }).catch((status:any)=>{
 
 
-newButton.addEventListener("click",()=>{
+    })
 
-console.log(input1.value);
-
-});
-
-
-
-
-
-//class task 1
-
-
-interface Point{
-
-    x:number;
-
-    y:number;
-    
-    
 
 }
 
-
-let newPoint : Point;
-
-function distance(point1:Point, point2:Point={x : 0 , y : 0}){
-
-    let dist = Math.sqrt(Math.pow((point2.x-point1.x),2)+ Math.pow((point2.y-point1.y),2)) 
-
-    return dist;
-
-}
-
-let newPoint1 : Point;
-
-let newPoint2 : Point;
+getData();
 
 
-newPoint1 = {x:5,y:0};
 
-newPoint2 = {x:8,y:0};
+const newCoin = new CryptoCoin("abah",123,12,3.6);
+
+console.log(newCoin);
 
 
-console.log( distance(newPoint1,newPoint2) );
