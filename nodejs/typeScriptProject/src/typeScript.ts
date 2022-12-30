@@ -15,6 +15,20 @@ const searchByCoinName = document.querySelector("#searchBtn");
 
 const coinSymbol = document.querySelector("#currency-name") as HTMLInputElement;
 
+const minPrice = document.querySelector("#min-price") as HTMLInputElement;
+
+const maxPrice = document.querySelector("#max-price") as HTMLInputElement;
+
+const priceRageSearch = document.querySelector("#price-search-button") as HTMLButtonElement;
+
+const minVolume = document.querySelector("#min-volume") as HTMLInputElement;
+
+const maxVolume = document.querySelector("#max-volume") as HTMLInputElement;
+
+const searchByVolume =document.querySelector("#volume-search-button") as HTMLButtonElement;
+
+
+
 class CryptoCoin{
 
     symbol: string;
@@ -141,7 +155,6 @@ cryptoTable.innerHTML="";
 
 
 searchByCoinName?.addEventListener("click",()=>{
-   
 
     displayData(coinsArray.filter((coin)=>{
 
@@ -157,3 +170,41 @@ const newCoin = new CryptoCoin("abah",123,12,3.6);
 console.log(newCoin);
 
 
+
+
+//search by price 
+
+
+priceRageSearch.addEventListener("click",()=>{
+
+displayData(coinsArray.filter((coin)=>{
+
+    return coin.lastPrice>+minPrice.value&& coin.lastPrice<+maxPrice.value ;
+
+}));
+
+
+});
+
+
+
+
+
+//search by volume 
+
+
+
+
+searchByVolume.addEventListener("click",()=>{
+
+
+    displayData(coinsArray.filter((coin)=>{
+        return coin.volume>+minVolume.value&&coin.volume<+maxVolume.value;
+    }))
+})
+
+
+
+
+
+//top 10 exchange rates by volume 
