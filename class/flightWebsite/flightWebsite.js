@@ -98,6 +98,16 @@ async function getFlights(){
         console.log(oneWayFlights);
 
         oneWayFlights.fares.map((flight)=>{
+
+            let stopsIndex = oneWayFlights.legs.findIndex((legs)=>{
+            return legs.id ==oneWayFlights.trips[oneWayFlights.trips.findIndex((trip)=>
+            {
+                
+            return trip.id== flight.tripId
+                
+            })].legIds[0];
+            }); 
+
             let flightContainer = document.createElement("div");
             let website = document.createElement("h1");
             let price = document.createElement("h2");
@@ -106,7 +116,7 @@ async function getFlights(){
             let perchesButton = document.createElement("button");
             website.innerText=`${flight.providerCode}`;
             price.innerText = `${flight.price.totalAmount}$`;
-            flightId.innerText=` Trip id : ${flight.tripId}`;
+            flightId.innerText=`Number of stops : ${oneWayFlights.legs[stopsIndex].segments.length-1} \n Flight duration : ${oneWayFlights.legs[stopsIndex].duration} \n Departure time from ${departureAirport.value} : ${oneWayFlights.legs[stopsIndex].departureTime} \n Arrival time to ${arrivalAirport.value} :  ${oneWayFlights.legs[stopsIndex].arrivalTime}\n Trip id : ${flight.tripId}`;
             perchesNow.href=`${flight.handoffUrl}`;
             perchesButton.innerText=`Perches now`
             perchesNow.appendChild(perchesButton);
@@ -122,7 +132,11 @@ async function getFlights(){
             border-radius: 10px;
             box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;`;
 
-            price.style.cssText=`color: blue;`
+            price.style.cssText=`color: blue;
+            align-self: end;`
+
+            perchesNow.style.cssText=` height:70%;
+            align-self: end;`
 
             perchesButton.style.cssText=`border: solid darkblue 1px;
             border-radius: 5px;
@@ -183,7 +197,11 @@ async function getFlights(){
             border-radius: 10px;
             box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;`;
 
-            price.style.cssText=`color: blue;`
+            price.style.cssText=`color: blue;
+            align-self: end;`
+
+            perchesNow.style.cssText=` height:70%;
+            align-self: end;`
 
             perchesButton.style.cssText=`border: solid darkblue 1px;
             border-radius: 5px;
