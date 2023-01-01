@@ -135,7 +135,6 @@ async function getFlights(){
             flightContainer.appendChild(price);
             flightContainer.appendChild(flightId);
             flightContainer.appendChild(perchesNow);
-            console.log(flightContainer.innerHTML);
             flightsContainer.appendChild(flightContainer);
             flightsContainer.style.display="block";
 
@@ -147,7 +146,19 @@ async function getFlights(){
 
         console.log(roundTripFlights);
 
+
         roundTripFlights.fares.map((flight)=>{
+
+
+            let stopsIndex = roundTripFlights.legs.findIndex((legs)=>{
+            return legs.id ==roundTripFlights.trips[roundTripFlights.trips.findIndex((trip)=>
+            {
+                
+            return trip.id== flight.tripId
+                
+            })].legIds[0];
+            }); 
+
             let flightContainer = document.createElement("div");
             let website = document.createElement("h1");
             let price = document.createElement("h2");
@@ -156,7 +167,7 @@ async function getFlights(){
             let perchesButton = document.createElement("button");
             website.innerText=`${flight.providerCode}`;
             price.innerText = `${flight.price.totalAmount}$`;
-            flightId.innerText=` Trip id : ${flight.tripId}`;
+            flightId.innerText=`Number of stops : ${roundTripFlights.legs[stopsIndex].segments.length-1} \n Flight duration : ${roundTripFlights.legs[stopsIndex].duration} \n Departure time from ${departureAirport.value} : ${roundTripFlights.legs[stopsIndex].departureTime} \n Arrival time to ${arrivalAirport.value} :  ${roundTripFlights.legs[stopsIndex].arrivalTime}\n Trip id : ${flight.tripId}`;
             perchesNow.href=`${flight.handoffUrl}`;
             perchesButton.innerText=`Perches now`
             perchesNow.appendChild(perchesButton);
@@ -185,7 +196,6 @@ async function getFlights(){
             flightContainer.appendChild(price);
             flightContainer.appendChild(flightId);
             flightContainer.appendChild(perchesNow);
-            console.log(flightContainer.innerHTML);
             flightsContainer.appendChild(flightContainer);
             flightsContainer.style.display="block";
 
