@@ -11,6 +11,10 @@ const priceRageSearch = document.querySelector("#price-search-button");
 const minVolume = document.querySelector("#min-volume");
 const maxVolume = document.querySelector("#max-volume");
 const searchByVolume = document.querySelector("#volume-search-button");
+const top10ByVolume = document.querySelector("#top-10-button");
+const sortBy = document.querySelector("#sort-by");
+const sortButton = document.querySelector("#sort-button");
+const ascendingSort = document.querySelector("#sort-ascending");
 class CryptoCoin {
     constructor(symbol, lastPrice, volume, priceChangePercent) {
         this.symbol = symbol;
@@ -105,3 +109,41 @@ searchByVolume.addEventListener("click", () => {
     }));
 });
 //top 10 exchange rates by volume 
+top10ByVolume.addEventListener("click", () => {
+    let newCoinArray;
+    newCoinArray = coinsArray;
+    console.log(newCoinArray);
+    newCoinArray.sort((a, b) => { return b.volume - a.volume; });
+    displayData(newCoinArray.slice(0, 10));
+});
+// sort by
+sortButton.addEventListener("click", () => {
+    let sortByArray;
+    sortByArray = coinsArray;
+    displayData(sortByArray.sort((a, b) => {
+        if (ascendingSort.checked) {
+            let temp = a;
+            a = b;
+            b = temp;
+        }
+        switch (sortBy.value) {
+            case "volume":
+                return b.volume - a.volume;
+            case "lastPrice":
+                return b.lastPrice - a.lastPrice;
+            case "priceChangePercent":
+                return b.priceChangePercent - a.priceChangePercent;
+            default:
+                let x = a.symbol.toLowerCase();
+                let y = b.symbol.toLowerCase();
+                if (x < y) {
+                    return -1;
+                }
+                if (x > y) {
+                    return 1;
+                }
+                return 0;
+                ;
+        }
+    }));
+});
