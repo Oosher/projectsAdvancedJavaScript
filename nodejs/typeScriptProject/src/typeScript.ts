@@ -178,6 +178,17 @@ console.log(newCoin);
 priceRageSearch.addEventListener("click",()=>{
 
 displayData(coinsArray.filter((coin)=>{
+    
+    if (minPrice.value!=""&&maxPrice.value=="") {
+
+        return coin.lastPrice>+minPrice.value;
+        
+    }
+    if (minPrice.value==""&&maxPrice.value!="") {
+
+        return coin.lastPrice<+maxPrice.value;
+        
+    }
 
     return coin.lastPrice>+minPrice.value&& coin.lastPrice<+maxPrice.value ;
 
@@ -199,7 +210,19 @@ searchByVolume.addEventListener("click",()=>{
 
 
     displayData(coinsArray.filter((coin)=>{
+
+        if(minVolume.value!=""&&maxVolume.value==""){
+
+            return coin.volume>+minVolume.value;
+            
+        }
+        if(minVolume.value==""&&maxVolume.value!=""){
+
+            return coin.volume<+maxVolume.value;
+            
+        }
         return coin.volume>+minVolume.value&&coin.volume<+maxVolume.value;
+
     }))
 })
 
