@@ -62,10 +62,10 @@ function timer(timerInitialization){
         newElement.appendChild(stopTimer);
         newElement.appendChild(deleteButton);
 
-       
+
 
         deleteButton.addEventListener("click",this.deleteTimer)
- 
+
         stopTimer.addEventListener("click", this.timerStop)
 
         startButton.addEventListener("click",function(){
@@ -73,7 +73,7 @@ function timer(timerInitialization){
             clearInterval(countDownInterval);
 
             countDownInterval= setInterval(timerCountDown, 1000);
-           
+        
         });
     }
 
