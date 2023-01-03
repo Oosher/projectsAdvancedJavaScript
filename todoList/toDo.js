@@ -112,7 +112,7 @@ function displayData(taskArray){
 
     taskArray.map((task)=>{
 
-        const newTaskBox = document.createElement("div");
+        task.taskContainer = document.createElement("div");
         
         task.editButton = document.createElement("button");
 
@@ -137,7 +137,7 @@ function displayData(taskArray){
 
         })
 
-        newTaskBox.innerText=`${task.description} ${task.date}`;
+        task.taskContainer.innerText=`${task.description} ${task.date}`;
 
         task.editButton.innerText="Edit"
 
@@ -145,13 +145,13 @@ function displayData(taskArray){
 
         task.status.innerHTML="&#10003;";
         
-        newTaskBox.appendChild(task.status);
+        task.taskContainer.appendChild(task.status);
 
-        newTaskBox.appendChild(task.editButton);
+        task.taskContainer.appendChild(task.editButton);
 
-        newTaskBox.appendChild(task.deleteButton)
+        task.taskContainer.appendChild(task.deleteButton)
 
-        tasksContainer.appendChild(newTaskBox);
+        tasksContainer.appendChild(task.taskContainer);
     })
 }
 
