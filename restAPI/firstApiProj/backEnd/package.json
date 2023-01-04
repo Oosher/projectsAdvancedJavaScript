@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "0.5.0",
+  "description": "api backend",
+  "main": "apiJs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "api"
+  ],
+  "author": "Asher Ben Zaken",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
