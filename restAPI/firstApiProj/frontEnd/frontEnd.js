@@ -1,17 +1,19 @@
 
+let varReq = "students/4"
 
-
-let response = fetch("http://localhost:3000/students");
+let response = fetch(`http://localhost:3000/${varReq}`);
 
 response.then((value)=>{
 
-    return value.text;
+    return value.text();
 
-}).then((students)=>{
+})
+.then((students)=>{
 
-    console.log(students);
+    console.log(JSON.parse(students));
 
-}).catch((status)=>{
+})
+.catch((status)=>{
 
     console.log(status);
 

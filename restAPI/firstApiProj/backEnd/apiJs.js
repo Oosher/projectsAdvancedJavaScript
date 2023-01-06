@@ -3,7 +3,15 @@ import express from "express";
 
 import students from "./dataBase.js";
 
+import cors from "cors";
+
 const api = express();
+
+api.use(
+    cors({
+        origin:"*",
+    })
+);
 
 api.get("/",function (req,res){
 
@@ -17,6 +25,20 @@ api.get("/students",function (req,res){
     res.send(students)
 
 });
+
+
+api.get("/students/:id",function(req,res){
+
+    console.log(req.params.id);
+
+    res.send(students[students.findIndex((student)=>{
+
+        return student.id == req.params.id;
+
+    })])
+
+});
+
 
 api.listen(3000,()=>{
     
