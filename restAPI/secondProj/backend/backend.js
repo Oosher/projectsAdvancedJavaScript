@@ -24,10 +24,20 @@ api.get("/",function(req,res){
 
 api.get("/randobj/:objName",function(req,res){
 
-    res.send(randObj[randObj.findIndex((obj)=>{
+    let indexOfName =randObj.findIndex((obj)=>{
         return Object.keys(obj) == req.params.objName;
-    })]);
+    });
 
+    console.log(indexOfName);
+    if (indexOfName==-1) {
+        
+        res.status(404).send("param not fount");
+        
+    }
+    
+    res.send(randObj[indexOfName]);
+    
+    
     console.log(Object.keys(randObj[2])[0]);
 
 });
