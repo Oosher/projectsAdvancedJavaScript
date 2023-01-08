@@ -20,14 +20,19 @@ api.get("/",function(req,res){
 
 });
 
+//added a method of finding a request by the obj key name and not by a specific parameter
+
 api.get("/randobj/:objName",function(req,res){
 
     res.send(randObj[randObj.findIndex((obj)=>{
         return Object.keys(obj) == req.params.objName;
     })]);
 
-    
+    console.log(Object.keys(randObj[2])[0]);
+
 });
+
+
 api.listen(3000,function(){
     console.log("server is working");
 })
