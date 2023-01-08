@@ -3,23 +3,44 @@ import express from "express";
 
 import cors from "cors";
 
-import randObj  from "./dataBase.js";
+import defaultRandObj  from "./dataBase.js";
 
 import bodyParser from "body-parser";
 
+import LocalStorage from "node-localstorage";
+
 const api = express();
 
+const localStorage = new LocalStorage.LocalStorage('./scratch');
+
+let randObj = defaultRandObj;
+
+if(localStorage.getItem("savedArray")!=null){
+
+    randObj = JSON.parse(localStorage.getItem("savedArray"));
+
+}
+
+save();
+
 api.use(
-    cors({
+    cors({ 
         origin:"*",
     }),
     bodyParser.json(),
+
 );
 
 
 api.get("/",function(req,res){
 
     res.send("nuds");
+
+});
+
+api.get("/randobj",function(req,res){
+
+    res.send(randObj);
 
 });
 
@@ -58,17 +79,43 @@ api.put("/randobj/:objName",function(req,res){
     
     res.status(200).send(randObj);
 
+        
+    save();
+
 });
 
 
 api.post("/randobj",(req,res)=>{
 
-randObj.push(req.body);
+    randObj.push({...req.body,num:randObj.length+1});
 
-res.send(randObj);
+    res.send(randObj);
+
+    save();
 
 });
+
+api.delete("/randobj/:objName",(req,res)=>{
+
+    let indexOfName =randObj.findIndex((obj)=>{
+            return Object.keys(obj) == req.params.objName;
+        });
+        console.log(indexOfName);
+        
+    randObj.splice(indexOfName,1);
+
+    res.send(randObj);
+
+    save();
+
+})
 
 api.listen(3000,function(){
     console.log("server is working");
 })
+
+function save (){
+
+    localStorage.setItem("savedArray",JSON.stringify(randObj));
+
+}
