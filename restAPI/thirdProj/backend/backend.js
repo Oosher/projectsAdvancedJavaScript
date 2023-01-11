@@ -22,8 +22,13 @@ const api = express();
 /* const localStorage = new LocalStorage.LocalStorage('./scratch'); */
 
 
-const localStorage = require("node-localstorage").LocalStorage('./scratch')
+const LocalStorage = require("node-localstorage").LocalStorage;
 
+const localStorage = new LocalStorage('./scratch');
+
+let arrayOfPeopleForNewsLEtter = [];
+
+arrayOfPeopleForNewsLEtter = JSON.parse(localStorage.getItem("savedArray"));
 
 
 api.use(
@@ -58,7 +63,11 @@ api.post("/",(req,res)=>{
 
     console.log(req.body);
 
-    res.send(req.body);
+    arrayOfPeopleForNewsLEtter.push(req.body);
+
+    res.send(arrayOfPeopleForNewsLEtter);
+
+    save();
 
 });
 
@@ -67,8 +76,8 @@ api.listen(3000,function(){
     console.log("server is working");
 })
 
-/* function save (){
+function save (){
 
-    localStorage.setItem("savedArray",JSON.stringify(randObj));
+    localStorage.setItem("savedArray",JSON.stringify(arrayOfPeopleForNewsLEtter));
 
-} */
+} 
