@@ -67,6 +67,8 @@ api.post("/",(req,res)=>{
 
     res.send(arrayOfPeopleForNewsLEtter);
 
+    console.log(arrayOfPeopleForNewsLEtter);
+    
     save();
 
 });
