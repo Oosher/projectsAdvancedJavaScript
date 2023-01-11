@@ -16,12 +16,12 @@ async function getRandObj(){
 getRandObj();
 
 
-async function crateNewObj(obj){
+async function apiRequest(url,method,headers,body){
 
     try{
-        const response = await fetch("http://localhost:3000/randobj",{method:"POST",
-                                headers:{"Content-Type":"application/json"},
-                                body:JSON.stringify(obj),}
+        const response = await fetch(`http://localhost:3000/${url}`,{method:method,
+                                headers:headers,
+                                body:body,}
                     )
                     console.log(await response.json());
     }catch(error){
@@ -29,4 +29,44 @@ async function crateNewObj(obj){
     }
 }
 
-crateNewObj({dis:"sdsad"});
+apiRequest("randobj","POST",{"Content-Type":"application/json"},JSON.stringify({yosef:"shmuelov"}));
+
+
+
+async function getRandObjByName(name){
+    try{
+        const response = await fetch(`http://localhost:3000/randobj/${name}`)
+        const randObjName = await response.json();
+        console.log(randObjName);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+
+getRandObjByName("AMNON");
+
+
+
+
+/* async function deleteObj(objName){
+
+    try{
+        const response = await fetch(`http://localhost:3000/randobj/${objName}`,{
+            method:"DELETE",})
+                    console.log(await response.json());
+    }catch(error){
+        console.log(error);
+    }
+}
+
+deleteObj("dis"); */
+
+
+
+apiRequest("randobj/dis","DELETE");
+
+
+apiRequest("randobj/yosef","PUT",{"Content-Type":"application/json"},JSON.stringify({AMNON:"LEHI"}));

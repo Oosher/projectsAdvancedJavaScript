@@ -15,11 +15,12 @@ const localStorage = new LocalStorage.LocalStorage('./scratch');
 
 let randObj = defaultRandObj;
 
-if(localStorage.getItem("savedArray")!=null){
+if(localStorage.getItem("savedArray")!=""){
 
     randObj = JSON.parse(localStorage.getItem("savedArray"));
 
 }
+
 
 save();
 
@@ -77,7 +78,14 @@ api.put("/randobj/:objName",function(req,res){
 
     randObj[indexOfName]=req.body;
     
-    res.status(200).send(randObj);
+    
+
+    if (indexOfName==-1) {
+        res.status(404).send("objNotFound")
+    }
+    else{
+        res.status(200).send(randObj);
+    }
 
         
     save();
@@ -87,7 +95,7 @@ api.put("/randobj/:objName",function(req,res){
 
 api.post("/randobj",(req,res)=>{
 
-    randObj.push({...req.body,num:randObj.length+1});
+    randObj.push(req.body);
 
     res.send(randObj);
 
