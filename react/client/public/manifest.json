@@ -3,18 +3,18 @@
   "name": "web icon for clients",
   "icons": [
     {
-      "src": "./assets/images/webIcon.jpg",
+      "src": "./assets/images/business-card.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/jpg"
+      "type": "image/png"
     },
     {
-      "src": "./assets/images/webIcon.jpg",
-      "type": "image/jpg",
+      "src": "./assets/images/business-card.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assets/images/webIcon.jpg",
-      "type": "image/jpg",
+      "src": "./assets/images/business-card.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
