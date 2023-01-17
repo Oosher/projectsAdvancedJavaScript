@@ -44,6 +44,14 @@ div a{
     font-size: 1.3rem;
 }
 
+#progressBar{
+    display:block;
+    position: absolute;
+    height: 6px;
+    background-color:darkgoldenrod;
+    width: 0%;
+    align-self: flex-end;
+}
 
 @keyframes fade {
     0%{opacity: 0;}
