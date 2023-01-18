@@ -1,4 +1,5 @@
 import "./header.css";
+import Button from '@mui/material/Button'
 const PageHeader  = ()=>{
 
     
@@ -39,6 +40,9 @@ student = student.replaceAll(`"`,` `);
     })}</h1>
 
     <h1>{student}</h1>
+    <Button variant="text" color="secondary">
+      ads
+    </Button>
     </>;
 
 }
