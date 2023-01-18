@@ -1,15 +1,44 @@
-
+import "./header.css";
 const PageHeader  = ()=>{
 
+    
+//class task
 
-    let sum =5*7;
+const namesArray =["shimon","bibi","dias","muas","shimon"]
 
-    console.log(sum);
+//class task 2
 
-    //cannot return more than 1 component but its is posibble by wrapping it in a <div></div> or <?></>
+const Student = {
+    firstName:"yosef ",
+    lastName:"shmuelove ",
+    age:16,
+    phoneNumber:"05084848483 "
+}
+
+let student = JSON.stringify(Student);
+
+student = student.replaceAll("{","");
+student = student.replaceAll("}","");
+student = student.replaceAll(",","");
+student = student.replaceAll(`"`,` `);
+
+
+
+
+
+
+    //cannot return more than 1 component but its is possible by wrapping it in a <div></div> or <?></>
     return <>
-    <h2>This is the page header</h2>
-    <h1>brutrue {sum}</h1>
+    <h2 style={{color:"cyan",fontSize:"2rem"}}>This is the page header</h2>
+    <h1 className="secondHeader">brutrue {namesArray[namesArray.findIndex((name)=>{
+        return name[0]==="b";
+    })]}</h1>
+
+    <h1>{namesArray.map((name)=>{
+        return <h3>{name}</h3>
+    })}</h1>
+
+    <h1>{student}</h1>
     </>;
 
 }
