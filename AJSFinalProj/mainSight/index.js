@@ -36,6 +36,8 @@ let contrasted = false;
 
 let underlined = false;
 
+let isEnlarged = false;
+
 let additiveFontSize = 0;
 
 const baseFontSize = 1.2;
@@ -76,10 +78,12 @@ window.onscroll =()=>{
         for (const key in allElements) {
             if (allElements[key].style!=undefined) {
                 if (isGrayScale) {
-                    allElements[key].style.filter="grayscale(0%)";
+                    allElements[key].style.webkitFilter ="grayscale(0%)";
+                    grayscale.style.backgroundColor="white";
                 }
                 else{
-                    allElements[key].style.filter="grayscale(100%)";
+                    allElements[key].style.webkitFilter ="grayscale(100%)";
+                    grayscale.style.backgroundColor="dodgerblue";
                 }
             }
             
@@ -92,12 +96,15 @@ window.onscroll =()=>{
     contrast.addEventListener("click",()=>{
 
         for (const key in allElements) {
-            if (allElements[key].style!=undefined) {
+            if (allElements[key].style!=undefined ) {
                 if (contrasted) {
-                    allElements[key].style.filter="contrast(100%)";
+                    allElements[key].style.webkitFilter ="contrast(100%)";
+                    contrast.style.backgroundColor="white";
                 }
                 else {
-                allElements[key].style.filter="contrast(150%)";
+                    allElements[key].style.webkitFilter ="contrast(150%)";
+                    contrast.style.backgroundColor="dodgerblue";
+                    
                 }
                 
             }
@@ -107,21 +114,27 @@ window.onscroll =()=>{
 
 
 biggerCursor.addEventListener("click",()=>{
-    
-    document.body.style.cursor ="url(./assets/cursor.png),auto";
+    if (isEnlarged) {
+        document.body.style.cursor= "default";
+    }else{
+        document.body.style.cursor ="url(./assets/cursor.png),auto";
+    }
 
+    isEnlarged =!isEnlarged;
 });
 
 underline.addEventListener("click",()=>{
 
-       for (const key in allElements) {
+        for (const key in allElements) {
             if (allElements[key].style!=undefined) {
                 if (underlined) {
                     allElements[key].style.textDecoration= "none";
+                    underline.style.backgroundColor="white";
                 }
-                else {
-                allElements[key].style.textDecoration= "underline";
-                }
+                    else {
+                    allElements[key].style.textDecoration= "underline";
+                    underline.style.backgroundColor="dodgerblue";
+                    }
                 
             }
         }
@@ -159,7 +172,6 @@ function openAccessabilityMenu(){
 
 function changeFontSize (){
 
-        
         for (const key in allElements) {
             if (allElements[key].style!=undefined) {
                 allElements[key].style.fontSize =(baseFontSize+additiveFontSize)+"rem";

@@ -6,18 +6,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
     
 }
 html{
     scroll-behavior: smooth;
 }
+
+
 #navBar{
     height: 20vh;
     width: 100vw;
     background-color:aquamarine;
-    position: fixed;
+    position: sticky;
     border: none;
     z-index: 100;
+    top: 0px;
     
 }
 
@@ -26,6 +30,7 @@ div{
     background-color:white;
     height: 100vh;
     width: 100vw;
+    
 
 }
 
@@ -57,13 +62,15 @@ div a{
 
 #accessabilityContainer{
     display: block;
-    position: fixed;
+    position: sticky;
     border: solid black 4px;
-    left: 0px;
+    left: 0px; 
     top: 40vh;
     width: fit-content;
     height: fit-content;
     z-index: 200;
+    transform: grayscale(100%);
+   
 
 }
 #accessabilityImg{
