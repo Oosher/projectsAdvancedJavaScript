@@ -6,17 +6,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 html{
     scroll-behavior: smooth;
 }
-#navBAr{
+#navBar{
     height: 20vh;
     width: 100vw;
     background-color:aquamarine;
     position: fixed;
     border: none;
     z-index: 100;
+    
 }
 
 div{
@@ -51,6 +53,59 @@ div a{
     background-color:darkgoldenrod;
     width: 0%;
     align-self: flex-end;
+}
+
+#accessabilityContainer{
+    display: block;
+    position: fixed;
+    border: solid black 4px;
+    left: 0px;
+    top: 40vh;
+    width: fit-content;
+    height: fit-content;
+    z-index: 200;
+
+}
+#accessabilityImg{
+    width: 5vw;
+ 
+}
+#accessabilityOptions{
+    display: none;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+}
+
+#accessabilityContainer button{
+
+    height: auto;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+#fontSizeContainer{
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    
+
+}
+#fontSizeContainer button{
+    width: 20%;
+    height: auto;
+    text-align: center;
+    vertical-align:center;
+
+}
+
+#fontSizeContainer h1{
+
+    font-size:1.5rem;
+    text-align: center;
+    width: 60%;
+    
 }
 
 @keyframes fade {
