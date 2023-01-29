@@ -1,15 +1,15 @@
 
 import './App.css';
-import InfoCard from './cards/components/card/InfoCard';
-import StringPropParent from './sandbox/props/StringPropParent';
-import StrinParent from './sandbox/props/StrinParent';
+import Cards from './cards/components/Cards';
+
+
 
 
 function App() {
   return (
     <div className="App">
-    <InfoCard/>
-
+    <Cards/>
+    
     </div>
   );
 }
