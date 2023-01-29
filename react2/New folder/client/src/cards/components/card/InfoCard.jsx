@@ -4,46 +4,39 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PhoneIcon from '@mui/icons-material/Phone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Box } from '@mui/system';
+import CardHead from './CardHead';
+import CardBody from './CardBody';
 
 export default function InfoCard() {
-    return <Card sx={{width:"15vw",margin:"0 auto", padding:"10px",textAlign:"left"}}>
-        <CardActionArea>
-            <CardMedia component="img" title="" image="assets/images/business-card-top-imag.jpg" />
-            <CardHeader
-                title="tot"
-                subheader="num"
-                
-            />
-            <Divider/>
-            <CardContent>
-            <Typography variant="body2" color="initial"><strong>Phone:</strong> 05050050</Typography>
-            <Typography variant="body2" color="initial"><strong>Address:</strong> sad a2 asd </Typography>
-            <Typography variant="body2" color="initial"><strong>Card Number:</strong> 23444444</Typography>
-            </CardContent>
-        </CardActionArea>
-        <CardActions disableSpacing sx={{display:"flex",justifyContent:"space-between",position:"rela",marginBottom:"0px",paddingBottom:"0px"}}>
-            <Box>
-            <IconButton aria-label="Delete Button">
-            <DeleteIcon/>
-            </IconButton>
+    const cardInfo = {
+        id: "eafeswfwr2326346tf3254f",
+        title: "first",
+        subtitle: "subTitle",
+        description: "testing",
+        phone: "050-1111111",
+        email: "text@text.com",
+        web: "https://www.test.co.il",
+        image: {
+            url: "assets/images/business-card-top-imag.jpg",
+            alt: "image",
+        },
+        address: {
+            state: "TLV",
+            country: "Israerl",
+            street: "Dizingof",
+            houseNumber: 1,
+            city: "Tel Aviv",
+            zip: 1312,
+        },
+        bizNumber: 1111111,
+        likes: [],
+        user_id: "4235234234mfnjrb2h3vbry23",
+        };
 
-            <IconButton aria-aria-label='Edit Button'>
-            <EditIcon/>
-            </IconButton>
-
-            </Box>  
-            
-            <Box>
-            <IconButton aria-aria-label='Phone Button'>
-            <PhoneIcon/>
-            </IconButton>
-
-            <IconButton aria-aria-label='Add To Favorites'> 
-            <FavoriteIcon/>
-            </IconButton>
-            </Box>
-        </CardActions>
+    return <Card sx={{width:"20vw",margin:"0 auto", padding:"10px",textAlign:"left"}}>
+        <CardHead imgData={cardInfo.image} title={cardInfo.title} subtitle={cardInfo.subtitle}/>
+        <CardBody  phone={cardInfo.phone} address={cardInfo.address} cardNumber={cardInfo.bizNumber}/>
+        <CardActionArea likes={cardInfo.likes}/>
     </Card>;
     
 }
