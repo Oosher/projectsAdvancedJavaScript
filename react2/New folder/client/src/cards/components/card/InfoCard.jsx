@@ -1,11 +1,10 @@
-import { Card, CardMedia, CardHeader, IconButton, Divider, CardContent, Typography, CardActions, CardActionArea } from '@mui/material'
+import { Card, CardActionArea } from '@mui/material'
 import React from 'react'
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 import CardHead from './CardHead';
 import CardBody from './CardBody';
+
+import CardActionBars from './CardActionBars';
 
 export default function InfoCard() {
     const cardInfo = {
@@ -33,10 +32,12 @@ export default function InfoCard() {
         user_id: "4235234234mfnjrb2h3vbry23",
         };
 
-    return <Card sx={{width:"20vw",margin:"0 auto", padding:"10px",textAlign:"left"}}>
-        <CardHead imgData={cardInfo.image} title={cardInfo.title} subtitle={cardInfo.subtitle}/>
-        <CardBody  phone={cardInfo.phone} address={cardInfo.address} cardNumber={cardInfo.bizNumber}/>
-        <CardActionArea likes={cardInfo.likes}/>
+    return <Card sx={{width:"15vw",margin:"0 auto", padding:"10px",textAlign:"left"}}>
+        <CardActionArea>
+            <CardHead imgData={cardInfo.image} title={cardInfo.title} subtitle={cardInfo.subtitle}/>
+            <CardBody  phone={cardInfo.phone} address={cardInfo.address} cardNumber={cardInfo.bizNumber}/>
+        </CardActionArea>
+        <CardActionBars likes={cardInfo.likes}/>
     </Card>;
     
 }
