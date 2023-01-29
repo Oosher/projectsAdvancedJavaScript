@@ -24,7 +24,7 @@ export default function InfoCard() {
         </CardActionArea>
         <CardActions disableSpacing sx={{display:"flex",justifyContent:"space-between",position:"rela",marginBottom:"0px",paddingBottom:"0px"}}>
             <Box>
-            <IconButton aria-label='Delete Button'>
+            <IconButton aria-label="Delete Button">
             <DeleteIcon/>
             </IconButton>
 
