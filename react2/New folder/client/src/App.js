@@ -1,7 +1,8 @@
 
 import './App.css';
 import Cards from './cards/components/Cards';
-import Stacks from './sandbox/data-display/Stacks';
+import OnClickEvent from './sandbox/events/OnClickEvent';
+
 
 
 
@@ -11,8 +12,7 @@ function App() {
   return (
     <div className="App">
     <Cards/>
-    <Stacks/>
-    
+    <OnClickEvent/>
     </div>
   );
 }

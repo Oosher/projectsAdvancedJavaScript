@@ -3,11 +3,11 @@ import { Box } from '@mui/system'
 import React from 'react'
 
 export default function Stacks() {
-    return <Stack direction="column" alineItems="center" justifyContent="center" spacing={2} position="sticky" sx={{margin:"0 auto" }}>
+    return <Stack direction="column" justifyContent="center" spacing={2} position="sticky" sx={{margin:"0 auto" }} divider={<Divider flexItem/>} width={10}>
                 <Box  >a</Box>
-                <Divider/>
+                
                 <Box  >b</Box>
-                <Divider/>
+                
                 <Box  >c</Box>
         </Stack>
 }

@@ -1,4 +1,5 @@
 
+import { Grid, Typography } from '@mui/material';
 import React from 'react'
 import InfoCard from './card/InfoCard'
 
@@ -74,10 +75,26 @@ export default function Cards() {
             user_id: "4235234234mfnjrb2h3vbry23",
             }
 ];
-    return (
-    cardsArray.map((card)=>{
 
-        return <InfoCard card={card} key={card._id}/>
-    })
+        //conditional rendering
+
+        if (cardsArray===undefined || !cardsArray.length) {
+
+            return <Typography variant="h1" color="initial" textAlign="center"> We did not found any products </Typography>
+            
+        }
+
+            // if in a different format
+            //x==3?<Typography variant="body1" color="initial"></Typography>:null;
+            
+    return (
+    <Grid container spacing={10} justifyContent="center">
+        {
+            cardsArray.map((card)=>{
+
+                return <Grid item xs={12} md={4} lg={3} key={card._id}> <InfoCard card={card} /></Grid>
+            })
+        }
+    </Grid>
     )
     }

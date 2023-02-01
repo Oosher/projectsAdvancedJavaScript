@@ -8,7 +8,7 @@ import React from 'react'
 import { Box, CardActions, IconButton } from '@mui/material';
 
 export default function CardActionBars ({likes}) {
-  return <CardActions  sx={{display:"flex",justifyContent:"space-between",position:"rela",marginBottom:"0px",paddingBottom:"0px"}}>
+  return <CardActions  sx={{display:"flex",justifyContent:"space-between",marginBottom:"0px",paddingBottom:"0px"}}>
                 <Box>
                 <IconButton aria-label="Delete Button">
                 <DeleteIcon/>
