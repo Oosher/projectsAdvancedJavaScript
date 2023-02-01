@@ -4,14 +4,15 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 
 
-export default function OnClickEvent() {
+export default function OnClickEvent({onClickFunc}) {
 
 
-    const onClickFunc =(text)=>{
+  /*   const onClickFunc =(text)=>{
         console.log(text);
-    }
+    }*/
+
     const onClick2 =(event)=>{
-        console.log(event);
+        console.log(event); 
     }
     const printTextField = (event)=>{
 
@@ -20,7 +21,7 @@ export default function OnClickEvent() {
     }
 
     return (<>
-        <Button variant="contained" color="secondary" onClick={()=>{onClickFunc("somthing")}} >
+        <Button variant="contained" color="secondary" onClick={onClickFunc} >
             click
         
         </Button>
