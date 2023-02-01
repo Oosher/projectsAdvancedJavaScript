@@ -14,18 +14,18 @@ export default function CardActionBars ({likes}) {
                 <DeleteIcon/>
                 </IconButton>
 
-                <IconButton aria-aria-label='Edit Button'>
+                <IconButton aria-label='Edit Button'>
                 <EditIcon/>
                 </IconButton>
 
                 </Box>  
                 
                 <Box>
-                <IconButton aria-aria-label='Phone Button'>
+                <IconButton aria-label='Phone Button'>
                 <PhoneIcon/>
                 </IconButton>
 
-                <IconButton aria-aria-label='Add To Favorites'> 
+                <IconButton aria-label='Add To Favorites'> 
                 <FavoriteIcon/>
                 </IconButton>
                 </Box>

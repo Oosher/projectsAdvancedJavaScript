@@ -77,7 +77,7 @@ export default function Cards() {
     return (
     cardsArray.map((card)=>{
 
-        return <InfoCard card={card} key={card.phone}/>
+        return <InfoCard card={card} key={card._id}/>
     })
     )
     }
