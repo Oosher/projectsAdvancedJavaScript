@@ -1,6 +1,7 @@
 
 import { Box } from '@mui/system'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function Gameimage({imgSrc}) {
   return (
@@ -9,3 +10,10 @@ export default function Gameimage({imgSrc}) {
     </Box>
   )
 }
+
+
+Gameimage.propTypes={
+
+  imgSrc:PropTypes.string.isRequired,
+
+};
