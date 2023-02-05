@@ -1,11 +1,11 @@
 
 import './App.css';
-import GameContainer from './components/gameContainer/GameContainer';
+import GameGenerator from './components/gameContainer/GameGenerator';
 
 function App() {
   return (
     <div className="App">
-      <GameContainer/>
+      <GameGenerator/>
     </div>
   );
 }
