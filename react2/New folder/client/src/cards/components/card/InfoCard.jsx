@@ -5,6 +5,8 @@ import CardHead from './CardHead';
 import CardBody from './CardBody';
 
 import CardActionBars from './CardActionBars';
+import { func } from 'prop-types';
+import cardType from '../../../models/cardtype';
 
 export default function InfoCard({card , deleteFunc, likeFunction,editFunction,phoneFunction}) {
     
@@ -17,4 +19,13 @@ console.log(card);
         <CardActionBars likes={card.likes} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} phone={card.phone} bizNumber={card.bizNumber} />
     </Card>;
     
+}
+
+
+InfoCard.propTypes = {
+        card:cardType.isRequired ,
+        deleteFunc:func.isRequired, 
+        likeFunction:func.isRequired,
+        editFunction:func.isRequired,
+        phoneFunction:func.isRequired,
 }

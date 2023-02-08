@@ -4,6 +4,8 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import { Paper } from '@mui/material'
 import "./scorers.css"
+import scorerType from '../../../models/scorerType'
+import { arrayOf, string } from 'prop-types'
 
 
 export default function Scorers({teamName,scorers}) {
@@ -20,4 +22,10 @@ export default function Scorers({teamName,scorers}) {
                 })}
         </Paper>
     </>
+}
+
+
+Scorers.propTypes = {
+    scorers:arrayOf(scorerType),
+    teamName:string.isRequired,
 }

@@ -1,6 +1,7 @@
 
 import {  Grid, Typography } from '@mui/material'
 import React from 'react'
+import detailsType from '../../../models/detailsType'
 
 import Scorers from './Scorers'
 
@@ -21,4 +22,10 @@ export default function GameDetails({details}) {
     </Grid>
 
   )
+}
+
+
+GameDetails.propTypes = {
+  details:detailsType.isRequired,
+  
 }

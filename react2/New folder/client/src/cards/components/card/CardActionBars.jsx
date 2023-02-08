@@ -6,6 +6,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import React from 'react'
 import { Box, CardActions, IconButton, Typography } from '@mui/material';
+import { any, arrayOf, func, number, string } from 'prop-types';
 
 export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFunction,phoneFunction,phone,bizNumber}) {
   return <CardActions  sx={{display:"flex",justifyContent:"space-between",marginBottom:"0px",paddingBottom:"0px"}}>
@@ -41,4 +42,19 @@ export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFun
             </CardActions>
             
   
+}
+
+
+
+
+
+CardActionBars.propTypes = {
+
+    likes:arrayOf(any) ,
+    deleteFunc:func,
+    likeFunction:func,
+    editFunction:func,
+    phoneFunction:func,
+    phone:string,
+    bizNumber:number,
 }

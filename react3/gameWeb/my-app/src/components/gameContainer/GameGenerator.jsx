@@ -66,8 +66,10 @@ export default function GameGenerator() {
             }];
 
     return (
-        <> { gamesArray.map((game ,i)=>{
+        <div> { gamesArray.map((game ,i)=>{
             return <GameContainer details={game.details} img={game.img} key={i}/>
-        })}</>
+        })}</div>
     )
 }
+
+
