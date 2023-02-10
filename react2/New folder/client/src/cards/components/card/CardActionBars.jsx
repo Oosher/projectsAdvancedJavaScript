@@ -49,7 +49,7 @@ export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFun
 
 
 CardActionBars.propTypes = {
-
+  
     likes:arrayOf(any) ,
     deleteFunc:func,
     likeFunction:func,
@@ -57,4 +57,5 @@ CardActionBars.propTypes = {
     phoneFunction:func,
     phone:string,
     bizNumber:number,
+
 }
