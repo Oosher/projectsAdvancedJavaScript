@@ -85,7 +85,7 @@ const likeFunction = (bizNumber,likes,event)=>{
     likes.push(1);
     console.log("like "+likes.length+" " +bizNumber);
     event.target.style.color="red";
-   document.getElementById(bizNumber).innerHTML=likes.length;  
+    document.getElementById(bizNumber).innerHTML=likes.length;  
     console.log(document.getElementById(bizNumber).innerHTML);
 
 }
