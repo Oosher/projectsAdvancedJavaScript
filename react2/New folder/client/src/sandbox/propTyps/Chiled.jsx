@@ -1,10 +1,12 @@
 
-import { string } from 'prop-types'
+import { node } from 'prop-types'
 import React from 'react'
 
-export default function Chiled({name}) {
+// children is a saved word 
+
+export default function Chiled({name,children}) {
     return (
-        <div>{name}</div>
+        <div>{name} {children}</div>
     )
 }
 
@@ -12,6 +14,8 @@ export default function Chiled({name}) {
 
 Chiled.propTypes = {
 
-    name :string.isRequired,
+    name :node.isRequired,
+
+    children:node.isRequired,
 
 }
