@@ -12,7 +12,7 @@ export default function CardPage() {
     <Container>
       <PageHeader title={"Header"} subTitle={"info on the page info on the page info on the page info on the page info on the page "}/>
       <br></br>
-      <Cards/>
+      <Cards/>  
     </Container>
   )
 }

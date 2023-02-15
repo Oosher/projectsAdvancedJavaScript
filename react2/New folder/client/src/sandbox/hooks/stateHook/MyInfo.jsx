@@ -8,7 +8,7 @@ import { TextField } from '@mui/material'
 export default function MyInfo() {
 
 
-    const [myDetails,setMyDetails]= useState({firstName:"Osher",lastName:"Ben zaken"});
+    const [myDetails,setMyDetails]= useState({fullName:{firstName:"Osher",lastName:"Ben zaken"},email:"examp@mail.com"});
 
 
 
@@ -17,7 +17,7 @@ export default function MyInfo() {
 
         setMyDetails((prev)=>{
 
-            return {...prev, [e.target.name]:e.target.value}
+            return {...prev, fullName:{...myDetails.fullName,[e.target.name]:e.target.value}};
         })
     }
 
@@ -32,8 +32,8 @@ export default function MyInfo() {
 
     return (
     <Container>
-        <Typography variant="body1" color="initial" >First name : {myDetails.firstName}</Typography>
-        <Typography variant="body1" color="initial">Last name : {myDetails.lastName}</Typography>
+        <Typography variant="body1" color="initial" >First name : {myDetails.fullName.firstName}</Typography>
+        <Typography variant="body1" color="initial">Last name : {myDetails.fullName.lastName}</Typography>
         <TextField variant="standard" placeholder='New First name' name="firstName" onChange={changeDetails} ></TextField>
         <TextField variant="standard" placeholder='New Last name' name='lastName' onChange={changeDetails}></TextField>
 
