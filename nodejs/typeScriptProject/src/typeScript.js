@@ -1,4 +1,3 @@
-"use strict";
 //crypto website
 //properties :symbol , last price ,volume ,price change percent
 //get data
@@ -56,7 +55,7 @@ function createCryptoArray() {
             return new CryptoCoin(coin.symbol, +coin.lastPrice, +coin.volume, +coin.priceChangePercent);
         });
         displayData(coinsArray);
-    }).catch(function (status) {
+    })["catch"](function (status) {
         console.log(status);
     });
 }
