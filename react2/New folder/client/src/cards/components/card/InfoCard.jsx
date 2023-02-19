@@ -7,12 +7,16 @@ import CardBody from './CardBody';
 import CardActionBars from './CardActionBars';
 import { func } from 'prop-types';
 import cardType from '../../../models/cardtype';
+import { useNavigate } from 'react-router-dom';
+import ROUTS from '../../../routs/routsPage';
 
 export default function InfoCard({card , deleteFunc, likeFunction,editFunction,phoneFunction}) {
     
-console.log(card);
+const goTo = useNavigate()
+
+
     return <Card sx={{margin:"0 auto", padding:"10px",textAlign:"left"}} >
-        <CardActionArea>
+        <CardActionArea onClick={()=>{goTo(`${ROUTS.CARDDETAILS}/${ JSON.stringify(card.address)}`)}}>
             <CardHead imgData={card.image} title={card.title} subtitle={card.subtitle}/>
             <CardBody  phone={card.phone} address={card.address} cardNumber={card.bizNumber}/>
         </CardActionArea>

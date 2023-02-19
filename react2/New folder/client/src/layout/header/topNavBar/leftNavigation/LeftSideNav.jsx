@@ -15,6 +15,8 @@ export default function LeftSideNAv() {
             <Logo/>
             <NaveBarItem label="Home" to={ROUTS.ROOT}/>
             <NaveBarItem label="About Us" to={ROUTS.ABOUT}/>
+            <NaveBarItem label="Login" to={ROUTS.LOGIN}/>
+            <NaveBarItem label="Register" to={ROUTS.REGISTER}/>
             
         </Box>
     )
