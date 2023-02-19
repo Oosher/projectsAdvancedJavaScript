@@ -6,9 +6,9 @@ import ROUTS from '../../../../routs/routsPage';
 
 export default function LogoIcon() {
     return (
-        <NavVarLink to={ROUTS.ROOT}>
-            <IconButton>
-                <CreditCardIcon/>
+        <NavVarLink to={ROUTS.ROOT} sx={{marginTop:"-18px",padding:"0px",boxSizing:"border-box"}}>
+            <IconButton >
+                <CreditCardIcon sx={{fontSize:"6rem"}} />
             </IconButton>
         </NavVarLink>
     )
