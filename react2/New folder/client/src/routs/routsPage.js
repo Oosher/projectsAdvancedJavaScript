@@ -7,6 +7,7 @@ const ROUTS = {
     LOGIN:"/login",
     REGISTER:"/signup",
     CARDDETAILS:"/carddetails",
+    SANDBOX:"/sandbox",
 
 }
 
