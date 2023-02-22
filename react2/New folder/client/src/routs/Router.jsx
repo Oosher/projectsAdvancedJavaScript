@@ -17,6 +17,7 @@ import Counter from '../sandbox/hooks/stateHook/Counter'
 import MyInfo from '../sandbox/hooks/stateHook/MyInfo'
 import ToDoList from '../sandbox/hooks/stateHook/ToDoList'
 import UseEffectHook from '../sandbox/hooks/useEffect/UseEffectHook'
+import Countries from '../sandbox/hooks/useEffect/Countries'
 
 export default function Router() {
     return (
@@ -33,6 +34,7 @@ export default function Router() {
                 <Route path='myinfo' element={<MyInfo/>}/>
                 <Route path='todo' element={<ToDoList/>}/>
                 <Route path='useeffect' element={<UseEffectHook/>}/>
+                <Route path='countries' element={<Countries/>}/>
             </Route>
             
         </Routes>
