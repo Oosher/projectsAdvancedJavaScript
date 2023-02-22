@@ -48,17 +48,17 @@ function startClock(){
 
     }
     
-     watch.innerHTML=zeroCheck(minutes)+":"+zeroCheck(seconds)+":"+zeroCheck(milSecounds);
-   
+        watch.innerHTML=zeroCheck(minutes)+":"+zeroCheck(seconds)+":"+zeroCheck(milSecounds);
+    
     console.log(seconds);
 
 }
 
 function zeroCheck(time){
 let tempTime;
-      if(time<10){
-        tempTime="0"+time;
-      }
+        if(time<10){
+            tempTime="0"+time;
+        }
         else
         {
             tempTime=time;

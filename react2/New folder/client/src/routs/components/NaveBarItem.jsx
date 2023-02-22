@@ -7,7 +7,7 @@ import { object, string } from 'prop-types'
 
 export default function NaveBarItem({to,sx,label}) {
     return (
-        <NavVarLink  to={to} sx={{marginTop:"2.5vh"}}>
+        <NavVarLink  to={to} sx={{...sx}}>
             <Button>
                 <Typography variant="body1" color="initial">
                     {label}

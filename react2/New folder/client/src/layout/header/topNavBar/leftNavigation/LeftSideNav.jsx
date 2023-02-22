@@ -13,11 +13,11 @@ export default function LeftSideNAv() {
 
             <LogoIcon/>
             <Logo/>
-            <NaveBarItem label="Home" to={ROUTS.ROOT}/>
-            <NaveBarItem label="About Us" to={ROUTS.ABOUT}/>
-            <NaveBarItem label="Login" to={ROUTS.LOGIN}/>
-            <NaveBarItem label="Register" to={ROUTS.REGISTER}/>
-            <NaveBarItem label="Sandbox" to={ROUTS.SANDBOX}/>
+            <NaveBarItem label="Home" to={ROUTS.ROOT} sx={{marginTop:"2.5vh"}}/>
+            <NaveBarItem label="About Us" to={ROUTS.ABOUT} sx={{marginTop:"2.5vh"}}/>
+            <NaveBarItem label="Login" to={ROUTS.LOGIN} sx={{marginTop:"2.5vh"}}/>
+            <NaveBarItem label="Register" to={ROUTS.REGISTER} sx={{marginTop:"2.5vh"}}/>
+            <NaveBarItem label="Sandbox" to={ROUTS.SANDBOX} sx={{marginTop:"2.5vh"}}/>
             
         </Box>
     )
