@@ -18,6 +18,7 @@ export default function LeftSideNAv() {
             <NaveBarItem label="Login" to={ROUTS.LOGIN} sx={{marginTop:"2.5vh"}}/>
             <NaveBarItem label="Register" to={ROUTS.REGISTER} sx={{marginTop:"2.5vh"}}/>
             <NaveBarItem label="Sandbox" to={ROUTS.SANDBOX} sx={{marginTop:"2.5vh"}}/>
+            <NaveBarItem label="Weather" to={ROUTS.WEATHER} sx={{marginTop:"2.5vh"}}/>
             
         </Box>
     )

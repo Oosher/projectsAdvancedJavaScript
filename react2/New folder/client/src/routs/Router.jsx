@@ -18,6 +18,7 @@ import MyInfo from '../sandbox/hooks/stateHook/MyInfo'
 import ToDoList from '../sandbox/hooks/stateHook/ToDoList'
 import UseEffectHook from '../sandbox/hooks/useEffect/UseEffectHook'
 import Countries from '../sandbox/hooks/useEffect/Countries'
+import Weather from '../pages/Weather'
 
 export default function Router() {
     return (
@@ -36,6 +37,7 @@ export default function Router() {
                 <Route path='useeffect' element={<UseEffectHook/>}/>
                 <Route path='countries' element={<Countries/>}/>
             </Route>
+            <Route path={ROUTS.WEATHER} element ={<Weather/>}/>
             
         </Routes>
     )
