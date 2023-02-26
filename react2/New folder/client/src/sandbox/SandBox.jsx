@@ -16,6 +16,8 @@ export default function SandBox() {
                 <NaveBarItem label='Todo list' to='todo' />
                 <NaveBarItem label='Use Effect 1' to='useeffect' />
                 <NaveBarItem label='Countries' to='countries' />
+                <NaveBarItem label='Render' to='render' />
+                <NaveBarItem label='Counter' to='counter2' />
             </Toolbar>
         </AppBar>
 

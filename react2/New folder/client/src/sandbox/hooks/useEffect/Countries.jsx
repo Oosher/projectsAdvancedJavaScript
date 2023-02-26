@@ -4,6 +4,7 @@ import { Container } from '@mui/system';
 import React, { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography'
 import { Grid, Button } from '@mui/material';
+import Country from './Country';
 
 export default function Countries() {
 
@@ -66,7 +67,7 @@ export default function Countries() {
                     </Grid>
                     </Grid>
                 })}
-                
+                <Country/>
             </Grid>
         </Container>
     )
