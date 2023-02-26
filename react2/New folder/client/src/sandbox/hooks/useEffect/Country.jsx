@@ -47,7 +47,7 @@ export default function Country() {
     return (
         <Container sx={{display:"flex",justifyContent:"center",flexDirection:"column"}}>
 
-        <TextField  label="Country name" value={countryName} onChange={changeCountryName} />
+        <TextField  label="Country name" value={countryName} onChange={changeCountryName} sx={{textAlign:"center"}} />
         <SpecialButton  onclick={()=>{ getCountry(countryName);}}>Search</SpecialButton>
 
         {countryDetails.map((detail,i)=><Typography variant="body1" color="initial" key={i} sx={{textAlign:"center"}}>{detail}</Typography>) }
