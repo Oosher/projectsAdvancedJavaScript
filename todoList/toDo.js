@@ -16,6 +16,7 @@ let addTaskClickIndicator = false;
 class Task {
     description;
     date;
+    taskText;
     status;
     deleteButton;
     editButton;
@@ -113,6 +114,8 @@ function displayData(taskArray){
     taskArray.map((task)=>{
 
         task.taskContainer = document.createElement("div");
+
+        task.taskText = document.createElement("h4");
         
         task.editButton = document.createElement("button");
 
@@ -137,7 +140,9 @@ function displayData(taskArray){
 
         })
 
-        task.taskContainer.innerText=`${task.description} ${task.date}`;
+        task.taskContainer.className= "task";
+
+        task.taskText.innerText=`${task.description} ${task.date}`;
 
         task.editButton.innerText="Edit"
 
@@ -145,6 +150,8 @@ function displayData(taskArray){
 
         task.status.innerHTML="&#10003;";
         
+        task.taskContainer.appendChild(task.taskText);
+
         task.taskContainer.appendChild(task.status);
 
         task.taskContainer.appendChild(task.editButton);
@@ -166,10 +173,76 @@ function saveData() {
 
 function editTask(task) {
 
+            
+
             let newInput = document.createElement("input");
             let newDate = document.createElement("input");
             let confirmChanges = document.createElement("button");
             let cancelEdit = document.createElement("button");
+            let editContainer = document.createElement("div");
+            newInput.type="text"
             newDate.type="date";
+            
+
+            confirmChanges.innerText = "Confirm changes"
+
+            cancelEdit.innerText = "Cancel Changes"
+
+            
+            
+            task.deleteButton.style.display="none"
+            task.editButton.style.display="none"
+            task.status.style.display="none"
+            task.taskText.style.display="none"
+
+            confirmChanges.addEventListener("click",()=>{
+                
+                    task.description = newInput.value;
+
+                    task.date   =  newDate.value;
+
+                    editContainer.innerHTML=""
+
+                    task.deleteButton.style.display="block"
+                    task.editButton.style.display="block"
+                    task.status.style.display="block"
+                    task.taskText.style.display="block"
+
+                    console.log(taskManager.taskArray);
+
+                    displayData(taskManager.taskArray);
+
+                    saveData();
+
+                    
+            })
+
+
+
+            cancelEdit.addEventListener("click", ()=>{
+
+                    editContainer.innerHTML=""
+
+                    task.deleteButton.style.display="block"
+                    task.editButton.style.display="block"
+                    task.status.style.display="block"
+                    task.taskText.style.display="block"
+
+            })
+            
+
+
+            editContainer.appendChild(newInput);
+
+            editContainer.appendChild(newDate);
+
+            editContainer.appendChild(confirmChanges);
+
+            editContainer.appendChild(cancelEdit);
+
+            task.taskContainer.appendChild(editContainer);
+
+
+            
     
 }

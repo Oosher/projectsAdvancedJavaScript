@@ -1,4 +1,76 @@
 
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+
+}
+
+.addTaskContainer,.tasksContainer {
+
+    display: flex;
+
+    width: fit-content;
+    
+    margin: 0 auto;
+
+    background-color: orangered;
+    padding: 10px;
+
+    border: black  2px solid ;
+
+    border-radius: 50px;
+
+}
+
+
+
 .taskInfo{
     display: none;
+}
+
+
+.tasksContainer {
+
+    flex-direction: column;
+
+    width: 400px;
+
+}
+
+.task{
+
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    justify-content: flex-end;
+    border: 1px solid black;
+    border-radius: 50px;
+    
+}
+
+.task h4 {
+
+    margin-right: 15px;
+
+
+}
+
+.task button{
+    height: 40px;
+    width: 60px;
+    vertical-align: middle;
+    
+
+}
+
+.task input[type="text"] ,.task input[type="date"] {
+
+    width: 100px;
+    height: 40px;
+    margin-right: 2px;
 }
