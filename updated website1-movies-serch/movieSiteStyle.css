@@ -1,0 +1,78 @@
+section {
+
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+
+        div {
+            display: flex;
+            background-color: aqua;
+            border: 2px solid salmon;
+            justify-content: center;
+            text-align: justify;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 10px;
+            width: auto;
+
+        }
+
+        .addAMovie,
+        .newMovieContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            font-size: 3rem;
+
+        }
+
+        .newMovieContainer input {
+
+            margin: 5px;
+
+        }
+
+        form {
+            margin: 10px;
+        }
+
+        select {
+            height: 20px;
+        }
+
+        .removeButton {
+
+            align-self: flex-end;
+
+            background-color: rgb(223, 98, 98);
+
+            border-radius: 20%;
+
+            box-shadow: black 2px 2px 3px;
+
+            cursor: pointer;
+
+        }
+
+        .removeButton:hover {
+
+            box-shadow: black 2px 2px 3px inset;
+
+        }
+
+        .searchBar{
+            display: block;
+            width: 12vw;
+            height: 45px;
+            font-size: 1.5rem;
+            justify-self: flex-start;
+            align-self: center;
+            padding-left: 10px;
+            
+
+        }
