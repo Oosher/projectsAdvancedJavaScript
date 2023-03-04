@@ -21,6 +21,11 @@ import Countries from '../sandbox/hooks/useEffect/Countries'
 import Weather from '../pages/Weather'
 import Render from '../sandbox/render/Render'
 import Counter2 from '../sandbox/render/Counter2'
+import StateColorChange from '../sandbox/hooks/allHookTasks/StateColorChange'
+import StateBorderChange from '../sandbox/hooks/allHookTasks/StateBorderChange'
+import MemoMyData from '../sandbox/hooks/allHookTasks/MemoMyData'
+import ShowData from '../sandbox/hooks/allHookTasks/ShowData'
+
 
 export default function Router() {
     return (
@@ -40,6 +45,10 @@ export default function Router() {
                 <Route path='countries' element={<Countries/>}/>
                 <Route path='render' element={<Render/>}/>
                 <Route path='counter2' element={<Counter2/>}/>
+                <Route path='colorchange' element={<StateColorChange/>}/>
+                <Route path='borderchange' element={<StateBorderChange/>}/>
+                <Route path='mydata' element={<MemoMyData/>}/>
+                <Route path='showdata' element={<ShowData/>}/>
             </Route>
             <Route path={ROUTS.WEATHER} element ={<Weather/>}/>
             

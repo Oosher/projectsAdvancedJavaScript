@@ -17,6 +17,7 @@
     margin: 0 auto;
 
     background-color: orangered;
+
     padding: 10px;
 
     border: black  2px solid ;
@@ -26,10 +27,36 @@
 }
 
 
+.addTaskContainer{
+    justify-content: center;  
+    align-items: center;  
+    margin-top: 20px;
+    height: 70px;
+    
+  
+
+}
+
+.taskInfo input,.addTaskContainer button{
+
+height: 40px;
+margin-right: 2px;
+border-radius: 3px;
+border: black  1px solid ;
+padding: 5px;
+
+
+}
+
 
 .taskInfo{
     display: none;
+    font-size: 0;
+    
+
 }
+
+
 
 
 .tasksContainer {
@@ -56,6 +83,8 @@
 .task h4 {
 
     margin-right: 15px;
+    align-self: center;
+    text-align: center;
 
 
 }
@@ -73,4 +102,20 @@
     width: 100px;
     height: 40px;
     margin-right: 2px;
+}
+
+
+.deleteButton:hover{
+
+    color: red;
+
+
+}
+
+.statusButton {
+
+    font-size: 1.6rem;
+    text-align: center;
+
+
 }

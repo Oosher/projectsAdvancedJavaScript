@@ -21,6 +21,7 @@ class Task {
     deleteButton;
     editButton;
     taskContainer;
+    isDone=false;
     constructor(description,date){
 
         this.description=description;
@@ -65,7 +66,7 @@ function createNewTask(){
 
 }
 
-
+//initialize the task array and responsible for adding and removing a task 
 class TaskManager{
 
     taskArray=[];
@@ -136,19 +137,36 @@ function displayData(taskArray){
 
         task.status.addEventListener("click",()=>{
 
+            task.isDone=true;
+            
             task.status.style.color="lightGreen";
+
+            saveData();
+            
 
         })
 
+        if (task.isDone) {
+
+            task.status.style.color="lightGreen";
+            
+        }
+
+
+        
         task.taskContainer.className= "task";
 
         task.taskText.innerText=`${task.description} ${task.date}`;
 
-        task.editButton.innerText="Edit"
+        task.editButton.innerText="Edit";
 
-        task.deleteButton.innerText="X"
+        task.deleteButton.innerText="X";
+        
+        task.deleteButton.className="deleteButton";
 
         task.status.innerHTML="&#10003;";
+
+        task.status.className="statusButton";
         
         task.taskContainer.appendChild(task.taskText);
 

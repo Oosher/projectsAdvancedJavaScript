@@ -18,6 +18,10 @@ export default function SandBox() {
                 <NaveBarItem label='Countries' to='countries' />
                 <NaveBarItem label='Render' to='render' />
                 <NaveBarItem label='Counter' to='counter2' />
+                <NaveBarItem label='Set color' to='colorchange' />
+                <NaveBarItem label='Set border' to='borderchange' />
+                <NaveBarItem label='MyData' to='mydata' />
+                <NaveBarItem label='Show Data' to='showdata' />
             </Toolbar>
         </AppBar>
 
