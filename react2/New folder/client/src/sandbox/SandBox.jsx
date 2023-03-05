@@ -22,6 +22,7 @@ export default function SandBox() {
                 <NaveBarItem label='Set border' to='borderchange' />
                 <NaveBarItem label='MyData' to='mydata' />
                 <NaveBarItem label='Show Data' to='showdata' />
+                <NaveBarItem label='Form' to='form' />
             </Toolbar>
         </AppBar>
 
