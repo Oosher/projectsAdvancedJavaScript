@@ -1,15 +1,23 @@
 
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import handleFetch from '../../sandbox/hooks/customHooks/handleFetch';
 import InfoCard from './card/InfoCard'
 
 export default function Cards() {
 
     const [ cardsArray,setCardsArray] = useState([]);
+    const [ loading,setLoading] = useState(false);
+    const [ error,setError] = useState(null);
+    const data =  handleFetch("http://localhost:3001/getcards");
+    const errorAccord = useNavigate();
 
+    useEffect( ()=> {
+        setLoading(true);
+        async function set (){setCardsArray(await data)} 
 
-    useEffect(()=>{
-        fetch("http://localhost:3001/getcards").then((response)=>response.json()).then((cards)=>{setCardsArray(cards)}).catch((err)=>console.log(err))
+        set()
 
     },[])
             
@@ -39,6 +47,9 @@ const phoneFunction = (phone)=>{
     console.log("call"+phone);
 }
 
+if(error!=null){
+    errorAccord("*")
+}
 
             // if in a different format
             //x==3?<Typography variant="body1" color="initial"></Typography>:null;
@@ -47,10 +58,12 @@ const phoneFunction = (phone)=>{
     <Grid container spacing={10} justifyContent="center">
         {
             cardsArray.map((card)=>{
-
+                
                 return <Grid item xs={12} md={4} lg={3} key={card._id}> <InfoCard card={card} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} /></Grid>
             })
         }
+        {loading&&<Typography variant="body1" color="initial">Loading</Typography>}
+        
     </Grid>
     )
     }

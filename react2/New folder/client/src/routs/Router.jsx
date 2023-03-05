@@ -26,6 +26,7 @@ import StateBorderChange from '../sandbox/hooks/allHookTasks/StateBorderChange'
 import MemoMyData from '../sandbox/hooks/allHookTasks/MemoMyData'
 import ShowData from '../sandbox/hooks/allHookTasks/ShowData'
 import Form from '../sandbox/hooks/stateHook/Form'
+import Fadfad from '../sandbox/context/Fadfad'
 
 
 export default function Router() {
@@ -51,6 +52,7 @@ export default function Router() {
                 <Route path='mydata' element={<MemoMyData/>}/>
                 <Route path='showdata' element={<ShowData/>}/>
                 <Route path='form' element={<Form/>}/>
+                <Route path='fadfad' element={<Fadfad/>}/>
             </Route>
             <Route path={ROUTS.WEATHER} element ={<Weather/>}/>
             
