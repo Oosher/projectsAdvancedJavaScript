@@ -1,26 +1,33 @@
 
 import { Grid, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import handleFetch from '../../sandbox/hooks/customHooks/handleFetch';
 import InfoCard from './card/InfoCard'
+import useHandleFetch from '../../sandbox/hooks/customHooks/useHandleFetch';
+
+
 
 export default function Cards() {
 
     const [ cardsArray,setCardsArray] = useState([]);
     const [ loading,setLoading] = useState(false);
     const [ error,setError] = useState(null);
-    const data =  handleFetch("http://localhost:3001/getcards");
+    const data =  useHandleFetch("http://localhost:3001/getcards");
     const errorAccord = useNavigate();
 
+
     useEffect( ()=> {
-        setLoading(true);
-        async function set (){setCardsArray(await data)} 
+        
+        async function set (){
+            setCardsArray(await data);} 
 
         set()
 
+
     },[])
-            
+
+
+
 
 const deleteFunc = (bizNumber)=>{
 
@@ -50,6 +57,7 @@ const phoneFunction = (phone)=>{
 if(error!=null){
     errorAccord("*")
 }
+
 
             // if in a different format
             //x==3?<Typography variant="body1" color="initial"></Typography>:null;

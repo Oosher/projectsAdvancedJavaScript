@@ -9,7 +9,7 @@ import NaveBarItem from '../routs/components/NaveBarItem'
 
 export default function SandBox() {
     return (<>
-        <AppBar position="static">
+        <AppBar position="static" sx={{position:"relative"}}>
             <Toolbar variant="dense">
                 <NaveBarItem label='Counter' to='counter' />
                 <NaveBarItem label='My info' to='myinfo' />
@@ -24,6 +24,7 @@ export default function SandBox() {
                 <NaveBarItem label='Show Data' to='showdata' />
                 <NaveBarItem label='Form' to='form' />
                 <NaveBarItem label='Fadfafad' to='fadfad' />
+                <NaveBarItem label='Form 2' to='form2' />
             </Toolbar>
         </AppBar>
 

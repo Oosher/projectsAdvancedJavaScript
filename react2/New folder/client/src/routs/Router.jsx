@@ -27,6 +27,7 @@ import MemoMyData from '../sandbox/hooks/allHookTasks/MemoMyData'
 import ShowData from '../sandbox/hooks/allHookTasks/ShowData'
 import Form from '../sandbox/hooks/stateHook/Form'
 import Fadfad from '../sandbox/context/Fadfad'
+import Form2 from '../sandbox/form/Form2'
 
 
 export default function Router() {
@@ -53,6 +54,7 @@ export default function Router() {
                 <Route path='showdata' element={<ShowData/>}/>
                 <Route path='form' element={<Form/>}/>
                 <Route path='fadfad' element={<Fadfad/>}/>
+                <Route path='form2' element={<Form2/>}/>
             </Route>
             <Route path={ROUTS.WEATHER} element ={<Weather/>}/>
             
