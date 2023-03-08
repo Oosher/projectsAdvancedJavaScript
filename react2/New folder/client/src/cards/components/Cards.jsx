@@ -65,7 +65,7 @@ if(error!=null){
     return (
     <Grid container spacing={10} justifyContent="center">
         {
-            cardsArray.map((card)=>{
+            cardsArray?.map((card)=>{
                 
                 return <Grid item xs={12} md={4} lg={3} key={card._id}> <InfoCard card={card} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} /></Grid>
             })

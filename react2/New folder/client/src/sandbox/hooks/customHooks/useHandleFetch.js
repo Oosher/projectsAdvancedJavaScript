@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useSnackBar } from "../../../provider/SnackbarProvider";
 
 
@@ -6,18 +7,25 @@ import { useSnackBar } from "../../../provider/SnackbarProvider";
 export default async function useHandleFetch(apiAddress) {
     const {displaySnackBar,setSnackMessage,setSnackColor} = useSnackBar();
     try{
-    return  await axios.get(apiAddress).then((res)=>{ 
-                
-                setSnackMessage("cards has been loaded successfully");
-                setSnackColor("success")
-                displaySnackBar();
-    
-        return res.data});
+    const response = await axios.get(apiAddress);
+
+    return ()=>{
+        setSnackMessage("cards has been successfully loaded");
+        setSnackColor("success");
+        displaySnackBar();
+        
+        
+        return response.data
+    }
 
     
     }
     catch(err){
-        return Promise.reject(err.message)
+        return ()=>{setSnackMessage(err.message)
+
+            setSnackColor("error")
+        displaySnackBar();
+        }
     }
 
 }
