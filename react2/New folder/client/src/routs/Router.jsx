@@ -28,6 +28,7 @@ import ShowData from '../sandbox/hooks/allHookTasks/ShowData'
 import Form from '../sandbox/hooks/stateHook/Form'
 import Fadfad from '../sandbox/context/Fadfad'
 import Form2 from '../sandbox/form/Form2'
+import OfficialForm from '../sandbox/form/OfficialForm'
 
 
 export default function Router() {
@@ -55,6 +56,7 @@ export default function Router() {
                 <Route path='form' element={<Form/>}/>
                 <Route path='fadfad' element={<Fadfad/>}/>
                 <Route path='form2' element={<Form2/>}/>
+                <Route path='offform' element={<OfficialForm/>}/>
             </Route>
             <Route path={ROUTS.WEATHER} element ={<Weather/>}/>
             
