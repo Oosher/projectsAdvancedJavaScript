@@ -9,6 +9,10 @@ const ROUTS = {
     CARDDETAILS:"/carddetails",
     SANDBOX:"/sandbox",
     WEATHER:"/weather",
+    FORM:"form",
+    FAVCARDS :"favcards",
+    MYCARDS :"mycards",
+
 
 }
 

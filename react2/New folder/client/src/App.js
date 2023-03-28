@@ -1,7 +1,7 @@
 
-import { createContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import UserProvider from './forms/hooks/UserProvider';
 import Layout from './layout/Layout';
 import SnackbarProvider from './provider/SnackbarProvider';
 import ThemeProvider from './provider/ThemeProvider';
@@ -17,9 +17,11 @@ function App() {
       <BrowserRouter>
         <ThemeProvider>
           <SnackbarProvider>
-                <Layout>
-                  <Router/>
-                </Layout>
+            <UserProvider>
+                  <Layout>
+                    <Router/>
+                  </Layout>
+            </UserProvider>
           </SnackbarProvider>
         </ThemeProvider>
       </BrowserRouter>

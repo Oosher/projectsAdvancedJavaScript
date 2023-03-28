@@ -29,6 +29,9 @@ import Form from '../sandbox/hooks/stateHook/Form'
 import Fadfad from '../sandbox/context/Fadfad'
 import Form2 from '../sandbox/form/Form2'
 import OfficialForm from '../sandbox/form/OfficialForm'
+import ImportedForm from '../users/forms/ImportedForm'
+import FavoriteCards from '../pages/FavoriteCards'
+import MyCards from '../pages/MyCards'
 
 
 export default function Router() {
@@ -37,10 +40,13 @@ export default function Router() {
         <Routes>
             <Route index path={ROUTS.ROOT} element={<CardPage/>}/>
             <Route path={ROUTS.ABOUT} element ={<AboutPage/>}/>
+            <Route path={ROUTS.FAVCARDS} element ={<FavoriteCards/>}/>
+            <Route path={ROUTS.MYCARDS} element ={<MyCards/>}/>
             <Route path={ROUTS.ERROR} element ={<ErrorPage/>}/>
             <Route path={ROUTS.LOGIN} element ={<LoginPage/>}/>
             <Route path={ROUTS.REGISTER} element ={<RegisterPage/>}/>
             <Route path={`${ROUTS.CARDDETAILS}/:id`} element ={<CardDetails/>}/>
+            <Route path={ROUTS.FORM} element ={<ImportedForm/>}/>
             <Route path={ROUTS.SANDBOX} element ={<SandBox/>}>
                 <Route path='counter' element={<Counter/>}/>
                 <Route path='myinfo' element={<MyInfo/>}/>

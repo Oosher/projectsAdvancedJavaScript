@@ -7,21 +7,31 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import React from 'react'
 import { Box, CardActions, IconButton, Typography } from '@mui/material';
 import { any, arrayOf, func, number, string } from 'prop-types';
+import { useDataProvider } from '../../../forms/hooks/UserProvider';
 
-export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFunction,phoneFunction,phone,bizNumber}) {
+export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFunction,phoneFunction,phone,bizNumber,userId}) {
+
+
+
+  
+  const {user} = useDataProvider();
+
+
+
   return <CardActions  sx={{display:"flex",justifyContent:"space-between",marginBottom:"0px",paddingBottom:"0px"}}>
                 <Box>
                 <IconButton aria-label="Delete Button" onClick={()=>{
                   deleteFunc(bizNumber);
                 } }>
-                <DeleteIcon/>
+                  <DeleteIcon/>
                 </IconButton>
-
-                <IconButton aria-label='Edit Button' onClick={()=>{
+                {(user?.id===userId || user?.isAdmin)&&<IconButton aria-label='Edit Button' onClick={()=>{
                   editFunction(bizNumber);
                 }}>
-                <EditIcon/>
-                </IconButton>
+                  <EditIcon/>
+                </IconButton>}
+
+                
 
                 </Box>  
                 
@@ -32,12 +42,12 @@ export default function CardActionBars ({likes ,deleteFunc, likeFunction,editFun
                 <PhoneIcon/>
                 </IconButton>
 
-                <IconButton aria-label='Add To Favorites' onClick={(event)=>{
+                {user&&<IconButton aria-label='Add To Favorites' onClick={(event)=>{
                   likeFunction(bizNumber,likes,event);
                 }}> 
                 <Typography id={bizNumber} variant="body1" color="initial">{likes.length}</Typography>
-                <FavoriteIcon/>
-                </IconButton>
+                  <FavoriteIcon/>
+                </IconButton>}
                 </Box>
             </CardActions>
             

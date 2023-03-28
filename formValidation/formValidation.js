@@ -15,7 +15,7 @@ const scheme = {name:joi.string().regex(/(?=.*[0-9])/)};
 
 const joiScheme = joi.object(scheme);
 
-const {error}  = joiScheme .validate(userData);
+const {error}  = joiScheme.validate(userData);
 
 
 console.log(error.details[0].message);
