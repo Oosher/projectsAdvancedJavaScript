@@ -4,15 +4,16 @@ import React, {useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import InfoCard from './card/InfoCard'
 import useHandleFetch from '../../sandbox/hooks/customHooks/useHandleFetch';
+import axios from 'axios';
 
 
 
-export default function Cards() {
+export default function Cards({url="getcards"}) {
 
     const [ cardsArray,setCardsArray] = useState([]);
-    const [ loading,setLoading] = useState(false);
+    const [ loading,setLoading] = useState(0);
     const [ error,setError] = useState(null);
-    const data =  useHandleFetch("http://localhost:3001/getcards");
+    const data =  useHandleFetch(`http://localhost:3001/${url}`);
     const errorAccord = useNavigate();
 
 
@@ -24,14 +25,19 @@ export default function Cards() {
         set()
 
 
-    },[])
+    },[loading])
 
 
 
 
-const deleteFunc = (bizNumber)=>{
+const deleteFunc = (id)=>{
 
-    console.log("delete"+bizNumber);
+    console.log("delete"+id);
+
+    axios.delete(`http://localhost:3001/cards/${id}`).then(()=>{ setLoading(loading+1)})
+
+   
+
 }
 
 const likeFunction = (bizNumber,likes,event)=>{
@@ -52,6 +58,8 @@ const editFunction = (bizNumber)=>{
 const phoneFunction = (phone)=>{
 
     console.log("call"+phone);
+
+    
 }
 
 if(error!=null){
@@ -70,7 +78,7 @@ if(error!=null){
                 return <Grid item xs={12} md={4} lg={3} key={card._id}> <InfoCard card={card} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} /></Grid>
             })
         }
-        {loading&&<Typography variant="body1" color="initial">Loading</Typography>}
+        
         
     </Grid>
     )

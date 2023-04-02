@@ -20,7 +20,7 @@ const goTo = useNavigate()
             <CardHead imgData={card.image} title={card.title} subtitle={card.subtitle}/>
             <CardBody  phone={card.phone} address={card.address} cardNumber={card.bizNumber}/>
         </CardActionArea>
-        <CardActionBars  likes={card.likes} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} phone={card.phone} bizNumber={card.bizNumber} userId={card.user_id} />
+        <CardActionBars likes={card.likes} deleteFunc={deleteFunc} likeFunction={likeFunction} editFunction={editFunction} phoneFunction={phoneFunction} phone={card.phone} bizNumber={card.bizNumber} userId={card.user_id} cardId={card._id} />
     </Card>;
     
 }

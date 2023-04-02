@@ -16,6 +16,7 @@ import { useDataProvider } from '../../../../forms/hooks/UserProvider';
 import LoggedIn from './LoggedIn';
 import Guest from './Guest';
 import { Box, Typography } from '@mui/material';
+import MoreButton from './MoreButton';
 
 export default function RightNav() {
     const {user} = useDataProvider();
@@ -23,13 +24,15 @@ export default function RightNav() {
     console.log(darkmode);
 
     return (<Box sx={{minHeight:"1rem" ,display:"flex",flexDirection:"column",marginRight:"20px", marginTop:"10px"}}><Typography variant="body1" color="initial"> {user?.name&&"hello "+user.name}</Typography>
-                <Box sx={{  display:"flex",alignItems:"center"}}>
+                <Box sx={{  display: { xs: "none", md: "inline-flex" }
+,alignItems:"center"}}>
                     <IconButton aria-label="" onClick={darkmode.toggleDarkMode}>
                         {darkmode.darkMode?<NightsStayIcon sx={{color:"yellow"}}/>:<LightModeIcon />}
                         
                     </IconButton>
                     {user?<LoggedIn/>:<Guest/>}
                 </Box>
+                <MoreButton/>
         </Box>
         
     )

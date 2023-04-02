@@ -17,7 +17,7 @@ export default function NavVarLink({to,children,sx}) {
 
 NavVarLink.propTypes = {
 
-    to:string.isRequired,
+    to:string,
     children:node.isRequired,
     sx:object,
 

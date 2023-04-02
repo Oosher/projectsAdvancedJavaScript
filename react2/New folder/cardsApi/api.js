@@ -31,7 +31,7 @@ const cardsArray =[{_id: "daslfjhbasfjba123124123",
             },
             bizNumber: 222222,
             likes: [],
-            user_id: "4235234234mfnjrb2h3vbry23",
+            user_id: "4235234234mfnjasdasdry23",
             }
         ,{
             _id: "asdfaa54sdf158as4ass",
@@ -78,7 +78,7 @@ const cardsArray =[{_id: "daslfjhbasfjba123124123",
             bizNumber: 1111111,
             likes: [],
             user_id: "4235234234mfnjasdasdry23",
-            }
+            },
 ];
 
 
@@ -131,6 +131,30 @@ const cardsArray =[{_id: "daslfjhbasfjba123124123",
         },
         isBusiness: true,
         isAdmin:false,
+        user_id: "4235234234mfnjasdasdry23",
+    },{
+        name: {
+        first: "Osher",
+        middle: "",
+        last: "Ben Zaken",
+        },
+        phone: "055-5555555",
+        email: "oosher10@walla.com",
+        password: "Abc123!",
+        address: {
+        state: "Haifa",
+        country: "Israel",
+        city: "Haifa",
+        street: "HaNasi",
+        zip: 123456,
+        houseNumber: 12,
+        },
+        image: {
+        url: "www.example.com",
+        alt: "profile image",
+        },
+        isBusiness: true,
+        isAdmin:true,
         user_id: "4235234234mfnjasdasdry23",
     },
 ];
@@ -210,6 +234,96 @@ api.post("/users", (req, res) => {
     newUser.user_id = uuidv4(); // generate a new UUID and add it to the newUser object
     users.push(newUser);
     res.status(201).send({ message: "User added successfully." });
+});
+
+
+api.get("/my-cards", (req, res) => {
+    
+    const tokenFromClient = req.header("x-auth-token");
+    if (tokenFromClient) {
+        const userData = verifyToken(tokenFromClient);
+        const user_id = userData.id; // Assume user_id is passed as a parameter in the body
+        
+        const userCards = cardsArray.filter((card) => card.user_id === user_id);
+    
+        res.json(userCards);
+    } else {
+        res.status(404).send("login first");
+    }
+});
+
+    api.get("/cards/:cardId", (req, res) => {
+    const cardId = req.params.cardId;
+    const card = cardsArray.find((card) => card._id === cardId);
+    if (!card) {
+        res.status(404).json({ error: "Card not found" });
+    } else {
+        res.json(card);
+    }
+});
+
+    api.delete("/cards/:id", (req, res) => {
+    const cardIndex = cardsArray.findIndex((c) => c._id === req.params.id);
+    
+    if (cardIndex === -1) {
+        res.status(404).send("Card not found");
+    } else {
+        const deletedCard = cardsArray.splice(cardIndex, 1)[0];
+        res.json(deletedCard);
+    }
+});
+
+
+api.post("/cards", (req, res) => {
+  // Add a new ID to the card object
+    const newId = Date.now().toString();
+    const newCardWithId = { ...req.body, _id: newId };
+
+    // Add the new card to the cards array
+    cardsArray.push(newCardWithId);
+
+    // Send the new card object back to the client
+    res.json(newCardWithId);
+});
+
+api.put("/cards/:id", (req, res) => {
+    const cardIndex = cardsArray.findIndex((c) => c._id === req.params.id);
+    if (cardIndex === -1) {
+        res.status(404).send("Card not found");
+    } else {
+        const updatedCard = {
+        ...cardsArray[cardIndex],
+        ...req.body,
+        _id: req.params.id,
+        };
+        cards[cardIndex] = updatedCard;
+        res.json(updatedCard);
+    }
+});
+
+
+api.patch("/cards/:id", (req, res) => {
+    const cardIndex = cardsArray.findIndex((c) => c._id === req.params.id);
+    if (cardIndex === -1) {
+        res.status(404).send("Card not found");
+    } else {
+        const tokenFromClient = req.header("x-auth-token");
+        if (tokenFromClient) {
+        const userData = verifyToken(tokenFromClient);
+        const user_id = userData.id;
+        const card = cardsArray[cardIndex];
+        const userLiked = card.likes.includes(user_id);
+        const updatedLikes = userLiked
+            ? card.likes.filter((id) => id !== user_id)
+            : [...card.likes, user_id];
+        const updatedCard = { ...card, likes: updatedLikes };
+        cardsArray[cardIndex] = updatedCard;
+        console.log(updatedCard);
+        res.json(updatedCard);
+        } else {
+        res.status(404).send("Log in first");
+        }
+    }
 });
 
 
