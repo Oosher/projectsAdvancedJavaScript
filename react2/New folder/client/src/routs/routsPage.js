@@ -12,7 +12,9 @@ const ROUTS = {
     FORM:"form",
     FAVCARDS :"favcards",
     MYCARDS :"mycards",
-    EDITCARD:"editcard"
+    EDITCARD:"editcard",
+    USERPAGE:"userpage",
+    EDITUSER:"edituser",
 
 
 }

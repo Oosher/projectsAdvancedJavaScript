@@ -33,6 +33,8 @@ import ImportedForm from '../users/forms/ImportedForm'
 import FavoriteCards from '../pages/FavoriteCards'
 import MyCards from '../pages/MyCards'
 import EditCardPage from '../pages/EditCardPage'
+import UserPage from '../pages/UserPage'
+import EditUser from '../pages/EditUser'
 
 
 export default function Router() {
@@ -49,6 +51,8 @@ export default function Router() {
             <Route path={`${ROUTS.CARDDETAILS}/:id`} element ={<CardDetails/>}/>
             <Route path={ROUTS.FORM} element ={<ImportedForm/>}/>
             <Route path={`${ROUTS.EDITCARD}/:id`} element ={<EditCardPage/>}/>
+            <Route path={ROUTS.USERPAGE}element ={<UserPage/>}/>
+            <Route path={ROUTS.EDITUSER}element ={<EditUser/>}/>
             <Route path={ROUTS.SANDBOX} element ={<SandBox/>}>
                 <Route path='counter' element={<Counter/>}/>
                 <Route path='myinfo' element={<MyInfo/>}/>

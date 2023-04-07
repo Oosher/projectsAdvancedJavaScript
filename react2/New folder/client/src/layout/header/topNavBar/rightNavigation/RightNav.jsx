@@ -25,7 +25,7 @@ export default function RightNav() {
 
     return (<Box sx={{minHeight:"1rem" ,display:"flex",flexDirection:"column",marginRight:"20px", marginTop:"10px"}}><Typography variant="body1" color="initial"> {user?.name&&"hello "+user.name}</Typography>
                 <Box sx={{  display: { xs: "none", md: "inline-flex" }
-,alignItems:"center"}}>
+                    ,alignItems:"center"}}>
                     <IconButton aria-label="" onClick={darkmode.toggleDarkMode}>
                         {darkmode.darkMode?<NightsStayIcon sx={{color:"yellow"}}/>:<LightModeIcon />}
                         

@@ -222,6 +222,9 @@ api.post("/users/login", (req, res) => {
         business: user.isBusiness,
         name : user.name.first +" " + user.name.last, 
         id : user.user_id,
+        phone:user.phone,
+        city:user.address.city,
+        street:user.address.state +" "+ user.address.houseNumber,
 };
     const token = jwt.sign(userDataForToken, key);
 
@@ -234,6 +237,35 @@ api.post("/users", (req, res) => {
     newUser.user_id = uuidv4(); // generate a new UUID and add it to the newUser object
     users.push(newUser);
     res.status(201).send({ message: "User added successfully." });
+});
+
+
+    api.get("/users/:userid", (req, res) => {
+    const userid = req.params.userid;
+    const user = users.find((user) => user.user_id === userid);
+    if (!user) {
+        console.log("err");
+        res.status(404).json({ error: "User not found" });
+    } else {
+        console.log(user);
+        res.json(user);
+    }
+});
+
+
+api.put("/cards/:id", (req, res) => {
+    const userIndex = users.findIndex((u) => u._id === req.params.id);
+    if (userIndex === -1) {
+        res.status(404).send("Card not found");
+    } else {
+        const updatedUser = {
+        ...users[userIndex],
+        ...req.body,
+        _id: req.params.id,
+        };
+        users[userIndex] = updatedUser;
+        res.json(updatedUser);
+    }
 });
 
 
@@ -296,7 +328,7 @@ api.put("/cards/:id", (req, res) => {
         ...req.body,
         _id: req.params.id,
         };
-        cards[cardIndex] = updatedCard;
+        cardsArray[cardIndex] = updatedCard;
         res.json(updatedCard);
     }
 });
