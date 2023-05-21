@@ -1,0 +1,14 @@
+{
+  "name": "mongodb_nosql2",
+  "version": "1.0.0",
+  "description": "a",
+  "main": "mongoApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oshj",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.2.0"
+  }
+}
