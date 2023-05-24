@@ -12,3 +12,9 @@ const img = new mongoose.Schema({
     alt:DEFAULT_VALIDATION,
 
 })
+
+
+
+
+
+module.exports = img;

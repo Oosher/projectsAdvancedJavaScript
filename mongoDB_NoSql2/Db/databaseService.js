@@ -2,7 +2,7 @@
 
 
 
-const workEnvironment = (workspace)=>{
+const workEnvironment = async (workspace)=>{
 
 
     if (workspace==="development") {
