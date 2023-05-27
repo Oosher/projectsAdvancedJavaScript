@@ -114,23 +114,67 @@ async function  getItemsTotal (){
     try{
         const orders = await Order.aggregate([ {
     $group: {
-      _id: "$item",
-      total: { $sum: "$quantity" },
+        _id: "$item",
+        total: { $sum: "$quantity" },
+        },
     },
-  },
-  {
-    $project: {
-        item: "$_id",
-        quantity:"$total",
-        _id: 0,
+    {
+        $project: {
+            item: "$_id",
+            quantity:"$total",
+            _id: 0,
+            
         
-    
-    },
-  },])
+        },
+    },])
 
         return orders;
 
     }catch(err){console.log(err);}
+
+}
+
+
+
+
+async function getCustomersAndOrders(){
+  
+        try{
+
+            const orders = await Order.find({},{customerName:1,item:1})
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
+
+}
+
+
+async function getTotalRevenue(){
+  
+        try{
+
+            const orders = await Order.aggregate([{ $group: { _id: null, total: { $sum: { $multiply: ["$price", "$quantity"] } } } },
+                { $project: { _id: 0, totalOrderWorth: "$total" } }])
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
+
+}
+async function getAverageOrderPrice(){
+  
+        try{
+
+            const orders = await Order.aggregate([{ $group: { _id: null, averagePrice: { $avg: "$price"  } } },
+                { $project: { _id: 0} }])
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
 
 }
 
@@ -155,7 +199,17 @@ async function main (){
     //console.log(await getOrdersFromListMorExpensiveThan(["Shoes","Bag"],30));
 
 
-    console.log(await getItemsTotal());
+    //console.log(await getItemsTotal());
+
+
+    //console.log(await getCustomersAndOrders() );
+
+
+
+    //console.log(await getTotalRevenue());
+
+
+    console.log( await getAverageOrderPrice());
 
 
 }
