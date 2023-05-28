@@ -151,6 +151,23 @@ async function getCustomersAndOrders(){
 }
 
 
+//OPTION 2
+
+
+async function getCustomersAndOrders2(){
+  
+        try{
+
+            const orders = await Order.find().select({_id:0,customerName:1,item:1})
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
+
+}
+
+
 async function getTotalRevenue(){
   
         try{
@@ -164,6 +181,44 @@ async function getTotalRevenue(){
 
 
 }
+
+
+async function getTotalRevenuePerItem(){
+  
+        try{
+
+            const orders = await Order.aggregate([{ $group: { _id: "$item", total: { $sum: { $multiply: ["$price", "$quantity"] } } } },
+                { $project: { _id:0, item:"$_id", totalOrderWorth: "$total"  } },{$match:{totalOrderWorth:{$gt:100}}}])
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
+
+}
+
+
+
+
+async function getTopCustomers(){
+  
+        try{
+
+            const orders = await Order.aggregate([{ $group: { _id: "$customerName", total: { $sum: "$quantity" } } },
+                { $project: { _id:0, customerName:"$_id", totalOrders: "$total"  } },{$sort:{totalOrders:-1}},{$limit:1}])
+             
+            return orders;
+        }
+
+        catch(err){console.log(err);}
+
+
+}
+
+
+
+
+
 async function getAverageOrderPrice(){
   
         try{
@@ -206,10 +261,17 @@ async function main (){
 
 
 
-    //console.log(await getTotalRevenue());
+    //console.log(await getTotalRevenue().then((data)=>data[0].totalOrderWorth));
+
+    // console.log(await getTotalRevenuePerItem());
+    console.log(await getTopCustomers());
 
 
-    console.log( await getAverageOrderPrice());
+    //console.log( await getAverageOrderPrice());
+
+
+
+    //console.log( await getCustomersAndOrders2());
 
 
 }

@@ -73,4 +73,52 @@ const getCard = async (id)=>{
 
 }
 
-module.exports = {createCard,getCards,getCard,getMyCards};
+
+const updateCard = async (cardId, normalizedCard )=>{
+
+
+    try{
+        let card = await Card.updateOne({_id:cardId},{$set:normalizedCard});
+
+        console.log( card);
+    }
+    catch(err){console.log(err);}
+
+
+
+}
+
+
+
+
+const likeCard = async (cardId, userId )=>{
+
+
+    try{
+        let card = await Card.findById(cardId);
+
+        if (card) {
+            
+
+        if (card.likes.includes(userId)) {
+
+            let card = await Card.findByIdAndUpdate(cardId,{$pull:{likes:userId}},{new:true});
+            console.log(card);
+        }
+        else {
+                let card = await Card.findByIdAndUpdate(cardId,{$push:{likes:userId}},{new:true});
+                console.log(card);
+        }
+    }
+
+    }
+    
+    catch(err){console.log(err);}
+
+
+
+}
+
+
+
+module.exports = {createCard,getCards,getCard,getMyCards,updateCard,likeCard};

@@ -1,5 +1,5 @@
 const workEnvironment = require("./Db/databaseService.js");
-const {createCard,getCards,getCard} = require("./cards/models/cardsService.js");
+const {createCard,getCards,getCard, updateCard, likeCard} = require("./cards/models/cardsService.js");
 
 
 const cards = [
@@ -71,6 +71,28 @@ const cards = [
         bizNumber: 333333,
         likes: [],
         user_id: "6123456789abcdef01234563",
+    }, {
+        title: "foureth",
+        subtitle: "subTitle",
+        description: "testing",
+        phone: "050-1111111",
+        email: "text@text56.com",
+        web: "https://www.test23.co.il",
+        image: {
+        url: "https://www.test23.co.il",
+        alt: "image",
+        },
+        address: {
+        state: "TLV",
+        country: "Israerl23",
+        street: "Dizingof",
+        houseNumber: 3,
+        city: "Tel Aviv",
+        zip: 1312,
+        },
+        bizNumber: 333333,
+        likes: [],
+        user_id: "6123456789abcdef01234567",
     },
     ];
 
@@ -80,7 +102,9 @@ async function test (){
 
             workEnvironment("development");
             setTimeout(()=>{},1000);
-            getCard("646e35f4b1d87159b0c8146a")
+         
+
+            likeCard("646e35f4b1d87159b0c8146a","6123456789abcdef01234567")
         
 
 }
