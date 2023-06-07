@@ -1,0 +1,13 @@
+{
+  "name": "initapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app.js",
+  "scripts": {
+    "test": "./test.js",
+    "start": "node app.js",
+    "dev": "node testing/testing.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
