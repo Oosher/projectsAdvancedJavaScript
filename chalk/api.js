@@ -1,12 +1,21 @@
 
 
 const express = require("express");
-const chalk = require("chalk")
+const chalk = require("chalk");
+const { json } = require("express/lib/response");
 
+const Arrays = require( "./data.json")
+const fs = require ("fs/promises")
 const api = express();
 
-    const numbers = [];
+    
 
+
+const numbers = Arrays.Arrays;
+
+
+
+console.log(Arrays.Arrays);
 
     api.use((req,res,next)=>{
 
@@ -28,15 +37,16 @@ const api = express();
 
     });
 
-    api.post("/add/:number",isNumber,checkEven ,(req,res)=>{
+    api.post("/add/:number",isNumber,checkEven ,(req,res,next)=>{
 
             numbers.push(+req.params.number)
 
 
 
-    res.send("success")
+ 
+    next();
 
-    })
+    },writeArrayToJson)
 
 
 
@@ -125,7 +135,49 @@ const api = express();
 
 
 
+    
+    function  arrayExist(req,res,next){
 
+
+        if (numbers.length < 2) {
+
+
+            res.send("there are not enough numbers in the array")
+            
+        }
+
+        return next();
+
+    }
+
+
+
+    
+
+        api.use(["/div","/mul","/add","/sub"],arrayExist); 
+
+
+
+
+
+
+            async function writeArrayToJson(req,res,next){
+
+
+
+                try{
+                        await fs.writeFile("./data.json",`{  "Arrays" : ${JSON.stringify(numbers)}}`);
+
+                        res.send("the number has been added successfully")
+                }catch(err){
+
+
+                    res.send(err)
+
+                    
+                }
+
+            }
 
 
 
